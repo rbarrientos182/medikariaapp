@@ -13,8 +13,8 @@ class CreateMedicamentosHasRecetasTable extends Migration
     public function up()
     {
       Schema::create('medicamentos_has_recetas', function (Blueprint $table) {
-          $table->integer('medicamentos_idMedicamentos')->unsigned();
-          $table->integer('recetas_idRecetas')->unsigned();
+          $table->integer('medicamentos_idMedicamentos')->unsigned()->index();
+          $table->integer('recetas_idRecetas')->unsigned()->index();
           $table->timestamps();
           $table->softDeletes();
           $table->foreign('medicamentos_idMedicamentos')->references('idMedicamentos')->on('medicamentos');
