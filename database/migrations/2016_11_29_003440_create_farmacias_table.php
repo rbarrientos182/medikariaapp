@@ -12,7 +12,16 @@ class CreateFarmaciasTable extends Migration
      */
     public function up()
     {
-        //
+      Schema::create('farmacias', function (Blueprint $table) {
+          $table->increments('idFarmacias');
+          $table->string('nombrefarmacia',60);
+          $table->string('direccionfarmacia',60);
+          $table->string('latitud',60);
+          $table->string('longitud',60);
+          $table->string('telefono',60)->nullable();
+          $table->timestamps();
+          $table->softDeletes();
+      });
     }
 
     /**
@@ -22,6 +31,6 @@ class CreateFarmaciasTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('farmacias');
     }
 }

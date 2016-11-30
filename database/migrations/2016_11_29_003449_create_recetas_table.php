@@ -12,7 +12,18 @@ class CreateRecetasTable extends Migration
      */
     public function up()
     {
-        //
+      Schema::create('recetas', function (Blueprint $table) {
+          $table->increments('idRecetas');
+          $table->integer('medicos_idMedicos')->unsigned();
+          $table->integer('pacientes_idPacientes')->unsigned();
+          $table->text('descripcionDosis');
+          $table->date('fechaExpedicion');
+          $table->timestamps();
+          $table->softDeletes();
+          $table->foreign('medicos_idMedicos')->references('idMedicos')->on('medicos');
+          $table->foreign('pacientes_idPacientes')->references('idPacientes')->on('pacientes');
+
+      });
     }
 
     /**
@@ -22,6 +33,6 @@ class CreateRecetasTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('recetas');
     }
 }

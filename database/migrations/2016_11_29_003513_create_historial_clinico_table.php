@@ -12,7 +12,13 @@ class CreateHistorialclinicoTable extends Migration
      */
     public function up()
     {
-        //
+      Schema::create('historial_clinico', function (Blueprint $table) {
+          $table->increments('idHistorialClinico');
+          $table->integer('recetas_idRecetas')->unsigned();
+          $table->text('diagnostico');
+          $table->timestamps();
+          $table->softDeletes();
+      });
     }
 
     /**
@@ -22,6 +28,6 @@ class CreateHistorialclinicoTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('historial_clinico');
     }
 }
