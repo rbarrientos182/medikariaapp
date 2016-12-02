@@ -18,6 +18,7 @@ class CreateHistorialclinicoTable extends Migration
           $table->text('diagnostico');
           $table->timestamps();
           $table->softDeletes();
+          $table->foreign('recetas_idRecetas')->references('idRecetas')->on('recetas');
       });
     }
 
