@@ -13,7 +13,7 @@ class CreateUsuariosTable extends Migration
     public function up()
     {
       Schema::create('usuarios', function (Blueprint $table) {
-          $table->increments('idUsuarios');
+          $table->increments('id');
           $table->string('correo',60)->unique();
           $table->string('password',60);
           $table->boolean('activo')->default(true);

@@ -13,15 +13,15 @@ class CreateRecetasTable extends Migration
     public function up()
     {
       Schema::create('recetas', function (Blueprint $table) {
-          $table->increments('idRecetas');
-          $table->integer('medicos_idMedicos')->unsigned();
-          $table->integer('pacientes_idPacientes')->unsigned();
+          $table->increments('id');
+          $table->integer('medicos_id')->unsigned();
+          $table->integer('pacientes_id')->unsigned();
           $table->text('descripcionDosis');
           $table->date('fechaExpedicion');
           $table->timestamps();
           $table->softDeletes();
-          $table->foreign('medicos_idMedicos')->references('idMedicos')->on('medicos');
-          $table->foreign('pacientes_idPacientes')->references('idPacientes')->on('pacientes');
+          $table->foreign('medicos_id')->references('id')->on('medicos');
+          $table->foreign('pacientes_id')->references('id')->on('pacientes');
 
       });
     }

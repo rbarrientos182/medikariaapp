@@ -13,12 +13,12 @@ class CreateHistorialclinicoTable extends Migration
     public function up()
     {
       Schema::create('historial_clinico', function (Blueprint $table) {
-          $table->increments('idHistorialClinico');
-          $table->integer('recetas_idRecetas')->unsigned();
+          $table->increments('id');
+          $table->integer('recetas_id')->unsigned();
           $table->text('diagnostico');
           $table->timestamps();
           $table->softDeletes();
-          $table->foreign('recetas_idRecetas')->references('idRecetas')->on('recetas');
+          $table->foreign('recetas_id')->references('id')->on('recetas');
       });
     }
 

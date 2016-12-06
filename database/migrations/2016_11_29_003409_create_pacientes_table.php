@@ -13,18 +13,18 @@ class CreatePacientesTable extends Migration
     public function up()
     {
       Schema::create('pacientes', function (Blueprint $table) {
-          $table->increments('idPacientes');
+          $table->increments('id');
           $table->string('nombrepaciente',60);
           $table->string('direccionpaciente',60);
           $table->string('estatura',60);
           $table->string('peso',60);
           $table->date('nacimiento');
           $table->string('celular',60)->nullable();
-          $table->integer('usuarios_idUsuarios')->unsigned();
+          $table->integer('usuarios_id')->unsigned();
           $table->string('foto',60)->nullable();
           $table->timestamps();
           $table->softDeletes();
-          $table->foreign('usuarios_idUsuarios')->references('idUsuarios')->on('usuarios');
+          $table->foreign('usuarios_id')->references('id')->on('usuarios');
       });
     }
 

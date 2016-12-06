@@ -13,12 +13,12 @@ class CreateMedicamentosHasRecetasTable extends Migration
     public function up()
     {
       Schema::create('medicamentos_has_recetas', function (Blueprint $table) {
-          $table->integer('medicamentos_idMedicamentos')->unsigned()->index();
-          $table->integer('recetas_idRecetas')->unsigned()->index();
+          $table->integer('medicamentos_id')->unsigned()->index();
+          $table->integer('recetas_id')->unsigned()->index();
           $table->timestamps();
           $table->softDeletes();
-          $table->foreign('medicamentos_idMedicamentos')->references('idMedicamentos')->on('medicamentos');
-          $table->foreign('recetas_idRecetas')->references('idRecetas')->on('recetas');
+          $table->foreign('medicamentos_id')->references('id')->on('medicamentos');
+          $table->foreign('recetas_id')->references('id')->on('recetas');
       });
     }
 

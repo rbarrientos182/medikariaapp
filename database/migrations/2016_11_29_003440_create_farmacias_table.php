@@ -13,7 +13,7 @@ class CreateFarmaciasTable extends Migration
     public function up()
     {
       Schema::create('farmacias', function (Blueprint $table) {
-          $table->increments('idFarmacias');
+          $table->increments('id');
           $table->string('nombrefarmacia',60);
           $table->string('direccionfarmacia',60);
           $table->string('latitud',60);

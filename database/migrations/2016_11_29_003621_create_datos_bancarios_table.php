@@ -13,15 +13,15 @@ class CreateDatosBancariosTable extends Migration
     public function up()
     {
       Schema::create('datos_bancarios', function (Blueprint $table) {
-          $table->increments('idDatos_Bancarios');
+          $table->increments('id');
           $table->string('notarjeta',60);
           $table->date('fechavencimiento');
-          $table->integer('usuarios_idUsuarios')->unsigned();
-          $table->integer('banco_idbanco')->unsigned();
+          $table->integer('usuarios_id')->unsigned();
+          $table->integer('banco_id')->unsigned();
           $table->timestamps();
           $table->softDeletes();
-          $table->foreign('usuarios_idUsuarios')->references('idUsuarios')->on('usuarios');
-          $table->foreign('banco_idbanco')->references('idbanco')->on('banco');
+          $table->foreign('usuarios_id')->references('id')->on('usuarios');
+          $table->foreign('banco_id')->references('id')->on('banco');
       });
     }
 

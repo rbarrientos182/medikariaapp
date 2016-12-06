@@ -13,7 +13,7 @@ class CreateBancoTable extends Migration
     public function up()
     {
       Schema::create('banco', function (Blueprint $table) {
-          $table->increments('idbanco');
+          $table->increments('id');
           $table->string('nombrebanco',60);
           $table->timestamps();
           $table->softDeletes();
