@@ -29,6 +29,6 @@ class CreateHistorialclinicoTable extends Migration
      */
     public function down()
     {
-        Schema::drop('historial_clinico');
+        Schema::dropIfExists('historial_clinico');
     }
 }

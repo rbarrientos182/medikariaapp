@@ -29,6 +29,6 @@ class CreateMedicamentosHasRecetasTable extends Migration
      */
     public function down()
     {
-        Schema::drop('medicamentos_has_recetas');
+        Schema::dropIfExists('medicamentos_has_recetas');
     }
 }

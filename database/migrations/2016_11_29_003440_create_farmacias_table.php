@@ -31,6 +31,6 @@ class CreateFarmaciasTable extends Migration
      */
     public function down()
     {
-        Schema::drop('farmacias');
+        Schema::dropIfExists('farmacias');
     }
 }

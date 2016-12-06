@@ -27,6 +27,6 @@ class CreateBancoTable extends Migration
      */
     public function down()
     {
-      Schema::drop('banco');
+      Schema::dropIfExists('banco');
     }
 }

@@ -37,6 +37,6 @@ class CreateMedicosTable extends Migration
      */
     public function down()
     {
-        Schema::drop('medicos');
+        Schema::dropIfExists('medicos');
     }
 }

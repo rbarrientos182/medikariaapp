@@ -32,6 +32,6 @@ class CreateDatosBancariosTable extends Migration
      */
     public function down()
     {
-        Schema::drop('datos_bancarios');
+        Schema::dropIfExists('datos_bancarios');
     }
 }

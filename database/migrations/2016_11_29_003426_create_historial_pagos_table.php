@@ -34,6 +34,6 @@ class CreateHistorialPagosTable extends Migration
      */
     public function down()
     {
-        Schema::drop('historial_pagos');
+        Schema::dropIfExists('historial_pagos');
     }
 }
