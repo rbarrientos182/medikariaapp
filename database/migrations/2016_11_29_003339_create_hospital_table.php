@@ -12,7 +12,7 @@ class CreateHospitalTable extends Migration
      */
     public function up()
     {
-      Schema::create('hospital', function (Blueprint $table) {
+      Schema::create('hospitales', function (Blueprint $table) {
           $table->increments('id');
           $table->string('nombrehospital',60);
           $table->string('direccionhospital',60);
