@@ -17,12 +17,12 @@ class CreateHistorialPagosTable extends Migration
           $table->integer('usuarios_id')->unsigned();
           $table->integer('recetas_id')->unsigned();
           $table->double('total');
-          $table->integer('farmacia_id')->unsigned();
+          $table->integer('farmacias_id')->unsigned();
           $table->timestamps();
           $table->softDeletes();
           $table->foreign('usuarios_id')->references('id')->on('usuarios');
           $table->foreign('recetas_id')->references('id')->on('recetas');
-          $table->foreign('farmacia_id')->references('id')->on('farmacias');
+          $table->foreign('farmacias_id')->references('id')->on('farmacias');
 
       });
     }
