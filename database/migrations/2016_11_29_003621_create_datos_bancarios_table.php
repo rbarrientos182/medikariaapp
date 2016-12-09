@@ -16,11 +16,11 @@ class CreateDatosBancariosTable extends Migration
           $table->increments('id');
           $table->string('notarjeta',60);
           $table->date('fechavencimiento');
-          $table->integer('usuarios_id')->unsigned();
+          $table->integer('users_id')->unsigned();
           $table->integer('bancos_id')->unsigned();
           $table->timestamps();
           $table->softDeletes();
-          $table->foreign('usuarios_id')->references('id')->on('usuarios');
+          $table->foreign('users_id')->references('id')->on('users');
           $table->foreign('bancos_id')->references('id')->on('bancos');
       });
     }

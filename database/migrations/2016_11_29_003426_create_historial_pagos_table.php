@@ -14,13 +14,13 @@ class CreateHistorialPagosTable extends Migration
     {
       Schema::create('historial_pagos', function (Blueprint $table) {
           $table->increments('id');
-          $table->integer('usuarios_id')->unsigned();
+          $table->integer('users_id')->unsigned();
           $table->integer('recetas_id')->unsigned();
           $table->double('total');
           $table->integer('farmacias_id')->unsigned();
           $table->timestamps();
           $table->softDeletes();
-          $table->foreign('usuarios_id')->references('id')->on('usuarios');
+          $table->foreign('users_id')->references('id')->on('users');
           $table->foreign('recetas_id')->references('id')->on('recetas');
           $table->foreign('farmacias_id')->references('id')->on('farmacias');
 

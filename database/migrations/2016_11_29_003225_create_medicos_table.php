@@ -19,13 +19,13 @@ class CreateMedicosTable extends Migration
           $table->string('correo',60);
           $table->string('cedula',60)->nullable();
           $table->string('celular',60);
-          $table->integer('usuarios_id')->unsigned();
+          $table->integer('users_id')->unsigned();
           $table->integer('hospitales_id')->unsigned();
           $table->string('direccion',60)->nullable();
           $table->string('foto',60)->nullable();
           $table->timestamps();
           $table->softDeletes();
-          $table->foreign('usuarios_id')->references('id')->on('usuarios');
+          $table->foreign('users_id')->references('id')->on('users');
           $table->foreign('hospitales_id')->references('id')->on('hospitales');
       });
     }

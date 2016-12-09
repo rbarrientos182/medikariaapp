@@ -2,7 +2,7 @@
 
 namespace Medikaria\Http\Controllers\Auth;
 
-use Medikaria\User;
+use Medikaria\Models\User;
 use Validator;
 use Medikaria\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
