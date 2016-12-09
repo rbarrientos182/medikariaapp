@@ -6,5 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Medicamento extends Model
 {
-    //
+  protected $fillable = [
+      'nombremedicamento','laboratorio','presentacion','contenido',
+  ];
+
+  /*public function recetas()
+  {
+    return $this->hasMany(Receta::class);
+  }*/
+  public function recetas()
+  {
+    return $this->belongsToMany(Receta::class);
+  }
 }

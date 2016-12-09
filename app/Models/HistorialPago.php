@@ -13,4 +13,24 @@ class HistorialPago extends Model
    */
 
    protected $table = 'historial_pagos';
+
+   protected $fillable = [
+       'total',
+   ];
+
+   public function usuarios()
+   {
+     return $this->belongsTo(Usuario::class);
+   }
+
+   public function recetas()
+   {
+     return $this->belongsTo(Receta::class);
+   }
+
+   public function farmacias()
+   {
+     return $this->belongsTo(Farmacia::class);
+   }
+
 }

@@ -6,5 +6,22 @@ use Illuminate\Database\Eloquent\Model;
 
 class Receta extends Model
 {
-    //
+  protected $fillable = [
+      'descripcionDosis','fechaExpedicion',
+  ];
+
+  public function medicos()
+  {
+    return $this->belongsTo(Medico::class);
+  }
+
+  public function pacientes()
+  {
+    return $this->belongsTo(Paciente::class);
+  }
+
+  public function medicamentos()
+  {
+    return $this->belongsToMany(Medicamento::class);
+  }
 }

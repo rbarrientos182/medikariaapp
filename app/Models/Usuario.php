@@ -26,12 +26,12 @@ class Usuario extends Authenticatable
 
   public function medicos()
   {
-      return $this->hasMany(Medico::class);
+      return $this->hasOne(Medico::class);
   }
 
   public function pacientes()
   {
-      return $this->hasMany(Paciente::class);
+      return $this->hasOne(Paciente::class);
   }
 
   public function datos_bancarios()

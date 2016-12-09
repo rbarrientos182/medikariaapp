@@ -13,4 +13,13 @@ class HistorialClinico extends Model
    */
 
    protected $table = 'historial_clinicos';
+
+   protected $fillable = [
+       'diagnostico',
+   ];
+
+   public function recetas()
+   {
+      return $this->belongsTo(Receta::class);
+   }
 }
