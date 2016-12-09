@@ -1,10 +1,10 @@
 <?php
 
-namespace Medikaria;
+namespace Medikaria\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Medicamento extends Model
+class Farmacia extends Model
 {
     //
 }

@@ -1,10 +1,10 @@
 <?php
 
-namespace Medikaria;
+namespace Medikaria\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class DatoBancario extends Model
+class HistorialClinico extends Model
 {
   /**
    * The table associated with the model.
@@ -12,5 +12,5 @@ class DatoBancario extends Model
    * @var string
    */
 
-   protected $table = 'datos_bancarios';
+   protected $table = 'historial_clinicos';
 }
