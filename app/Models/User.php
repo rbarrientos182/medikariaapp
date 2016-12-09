@@ -36,7 +36,7 @@ class User extends Authenticatable
 
     public function datos_bancarios()
     {
-        return $this->hasMany(DatoBancario::class);
+        return $this->hasOne(DatoBancario::class);
     }
 
     public function historial_pagos()

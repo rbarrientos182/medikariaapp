@@ -18,9 +18,9 @@ class DatoBancario extends Model
        'notarjeta', 'fechavencimiento',
    ];
 
-   public function usuarios()
+   public function users()
    {
-     return $this->belongsTo(Usuario::class);
+     return $this->belongsTo(User::class);
    }
 
    public function bancos()

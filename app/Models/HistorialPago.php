@@ -18,9 +18,9 @@ class HistorialPago extends Model
        'total',
    ];
 
-   public function usuarios()
+   public function users()
    {
-     return $this->belongsTo(Usuario::class);
+     return $this->belongsTo(User::class);
    }
 
    public function recetas()

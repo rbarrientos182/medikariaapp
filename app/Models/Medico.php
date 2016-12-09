@@ -10,9 +10,14 @@ class Medico extends Model
       'nombre','rfc','correo','cedula','celular','direccion','foto',
   ];
 
-  public function usuarios()
+  public function recetas()
   {
-    return $this->belongsTo(Usuario::class);
+    return $this->hasMany(Receta::class);
+  }
+
+  public function users()
+  {
+    return $this->belongsTo(User::class);
   }
 
   public function hospitales()

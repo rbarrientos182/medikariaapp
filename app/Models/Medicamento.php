@@ -10,10 +10,6 @@ class Medicamento extends Model
       'nombremedicamento','laboratorio','presentacion','contenido',
   ];
 
-  /*public function recetas()
-  {
-    return $this->hasMany(Receta::class);
-  }*/
   public function recetas()
   {
     return $this->belongsToMany(Receta::class);

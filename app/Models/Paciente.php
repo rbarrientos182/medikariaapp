@@ -10,9 +10,14 @@ class Paciente extends Model
       'nombrepaciente','direccionpaciente','estatura','nacimiento','celular','foto',
   ];
 
-  public function usuarios()
+  public function recetas()
   {
-    return $this->belongsTo(Usuario::class);
+    return $this->hasMany(Receta::class);
   }
-  
+
+  public function users()
+  {
+    return $this->belongsTo(User::class);
+  }
+
 }

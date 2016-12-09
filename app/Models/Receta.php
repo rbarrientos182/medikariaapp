@@ -10,6 +10,11 @@ class Receta extends Model
       'descripcionDosis','fechaExpedicion',
   ];
 
+  public function historial_clinicos()
+  {
+    return $this->hasOne(HistorialClinico::class);
+  }
+
   public function medicos()
   {
     return $this->belongsTo(Medico::class);
@@ -24,4 +29,5 @@ class Receta extends Model
   {
     return $this->belongsToMany(Medicamento::class);
   }
+
 }
