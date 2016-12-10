@@ -12,7 +12,7 @@ class Receta extends Model
 
   public function historial_clinicos()
   {
-    return $this->hasOne(HistorialClinico::class);
+    return $this->hasOne(HistorialClinico::class,'recetas_id');
   }
 
   public function medicos()

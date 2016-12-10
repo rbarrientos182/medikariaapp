@@ -12,6 +12,6 @@ class Banco extends Model
 
   public function datos_bancarios()
   {
-    return $this->hasMany(DatoBancario::class);
+    return $this->hasMany(DatoBancario::class,'bancos_id');
   }
 }

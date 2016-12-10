@@ -12,6 +12,6 @@ class Farmacia extends Model
 
   public function historial_pagos()
   {
-    return $this->hasMany(HistorialPago::class);
+    return $this->hasMany(HistorialPago::class,'farmacias_id');
   }
 }

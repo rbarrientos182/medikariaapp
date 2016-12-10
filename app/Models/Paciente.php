@@ -12,7 +12,7 @@ class Paciente extends Model
 
   public function recetas()
   {
-    return $this->hasMany(Receta::class);
+    return $this->hasMany(Receta::class,'pacientes_id');
   }
 
   public function users()

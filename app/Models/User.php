@@ -26,21 +26,21 @@ class User extends Authenticatable
 
     public function medicos()
     {
-        return $this->hasOne(Medico::class);
+        return $this->hasOne(Medico::class,'users_id');
     }
 
     public function pacientes()
     {
-        return $this->hasOne(Paciente::class);
+        return $this->hasOne(Paciente::class,'users_id');
     }
 
     public function datos_bancarios()
     {
-        return $this->hasOne(DatoBancario::class);
+        return $this->hasOne(DatoBancario::class,'users_id');
     }
 
     public function historial_pagos()
     {
-        return $this->hasMany(HistorialPago::class);
+        return $this->hasMany(HistorialPago::class,'users_id');
     }
 }
