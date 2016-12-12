@@ -12,5 +12,41 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
+});
+
+  Route::get('/login', function () {
+    return view('home');
+});
+
+Route::get('/Pacientes', function () {
+  return view('home');
+});
+
+Route::get('/Recetas', function () {
+  return view('home');
+});
+
+Route::get('/Medicamentos', function () {
+  return view('home');
+});
+
+Route::get('/Farmacias', function () {
+  return view('home');
+});
+
+Route::get('/Bancos', function () {
+  return view('home');
+});
+
+Route::get('/DatosBancarios', function () {
+  return view('home');
+});
+
+Route::get('/HistorialClinico', function () {
+  return view('home');
+});
+
+Route::get('/HistorialPagos', function () {
+  return view('home');
 });
