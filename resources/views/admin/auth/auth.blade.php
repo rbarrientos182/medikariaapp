@@ -16,15 +16,15 @@
             </ul>
         </div>
     @endif
-    {!! Form::open(['url'=>url('/auth/login'),'class'=>'form-signin']) !!}
+    {!! Form::open(['url'=>url('/auth/login')]) !!}
         <div class="form-group has-feedback">
             {!! Form::text('email', old('email'), ['class'=>'form-control','placeholder'=>'Email']) !!}
-            <span class="fa fa-user form-control-feedback"></span>
+            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
         </div>
 
         <div class="form-group has-feedback">
-            {!! Form::password('password', ['class'=>'form-control','placeholder'=>'Contraseña']) !!}
-            <span class="fa fa-lock form-control-feedback"></span>
+            {!! Form::password('password', ['class'=>'form-control','placeholder'=>'Password']) !!}
+            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
         </div>
         <div class="row">
             <div class="col-xs-8">
@@ -40,7 +40,14 @@
         </div>
 
     {!! Form::close() !!}
+    <div class="social-auth-links text-center">
+      <p>- Ó -</p>
+      <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i>Iniciar sesión usando</a>
+    </div>
+
+    <!-- /.social-auth-links -->
     <a href="{{ url('/password/email') }}">Olvidaste tu contraseña?</a><br>
+    <a href="#" class="text-center">Registrar un nuevo usuario</a>
 @stop
 
 @section('scripts')

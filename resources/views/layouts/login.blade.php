@@ -12,7 +12,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo">
-      <a href="#"><b>Admin</b>Medikaria</a>
+      <img src="http://i.imgur.com/YggWOH4.png" alt="login">
     </div>
     <div class="login-box-body">
         @yield('content')
