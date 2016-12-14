@@ -4,13 +4,16 @@
     <link rel="icon" type="image/png" href="{{ asset('components/lte/img/medikaria_logo.ico') }}" />
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Login</title>
+    <title>Medikaria | Log in</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     @include('layout::include.css')
 </head>
-<body class="login-page">
+<body class="hold-transition login-page">
 <div class="login-box">
+    <div class="login-logo">
+      <a href="#"><b>Admin</b>Medikaria</a>
+    </div>
     <div class="login-box-body">
         @yield('content')
     </div><!-- /.login-box-body -->

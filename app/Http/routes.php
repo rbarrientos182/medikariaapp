@@ -15,38 +15,36 @@ Route::get('/', function () {
     return view('home');
 });
 
-  Route::get('/login', function () {
-    return view('home');
-});
+  Route::get('auth', 'AuthController@index');
 
-Route::get('/Pacientes', function () {
+Route::get('pacientes', function () {
   return view('home');
 });
 
-Route::get('/Recetas', function () {
+Route::get('recetas', function () {
   return view('home');
 });
 
-Route::get('/Medicamentos', function () {
+Route::get('medicamentos', function () {
   return view('home');
 });
 
-Route::get('/Farmacias', function () {
+Route::get('farmacias', function () {
   return view('home');
 });
 
-Route::get('/Bancos', function () {
+Route::get('bancos', function () {
   return view('home');
 });
 
-Route::get('/DatosBancarios', function () {
+Route::get('datosbancarios', function () {
   return view('home');
 });
 
-Route::get('/HistorialClinico', function () {
+Route::get('historialclinico', function () {
   return view('home');
 });
 
-Route::get('/HistorialPagos', function () {
+Route::get('historialpagos', function () {
   return view('home');
 });
