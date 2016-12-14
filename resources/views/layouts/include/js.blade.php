@@ -9,7 +9,7 @@
 <!-- Bootstrap 3.3.6 -->
 <script src="{{ asset('components/plugins/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
 <!-- Morris.js charts -->
-<script src="{{ asset('components/plugins/raphael/raphael-min.js') }}" type="text/javascript"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js" type="text/javascript"></script>
 <script src="{{ asset('components/plugins/morris/morris.min.js') }}" type="text/javascript"></script>
 <!-- Sparkline -->
 <script src="{{ asset('components/plugins/sparkline/jquery.sparkline.min.js') }}" type="text/javascript"></script>
@@ -19,7 +19,7 @@
 <!-- jQuery Knob Chart -->
 <script src="{{ asset('components/plugins/knob/jquery.knob.js') }}"></script>
 <!-- daterangepicker -->
-<script src="{{ asset('components/plugins/moment/moment.min.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"></script>
 <script src="{{ asset('components/plugins/daterangepicker/daterangepicker.js') }}"></script>
 <!-- Bootstrap WYSIHTML5 -->
 <script src="{{ asset('components/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js') }}"></script>

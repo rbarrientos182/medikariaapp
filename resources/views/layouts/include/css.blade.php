@@ -1,9 +1,9 @@
 <!-- Bootstrap 3.3.6 -->
 <link href="{{ asset('components/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
 <!-- Font Awesome Icons -->
-<link href="{{ asset('components/plugins/font-awesome/font-awesome.min.css') }}" rel="stylesheet" type="text/css" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 <!-- Ionicons -->
-<link href="{{ asset('components/plugins/ionicons/ionicons.min.css') }}" rel="stylesheet" type="text/css" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
 <!-- Theme style -->
 <link href="{{ asset('components/lte/css/AdminLTE.min.css') }}" rel="stylesheet" type="text/css" />
 <!-- AdminLTE Skins. Choose a skin from the css/skins

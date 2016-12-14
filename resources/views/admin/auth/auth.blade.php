@@ -52,7 +52,7 @@
 @stop
 
 @section('scripts')
-  <script>
+  <script type="text/javascript">
     $(function () {
       $('input').iCheck({
         checkboxClass: 'icheckbox_square-blue',
