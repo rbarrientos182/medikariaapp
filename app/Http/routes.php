@@ -15,9 +15,12 @@ Route::get('/', function () {
     return view('home');
 });
 
-  Route::get('auth', 'AuthController@index');
+Route::get('auth/login', [
+  'uses' => 'AuthController@index',
+  'as' => 'auth_show_path',
+]);
 
-Route::get('pacientes', function () {
+/*Route::get('pacientes', function () {
   return view('home');
 });
 
@@ -47,4 +50,4 @@ Route::get('historialclinico', function () {
 
 Route::get('historialpagos', function () {
   return view('home');
-});
+});*/

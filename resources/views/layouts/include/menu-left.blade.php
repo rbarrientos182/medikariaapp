@@ -1,6 +1,6 @@
 <?php
-    $urlCurrent = Request::segment(2);
-    $active = 'active';
+    /*$urlCurrent = Request::segment(2);
+    $active = 'active';*/
 ?>
 <aside class="main-sidebar">
 	<section class="sidebar">

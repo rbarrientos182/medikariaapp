@@ -1,4 +1,4 @@
-@extends('layout::default')
+@extends('layouts.default')
 @section('head-title')<title>Medikaria | Error 500</title>@stop
 @section('section-title')
   <section class="content-header">

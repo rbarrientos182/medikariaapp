@@ -10,6 +10,6 @@ class AuthController extends Controller
 {
     public function index()
     {
-      # code...
+      return view('admin/auth/auth');
     }
 }

@@ -1,4 +1,4 @@
-@extends('layout::default')
+@extends('layouts.default')
 @section('head-title')<title>Medikaria | Error 400 </title>@stop
 @section('section-title')
   <!-- Content Header (Page header) -->

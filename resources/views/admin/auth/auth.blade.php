@@ -1,4 +1,4 @@
-@extends('layout::login')
+@extends('layouts.login')
 
 @section('styles')
 
@@ -6,24 +6,26 @@
 
 @section('content')
   <p class="login-box-msg">Iniciar Sesión</p>
-    @if (count($errors) > 0)
-        <div class="alert alert-danger">
-            <strong>¡ Vaya !</strong> tuvimos un problema.<br><br>
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
+    @if($errors->has())
+        <div class="alert alert-danger alert-dismissible">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <h4><i class="icon fa fa-ban"></i> Error!</h4>
+          <ul class="list-unstyled">
+            @foreach($errors->all() as $error)
+              <li>{{$error}}</li>
+            @endforeach
+          </ul>
         </div>
     @endif
-    {!! Form::open(['url'=>url('/auth/login')]) !!}
+    <form action="#" method="post">
+        {{ csrf_field()}}
         <div class="form-group has-feedback">
-            {!! Form::text('email', old('email'), ['class'=>'form-control','placeholder'=>'Email']) !!}
+            <input type="email" class="form-control" placeholder="Email">
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
         </div>
 
         <div class="form-group has-feedback">
-            {!! Form::password('password', ['class'=>'form-control','placeholder'=>'Password']) !!}
+            <input type="password" class="form-control" placeholder="Password">
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
         </div>
         <div class="row">
@@ -38,18 +40,25 @@
                 <button type="submit" class="btn btn-primary btn-block btn-flat">Entrar</button>
             </div><!-- /.col -->
         </div>
-
-    {!! Form::close() !!}
+        </form>
     <div class="social-auth-links text-center">
       <p>- Ó -</p>
       <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i>Iniciar sesión usando</a>
     </div>
 
     <!-- /.social-auth-links -->
-    <a href="{{ url('/password/email') }}">Olvidaste tu contraseña?</a><br>
+    <a href="{{ url('/password/email') }}">¿Olvidaste tu contraseña?</a><br>
     <a href="#" class="text-center">Registrar un nuevo usuario</a>
 @stop
 
 @section('scripts')
-
+  <script>
+    $(function () {
+      $('input').iCheck({
+        checkboxClass: 'icheckbox_square-blue',
+        radioClass: 'iradio_square-blue',
+        increaseArea: '20%' // optional
+      });
+    });
+  </script>
 @stop

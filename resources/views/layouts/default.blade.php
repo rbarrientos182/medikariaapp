@@ -7,13 +7,13 @@
     @section('head-title')<title>Medikaria App</title>@show
       <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-    @include('layout::include.css')
+    @include('layouts.include.css')
 </head>
 <body class="skin-blue-light">
     <div class="wrapper">
-        @include('layout::include.menu-top')
+        @include('layouts.include.menu-top')
         <!-- =============================================== -->
-        @include('layout::include.menu-left')
+        @include('layouts.include.menu-left')
         <!-- =============================================== -->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
@@ -46,8 +46,8 @@
 
     </div>
     <!-- Scripts -->
-    @include('layout::include.js')
+    @include('layouts.include.js')
     {{-- Scripts con todas las alerta posibles --}}
-    @include('layout::include.noti')
+    @include('layouts.include.noti')
 </body>
 </html>
