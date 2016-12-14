@@ -23,7 +23,6 @@
             <input type="email" class="form-control" placeholder="Email">
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
         </div>
-
         <div class="form-group has-feedback">
             <input type="password" class="form-control" placeholder="Password">
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
@@ -53,12 +52,13 @@
 
 @section('scripts')
   <script type="text/javascript">
-    $(function () {
-      $('input').iCheck({
-        checkboxClass: 'icheckbox_square-blue',
-        radioClass: 'iradio_square-blue',
-        increaseArea: '20%' // optional
-      });
-    });
+  $(function () {
+    alert('entro');
+    /*$('input').iCheck({
+      checkboxClass: 'icheckbox_square-blue',
+      radioClass: 'iradio_square-blue',
+      increaseArea: '20%' // optional
+    });*/
+  });
   </script>
 @stop
