@@ -67,7 +67,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => Medikaria\User::class,
+            'model' => Medikaria\Models\User::class,
         ],
 
         // 'users' => [

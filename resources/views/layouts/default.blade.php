@@ -20,7 +20,7 @@
             @section('section-title')
             <section class="content-header">
                 <h1>
-                    Home
+                    Inicio
                     <small></small>
                 </h1>
                 <ol class="breadcrumb">
