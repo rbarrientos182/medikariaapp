@@ -15,9 +15,14 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('auth/login', [
+Route::get('auth', [
   'uses' => 'AuthController@index',
   'as' => 'auth_show_path',
+]);
+
+Route::post('auth',[
+  'uses' => 'AuthController@store',
+  'as' => 'auth_store_path',
 ]);
 
 /*Route::get('pacientes', function () {
