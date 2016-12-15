@@ -18,7 +18,7 @@
         </div>
     @endif
 
-    <form action="../../index2.html" method="post">
+    <form action="#" method="post">
       {{ csrf_field() }}
       <div class="form-group has-feedback">
         <input type="email" class="form-control" placeholder="Email">
@@ -32,7 +32,7 @@
         <div class="col-xs-8">
           <div class="checkbox icheck">
             <label>
-              <input type="checkbox" name="remember" id="remember"> Recordarme
+              <input type="checkbox" name="remember" id="remember"> Recordar Contraseña
             </label>
           </div>
         </div>
@@ -43,20 +43,19 @@
         <!-- /.col -->
       </div>
     </form>
-    <div class="social-auth-links text-center">
+    <!--<div class="social-auth-links text-center">
       <p>- Ó -</p>
       <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i>Iniciar sesión usando</a>
-    </div>
+    </div>-->
 
     <!-- /.social-auth-links -->
     <a href="{{ url('/password/email') }}">¿Olvidaste tu contraseña?</a><br>
-    <a href="#" class="text-center">Registrar un nuevo usuario</a>
+    <a href="{{ url('/password/email') }}" class="text-center">Registrar un nuevo usuario</a>
 @stop
 
 @section('scripts')
   <script type="text/javascript">
   $(function () {
-    alert('entro');
     $('#remember').iCheck({
       checkboxClass: 'icheckbox_square-blue',
       radioClass: 'iradio_square-blue',
