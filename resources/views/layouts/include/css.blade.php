@@ -10,7 +10,7 @@
      folder instead of downloading all of them to reduce the load. -->
 <link href="{{ asset('components/lte/css/skins/skin-blue-light.css') }}" rel="stylesheet" type="text/css" />
 <!-- iCheck -->
-<link href="{{ asset('components/plugins/iCheck/flat/blue.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('components/plugins/iCheck/square/blue.css') }}" rel="stylesheet" type="text/css" />
 <!-- Morris chart -->
 <link href="{{ asset('components/plugins/morris/morris.css') }}" rel="stylesheet" type="text/css" />
 <!-- jvectormap -->
@@ -25,8 +25,6 @@
 <link href="{{ asset('components/plugins/select2/select2.min.css') }}" rel="stylesheet" type="text/css" />
 <!-- ToastTR Alerts -->
 <link href="{{ asset('components/plugins/toastr/toastr.css') }}" rel="stylesheet" type="text/css" />
-<!-- App -->
-<!-- <link href="{{ asset('components/app/css/app.css') }}" rel="stylesheet" type="text/css" /> -->
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
