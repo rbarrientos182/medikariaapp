@@ -10,19 +10,30 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
-Route::get('/', function () {
-    return view('home');
+//comprobamos si existe la sesión en dado caso que no se manda a area de login
+Route::group(['middleware' => 'auth'],function () {
+      Route::get('/',[
+      'uses'  => 'Admin\HomeController@index',
+      'as'    => 'home_show_path',
+      ]);
 });
 
-Route::get('auth', [
+// ruta que manda a la vista login
+Route::get('auth/login', [
   'uses' => 'AuthController@index',
   'as' => 'auth_show_path',
 ]);
 
-Route::post('auth',[
+// ruta que se envia desde el formulario para validar user
+Route::post('auth/login',[
   'uses' => 'AuthController@store',
   'as' => 'auth_store_path',
+]);
+
+// ruta para destruir sesión del user
+Route::post('auth/logout',[
+  'uses' => 'AuthController@destroy',
+  'as' => 'auth_destroy_path',
 ]);
 
 /*Route::get('pacientes', function () {
