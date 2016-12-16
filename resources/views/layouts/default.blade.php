@@ -31,7 +31,12 @@
 
             <!-- Main content -->
             <section class="content">
-
+                @if($currentUser)
+                  Hola {{$currentUser->email}}
+                  <a href="{{route('auth_destroy_path')}}"></a>
+                @else
+                  <a href="{{route('auth_show_path')}}"> Iniciar Sesión</a>
+                @endif
                 @yield('content')
 
             </section>

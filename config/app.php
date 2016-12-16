@@ -155,6 +155,7 @@ return [
         Medikaria\Providers\AuthServiceProvider::class,
         Medikaria\Providers\EventServiceProvider::class,
         Medikaria\Providers\RouteServiceProvider::class,
+        Medikaria\Providers\ViewComposerServiseProvider::class,
 
     ],
 
