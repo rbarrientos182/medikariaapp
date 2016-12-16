@@ -4,12 +4,12 @@
     <link rel="icon" type="image/png" href="{{ asset('components/lte/img/medikaria_logo.ico') }}" />
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    @section('head-title')<title>Medikaria App</title>@show
+    @section('head-title')<title>Medikaria | App</title>@show
       <!-- Tell the browser to be responsive to screen width -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     @include('layouts.include.css')
 </head>
-<body class="skin-blue-light">
+<body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
         @include('layouts.include.menu-top')
         <!-- =============================================== -->
@@ -33,12 +33,8 @@
             <section class="content">
                 @if($currentUser)
                   Hola {{$currentUser->email}}
-                  <a href="{{route('auth_destroy_path')}}"></a>
-                @else
-                  <a href="{{route('auth_show_path')}}"> Iniciar Sesión</a>
                 @endif
                 @yield('content')
-
             </section>
         </div>
 
