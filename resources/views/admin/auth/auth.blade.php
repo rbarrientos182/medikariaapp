@@ -6,18 +6,7 @@
 
 @section('content')
   <p class="login-box-msg">Iniciar Sesión</p>
-    @if($errors->has())
-        <div class="alert alert-danger alert-dismissible">
-          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-          <h4><i class="icon fa fa-ban"></i> Error!</h4>
-          <ul class="list-unstyled">
-            @foreach($errors->all() as $error)
-              <li>{{$error}}</li>
-            @endforeach
-          </ul>
-        </div>
-    @endif
-
+    @include('partials.errors')
     <form action="{{route('auth_store_path')}}" method="post">
       {{ csrf_field() }}
       <div class="form-group has-feedback">

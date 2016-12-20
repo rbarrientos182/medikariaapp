@@ -7,7 +7,7 @@ use Illuminate\Contracts\Auth\Guard;
 
 class CurrentUserComposer
 {
-   protected $auth;
+   //protected $auth;
 
    /*public function __construct(Guard $guard)
    {
