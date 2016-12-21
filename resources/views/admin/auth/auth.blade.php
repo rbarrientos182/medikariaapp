@@ -34,12 +34,12 @@
     </form>
     <!--<div class="social-auth-links text-center">
       <p>- Ó -</p>
-      <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i>Iniciar sesión usando</a>
+      <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i>Iniciar sesión usando Facebook</a>
     </div>-->
 
     <!-- /.social-auth-links -->
-    <a href="{{ url('/password/email') }}">¿Olvidaste tu contraseña?</a><br>
-    <a href="{{ url('/password/email') }}" class="text-center">Registrar un nuevo usuario</a>
+    <a href="#">¿Olvidaste tu contraseña?</a><br>
+    <a href="{{route('register_show_path')}}" class="text-center">Registrar un nuevo usuario</a>
 @stop
 
 @section('scripts')

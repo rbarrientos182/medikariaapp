@@ -4,7 +4,7 @@
     <link rel="icon" type="image/png" href="{{asset('components/lte/img/medikaria_logo.ico')}}" />
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Medikaria | Log in</title>
+    @section('head-title')<title>Medikaria | Log in</title>@show
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     @include('layouts.include.logincss')

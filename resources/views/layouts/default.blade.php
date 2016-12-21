@@ -13,6 +13,7 @@
     <div class="wrapper">
         @include('layouts.include.menu-top')
         <!-- =============================================== -->
+        <!-- Left side column. contains the logo and sidebar -->
         @include('layouts.include.menu-left')
         <!-- =============================================== -->
         <div class="content-wrapper">
@@ -24,7 +25,7 @@
                     <small></small>
                 </h1>
                 <ol class="breadcrumb">
-                    <li class="active"><i class="fa fa-dashboard"></i> Inicio</li>
+                    <li class="active"><i class="fa fa-home"></i> Inicio</li>
                 </ol>
             </section>
             @show

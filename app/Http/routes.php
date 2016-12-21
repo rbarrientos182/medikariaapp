@@ -36,6 +36,21 @@ Route::get('auth/logout',[
   'as' => 'auth_destroy_path',
 ]);
 
+// ruta que manda a la vista registrate
+Route::get('register', [
+  'uses' => 'RegisterController@index',
+  'as' => 'register_show_path',
+]);
+
+// ruta que se envia desde el formulario para registrar un nuevo usuario
+Route::post('register',[
+  'uses' => 'RegisterController@store',
+  'as' => 'register_store_path',
+]);
+
+
+
+
 /*Route::get('pacientes', function () {
   return view('home');
 });

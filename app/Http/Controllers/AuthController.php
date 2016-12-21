@@ -2,7 +2,6 @@
 
 namespace Medikaria\Http\Controllers;
 
-//use Medikaria\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\support\Facades\Auth;
 use Medikaria\Http\Requests;
@@ -25,7 +24,7 @@ class AuthController extends Controller
       if(!Auth::attempt($request->only(['email','password'])) ) {
           return redirect()->route('auth_show_path')->withErrors('No encontramos al usuario');
       }
-      
+
       // en caso contrario significa que el usuario existe y mandamos a home
       return redirect()->route('home_show_path');
 
