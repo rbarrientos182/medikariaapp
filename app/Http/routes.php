@@ -19,7 +19,7 @@ Route::group(['middleware' => 'auth'],function () {
 
       //ruta que envia al formulario de edición del user
       Route::get('user/{id}/edit',[
-        'uses' => 'AuthController@getEdit',
+        'uses' => 'UserController@getEdit',
         'as'   => 'user_show_edit_path',
       ])->where('id','[0-9]+');
 
@@ -31,7 +31,7 @@ Route::group(['middleware' => 'auth'],function () {
 
       //ruta que envia al profile del user en la app
       Route::get('user/{id}/',[
-        'uses' => 'UserController@getProfile',
+        'uses' => 'UserController@index',
         'as'   => 'user_show_profile_path',
       ])->where('id','[0-9]+');
 

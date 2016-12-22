@@ -2,6 +2,7 @@
 
 namespace Medikaria\Http\Controllers;
 
+use Validator;
 use Illuminate\Http\Request;
 use Illuminate\support\Facades\Auth;
 use Medikaria\Http\Requests;
@@ -44,12 +45,26 @@ class AuthController extends Controller
 
     public function create(Request $request)
     {
-        $this->validate($request,[
+        /*$this->validate($request,[
         //'name'     => 'required',
         'email'    => 'required|email|unique:users',
         'password' => 'required|min:6|confirmed',
-        'accept' => 'accepted']
-        );
+        'accept' => 'accepted',]
+      );*/
+
+        $validator = Validator::make($request->all(),[
+          //'name'     => 'required',
+          'email'    => 'required|email|unique:users',
+          'password' => 'required|min:6|confirmed',
+          'accept' => 'accepted',
+        ]);
+
+        if ($validator->fails()) {
+          return redirect()
+          ->route('auth_show_register_path')
+          ->withErrors($validator)
+          ->withInput();
+        }
 
         $user = new User;
         $user->email = $request->email;
