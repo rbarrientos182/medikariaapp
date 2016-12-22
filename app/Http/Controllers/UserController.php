@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use Medikaria\Http\Requests;
 
-class UserControllers extends Controller
+class UserController extends Controller
 {
     //
 }
