@@ -40,7 +40,7 @@ class AuthController extends Controller
     public function getRegister()
     {
         return view('admin/auth/register');
-    }
+    }// fin de getRegister
 
     public function create(Request $request)
     {
@@ -59,11 +59,11 @@ class AuthController extends Controller
         $user->save();
 
         return redirect()->route('auth_show_completed_path');
-    }
+    }// fin de create
 
     public function getCompleted()
     {
         return 'Contacto guardado correctamente';
-    }
+    }// fin de getCompleted
 
 }
