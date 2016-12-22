@@ -39,7 +39,7 @@
 
     <!-- /.social-auth-links -->
     <a href="#">¿Olvidaste tu contraseña?</a><br>
-    <a href="{{route('register_show_path')}}" class="text-center">Registrar un nuevo usuario</a>
+    <a href="{{route('auth_show_register_path')}}" class="text-center">Registrar un nuevo usuario</a>
 @stop
 
 @section('scripts')

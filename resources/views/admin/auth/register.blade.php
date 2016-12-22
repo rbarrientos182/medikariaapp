@@ -10,12 +10,12 @@
 @section('content')
   <p class="login-box-msg">Registrar un Nuevo Usuario</p>
     @include('partials.errors')
-    <form action="{{route('register_store_path')}}" method="post">
+    <form action="{{route('auth_create_path')}}" method="post">
       {{ csrf_field() }}
-      <div class="form-group has-feedback">
+      <!--<div class="form-group has-feedback">
         <input type="text" class="form-control" name="name" placeholder="Nombre Completo">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
-      </div>
+      </div>-->
       <div class="form-group has-feedback">
         <input type="text" class="form-control" name="email" placeholder="Email">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
@@ -25,14 +25,14 @@
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" name="password" placeholder="Volver a Escribir Password">
+        <input type="password" class="form-control" name="password_confirmation" placeholder="Volver a Escribir Password">
         <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
       </div>
       <div class="row">
         <div class="col-xs-8">
           <div class="checkbox icheck">
             <label>
-              <input type="checkbox" name="remember" id="remember"> Acepto los <a href="#">Terminos</a>
+              <input type="checkbox" name="accept" id="remember"> Acepto los <a href="#">Terminos</a>
             </label>
           </div>
         </div>

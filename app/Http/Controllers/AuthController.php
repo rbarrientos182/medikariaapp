@@ -36,4 +36,34 @@ class AuthController extends Controller
        Auth::logout();
        return redirect()->route('auth_show_path');
     }// fin de destroy
+
+    public function getRegister()
+    {
+        return view('admin/auth/register');
+    }
+
+    public function create(Request $request)
+    {
+        $this->validate($request,[
+        //'name'     => 'required',
+        'email'    => 'required|email|unique:users',
+        'password' => 'required|min:6|confirmed',
+        'accept' => 'accepted']
+        );
+
+        $user = new User;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->activo = 0;
+        $user->remember_token = str_random(10);
+        $user->save();
+
+        return redirect()->route('auth_show_completed_path');
+    }
+
+    public function getCompleted()
+    {
+        return 'Contacto guardado correctamente';
+    }
+
 }

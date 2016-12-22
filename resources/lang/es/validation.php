@@ -103,22 +103,24 @@ return [
 	*/
 
 	'attributes' => [
-        'name' => 'Nombre',
-        'status' => 'Estatus',
+        'name'     => 'Nombre',
+        'status'   => 'Estatus',
         'username' => 'Usuario',
         'password' => 'Contraseña',
-        'email' => 'Email',
+        'email'    => 'Email',
         'password_confirmation' => 'Confirmar',
-        'phone' => 'Teléfono',
-        'celular' => 'Celular',
+        'phone' 	 => 'Teléfono',
+        'celular'  => 'Celular',
+				'remember' => 'Recordar',
+				'accept'   => 'Acepto Terminos',
 
-        'city_id' => 'Ciudad',
+        'city_id'  => 'Ciudad',
         'state_id' => 'Estado',
         'brand_id' => 'Marca',
         'model_id' => 'Modelo',
-        'title' => 'Titulo',
+        'title'    => 'Titulo',
         'description' => 'Descripción',
-        'price' => 'Precio',
+        'price'    => 'Precio',
         'coo_maps' => 'Coordenadas del mapa'
 
     ],
