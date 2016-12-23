@@ -1,8 +1,8 @@
 <?php
 namespace Medikaria\Composers;
 
-use Illuminate\View\View;
 use Illuminate\support\Facades\Auth;
+use Illuminate\View\View;
 use Illuminate\Contracts\Auth\Guard;
 
 class CurrentUserComposer
