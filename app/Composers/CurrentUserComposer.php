@@ -1,9 +1,10 @@
 <?php
 namespace Medikaria\Composers;
 
-use Illuminate\support\Facades\Auth;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 use Illuminate\Contracts\Auth\Guard;
+
 
 class CurrentUserComposer
 {

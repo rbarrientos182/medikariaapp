@@ -12,25 +12,25 @@
 */
 //comprobamos si existe la sesión en dado caso que no se manda a area de login
 Route::group(['middleware' => 'auth'],function () {
-      Route::get('/',[
+      Route::get('/app',[
       'uses'  => 'Admin\HomeController@index',
       'as'    => 'home_show_path',
       ]);
 
       //ruta que envia al formulario de edición del user
-      Route::get('user/{id}/edit',[
+      Route::get('app/user/{id}/edit',[
         'uses' => 'UserController@getEdit',
         'as'   => 'user_show_edit_path',
       ])->where('id','[0-9]+');
 
       //ruta que se manda para actualizar
-      Route::patch('user/{id}/edit',[
+      Route::patch('app/user/{id}/edit',[
         'uses' => 'UserController@update',
         'as'   => 'user_patch_path',
       ])->where('id','[0-9]+');
 
       //ruta que envia al profile del user en la app
-      Route::get('user/{id}/',[
+      Route::get('app/user/{id}/',[
         'uses' => 'UserController@index',
         'as'   => 'user_show_profile_path',
       ])->where('id','[0-9]+');

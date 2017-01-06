@@ -4,7 +4,7 @@ namespace Medikaria\Http\Controllers;
 
 use Validator;
 use Illuminate\Http\Request;
-use Illuminate\support\Facades\Auth;
+use Illuminate\Support\Facades\Auth;
 use Medikaria\Http\Requests;
 
 
