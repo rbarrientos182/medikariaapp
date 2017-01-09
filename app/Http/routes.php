@@ -74,6 +74,18 @@ Route::get('auth/register/completed',[
 ]);
 
 // ruta que manda a la vista de registro completado
+Route::get('auth/password',[
+  'uses' => 'AuthController@getPasswordReset',
+  'as'   => 'auth_show_reset_path',
+]);
+
+// ruta que manda a la vista de registro completado
 Route::get('welcome',function () {
+    return view('welcome');
+});
+
+
+// ruta index de la pagina web
+Route::get('/',function () {
     return view('welcome');
 });

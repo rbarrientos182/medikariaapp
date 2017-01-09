@@ -81,4 +81,10 @@ class AuthController extends Controller
         return 'Contacto guardado correctamente';
     }// fin de getCompleted
 
+    public function getPasswordReset()
+    {
+        return view('admin/auth/password');
+    }// fin de getPasswordRest
+
+
 }
