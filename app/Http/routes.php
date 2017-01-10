@@ -37,47 +37,73 @@ Route::group(['middleware' => 'auth'],function () {
 
 });
 
+/***************************************************************************************/
+/**
+ * Rutas de los Logins y recuperacion de contraseñas
+ */
+
 // ruta que manda a la vista login
 Route::get('auth/login', [
   'uses' => 'AuthController@index',
   'as'   => 'auth_show_path',
 ]);
-
 // ruta que se envia desde el formulario para validar user
 Route::post('auth/login',[
   'uses' => 'AuthController@store',
   'as'   => 'auth_store_path',
 ]);
-
 // ruta para destruir sesión del user
 Route::get('auth/logout',[
   'uses' => 'AuthController@destroy',
   'as'   => 'auth_destroy_path',
 ]);
 
+
+
 // ruta que manda a la vista registrate
 Route::get('auth/register', [
   'uses' => 'AuthController@getRegister',
   'as'   => 'auth_show_register_path',
 ]);
-
 // ruta que se envia desde el formulario para registrar un nuevo user
 Route::post('auth/register',[
   'uses' => 'AuthController@create',
   'as'   => 'auth_create_path',
 ]);
-
 // ruta que manda a la vista de registro completado
 Route::get('auth/register/completed',[
   'uses' => 'AuthController@getCompleted',
   'as'   => 'auth_show_completed_path',
 ]);
 
-// ruta que manda a la vista de registro completado
-Route::get('auth/password',[
-  'uses' => 'AuthController@getPasswordReset',
-  'as'   => 'auth_show_reset_path',
+
+
+// ruta que manda a la vista de reseteo de contraseña
+Route::get('password/email',[
+  'uses' => 'PasswordController@getEmail',
+  'as'   => 'password_show_path',
 ]);
+// ruta que manda el email de reseteo de contraseña
+Route::post('password/email',[
+  'uses' => 'PasswordController@postEmail',
+  'as'   => 'password_send_path',
+]);
+// ruta que manda a la vista de reseteo de contraseña
+Route::get('password/reset/{token}',[
+  'uses' => 'PasswordController@getReset',
+  'as'   => 'password_token_path',
+]);
+// ruta que manda a la vista de reseteo de contraseña
+Route::post('password/reset',[
+  'uses' => 'PasswordController@postReset',
+  'as'   => 'password_change_path',
+]);
+
+
+/***************************************************************************************/
+/**
+ * Rutas de las vistas de la página web
+ */
 
 // ruta que manda a la vista de registro completado
 Route::get('welcome',function () {

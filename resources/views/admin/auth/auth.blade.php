@@ -38,7 +38,7 @@
     </div>-->
 
     <!-- /.social-auth-links -->
-    <a href="{{route('auth_show_reset_path')}}">¿Olvidaste tu contraseña?</a><br>
+    <a href="{{route('password_show_path')}}">¿Olvidaste tu contraseña?</a><br>
     <a href="{{route('auth_show_register_path')}}" class="text-center">Registrar un nuevo usuario</a>
 @stop
 
