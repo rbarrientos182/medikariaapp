@@ -74,7 +74,13 @@ class AuthController extends Controller
         $user->remember_token = str_random(10);
         $user->save();
 
-        return redirect()->route('auth_show_completed_path');
+        // si el usuario no existe redireccionamos a la vista login
+        if(!Auth::attempt($request->only(['email','password'])) ) {
+            return redirect()->route('auth_show_path')->withErrors('No encontramos al usuario');
+        }
+        
+        //return redirect()->route('auth_show_completed_path');
+        return redirect()->route('home_show_path');
     }// fin de create
 
     public function getCompleted()
