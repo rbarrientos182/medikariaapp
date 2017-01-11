@@ -9,12 +9,16 @@
 @section('content')
   <p class="login-box-msg">Introduce tu nueva Contraseña</p>
     @include('partials.errors')
-    <form action="{{route('password_send_reset_path')}}" method="post">
+    <form action="{{route('password_change_path')}}" method="post">
       {{ csrf_field() }}
       <div class="form-group has-feedback">
-        <input type="hidden" name="token" value="{{ $token }}">
-        <input type="password" class="form-control" name="email" placeholder="Nueva Contraseña">
+        <input type="text" class="form-control" name="email" placeholder="Email" value="{{ $email }}">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+      </div>
+      <div class="form-group has-feedback">
+        <input type="hidden" name="token" value="{{ $token }}">
+        <input type="password" class="form-control" name="password" placeholder="Nueva Contraseña">
+        <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
         <input type="password" class="form-control" name="password_confirmation" placeholder="Volver a Escribir Contraseña">

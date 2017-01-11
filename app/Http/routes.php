@@ -12,25 +12,25 @@
 */
 //comprobamos si existe la sesión en dado caso que no se manda a area de login
 Route::group(['middleware' => 'auth'],function () {
-      Route::get('/app',[
+      Route::get('/home',[
       'uses'  => 'Admin\HomeController@index',
       'as'    => 'home_show_path',
       ]);
 
       //ruta que envia al formulario de edición del user
-      Route::get('app/user/{id}/edit',[
+      Route::get('home/user/{id}/edit',[
         'uses' => 'UserController@getEdit',
         'as'   => 'user_show_edit_path',
       ])->where('id','[0-9]+');
 
       //ruta que se manda para actualizar
-      Route::patch('app/user/{id}/edit',[
+      Route::patch('home/user/{id}/edit',[
         'uses' => 'UserController@update',
         'as'   => 'user_patch_path',
       ])->where('id','[0-9]+');
 
       //ruta que envia al profile del user en la app
-      Route::get('app/user/{id}/',[
+      Route::get('home/user/{id}/',[
         'uses' => 'UserController@index',
         'as'   => 'user_show_profile_path',
       ])->where('id','[0-9]+');
@@ -80,22 +80,22 @@ Route::get('auth/register/completed',[
 
 // ruta que manda a la vista de reseteo de contraseña
 Route::get('password/email',[
-  'uses' => 'PasswordController@getEmail',
+  'uses' => 'Auth\PasswordController@getEmail',
   'as'   => 'password_show_path',
 ]);
 // ruta que manda el email de reseteo de contraseña
 Route::post('password/email',[
-  'uses' => 'PasswordController@postEmail',
+  'uses' => 'Auth\PasswordController@postEmail',
   'as'   => 'password_send_path',
 ]);
 // ruta que manda a la vista de reseteo de contraseña
 Route::get('password/reset/{token}',[
-  'uses' => 'PasswordController@getReset',
+  'uses' => 'Auth\PasswordController@getReset',
   'as'   => 'password_token_path',
 ]);
 // ruta que manda a la vista de reseteo de contraseña
 Route::post('password/reset',[
-  'uses' => 'PasswordController@postReset',
+  'uses' => 'Auth\PasswordController@postReset',
   'as'   => 'password_change_path',
 ]);
 

@@ -5,6 +5,7 @@ namespace Medikaria\Http\Controllers;
 use Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Medikaria\Models\User;
 use Medikaria\Http\Requests;
 
 
@@ -68,7 +69,7 @@ class AuthController extends Controller
 
         $user = new User;
         $user->email = $request->email;
-        $user->password = $request->password;
+        $user->password = bcrypt($request->password);
         $user->activo = 0;
         $user->remember_token = str_random(10);
         $user->save();

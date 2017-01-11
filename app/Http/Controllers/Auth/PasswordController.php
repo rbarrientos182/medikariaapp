@@ -1,5 +1,4 @@
 <?php
-
 namespace Medikaria\Http\Controllers\Auth;
 
 use Medikaria\Http\Controllers\Controller;
@@ -28,25 +27,5 @@ class PasswordController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
-    }
-
-    public function getEmail()
-    {
-        return view('admin/auth/password');
-    }
-
-    public function postEmail()
-    {
-      return 'hola';
-    }
-
-    public function getReset()
-    {
-      return 'hello';
-    }
-
-    public function postReset()
-    {
-      return 'hi';
     }
 }

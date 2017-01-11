@@ -24,6 +24,7 @@
       </div>
     </form>
     <!-- /.social-auth-links -->
+    <a href="{{route('auth_show_path')}}">Regresar a Inicio de Sesión</a><br>
 @stop
 
 @section('scripts')
