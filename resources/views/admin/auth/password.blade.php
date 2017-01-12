@@ -9,6 +9,7 @@
 @section('content')
   <p class="login-box-msg">¿Olvidaste tu Contraseña?</p>
     @include('partials.errors')
+    @include('partials.alerts')
     <form action="{{route('password_send_path')}}" method="post">
       {{ csrf_field() }}
       <div class="form-group has-feedback">
