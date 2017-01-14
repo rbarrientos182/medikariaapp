@@ -1,10 +1,12 @@
 <?php
 
-namespace Medikaria\Http\Controllers;
+namespace Medikaria\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-
 use Medikaria\Http\Requests;
+
+use Medikaria\Http\Controllers\Controller;
+use Medikaria\Models\User;
 
 class UserController extends Controller
 {

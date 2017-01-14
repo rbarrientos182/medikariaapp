@@ -19,19 +19,19 @@ Route::group(['middleware' => 'auth'],function () {
 
       //ruta que envia al formulario de edición del user
       Route::get('home/user/{id}/edit',[
-        'uses' => 'UserController@getEdit',
+        'uses' => 'Admin\UserController@getEdit',
         'as'   => 'user_show_edit_path',
       ])->where('id','[0-9]+');
 
       //ruta que se manda para actualizar
       Route::patch('home/user/{id}/edit',[
-        'uses' => 'UserController@update',
+        'uses' => 'Admin\UserController@update',
         'as'   => 'user_patch_path',
       ])->where('id','[0-9]+');
 
       //ruta que envia al profile del user en la app
-      Route::get('home/user/{id}/',[
-        'uses' => 'UserController@index',
+      Route::get('home/user/{id}',[
+        'uses' => 'Admin\UserController@index',
         'as'   => 'user_show_profile_path',
       ])->where('id','[0-9]+');
 

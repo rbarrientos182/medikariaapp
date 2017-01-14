@@ -32,9 +32,6 @@
 
             <!-- Main content -->
             <section class="content">
-                @if($currentUser)
-                  Hola {{$currentUser->email}}
-                @endif
                 @yield('content')
             </section>
         </div>
