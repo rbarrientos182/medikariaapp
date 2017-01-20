@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Medikaria\Models\Paciente;
 
 class PacientesTableSeeder extends Seeder
 {
