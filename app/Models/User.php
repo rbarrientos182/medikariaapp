@@ -12,7 +12,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','activo',
+        'name','nombre', 'email', 'password','activo',
     ];
 
     /**
@@ -27,11 +27,6 @@ class User extends Authenticatable
     public function medicos()
     {
         return $this->hasOne(Medico::class,'users_id');
-    }
-
-    public function pacientes()
-    {
-        return $this->hasOne(Paciente::class,'users_id');
     }
 
     public function datos_bancarios()
