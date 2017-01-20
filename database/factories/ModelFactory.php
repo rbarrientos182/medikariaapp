@@ -14,6 +14,7 @@
 $factory->define(Medikaria\Models\User::class, function (Faker\Generator $faker) {
     return [
         'email' => $faker->safeEmail,
+        'nombre' => $faker->name($gender = null|'male'|'female'),
         'password' => bcrypt('secret'),
         'remember_token' => str_random(10),
     ];
@@ -31,7 +32,7 @@ $factory->define(Medikaria\Models\Paciente::class, function (Faker\Generator $fa
 
 $factory->define(Medikaria\Models\Medico::class, function (Faker\Generator $faker) {
     return [
-        'nombre' => $faker->name($gender = null|'male'|'female'),
+
         'rfc' => $faker->regexify('^([A-Z,Ñ,&]{3,4}([0-9]{2})(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1])[A-Z|\d]{3})$'),
         'correo' => $faker->safeEmail,
         'cedula' => $faker->randomNumber($nbDigits = 8), // 79907610,

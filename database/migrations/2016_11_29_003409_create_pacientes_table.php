@@ -20,11 +20,9 @@ class CreatePacientesTable extends Migration
           $table->string('peso',60);
           $table->date('nacimiento');
           $table->string('celular',60)->nullable();
-          $table->integer('users_id')->unsigned();
           $table->string('foto',60)->nullable();
           $table->timestamps();
           $table->softDeletes();
-          $table->foreign('users_id')->references('id')->on('users');
       });
     }
 
