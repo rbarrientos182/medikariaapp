@@ -2,6 +2,6 @@
 
 @section('content')
   @if($currentUser)
-      Hola {{$currentUser->email}}
+      Hola {{$currentUser->nombre}}
   @endif
 @stop

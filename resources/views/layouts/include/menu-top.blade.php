@@ -20,7 +20,7 @@
                 <li class="dropdown user user-menu">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <img src="{{ asset('components/lte/img/userRoberto.jpg') }}" class="user-image" alt="User Image">
-                    <span class="hidden-xs">{{ $currentUser->email }}</span>
+                    <span class="hidden-xs">{{ $currentUser->nombre }}</span>
                   </a>
                   <ul class="dropdown-menu">
                     <!-- User image -->
@@ -28,7 +28,7 @@
                       <img src="{{ asset('components/lte/img/userRoberto.jpg') }}" class="img-circle" alt="User Image">
 
                       <p>
-                        {{ $currentUser->email }}
+                        {{ $currentUser->nombre }}
                         <small>Miembro desde: {{ $currentUser->created_at }}</small>
                       </p>
                     </li>

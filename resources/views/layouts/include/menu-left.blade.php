@@ -11,7 +11,7 @@
 				<img src="{{ asset('components/lte/img/userRoberto.jpg') }}" class="img-circle" alt="User Image" />
 			</div>
 			<div class="pull-left info">
-				<p>{{ $currentUser->email }}</p>
+				<p>{{ $currentUser->nombre }}</p>
 				<i class="fa fa-circle text-success"></i> En Línea
 			</div>
 		</div>

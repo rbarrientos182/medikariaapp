@@ -27,6 +27,7 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
         $user->password = $request->get('password');
+        $user->name = $request->get('name');
         //$post->users_id = Auth::id(); ejemplo para foreign key
         $user->save();
         return redirect()->route('user_show_profile_path', $user->id);
