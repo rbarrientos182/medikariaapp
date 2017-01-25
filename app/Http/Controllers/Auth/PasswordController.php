@@ -24,6 +24,7 @@ class PasswordController extends Controller
      *
      * @return void
      */
+    protected $redirect = 'app';
     public function __construct()
     {
         $this->middleware('guest');
