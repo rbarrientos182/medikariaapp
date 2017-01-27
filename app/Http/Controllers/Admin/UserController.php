@@ -7,13 +7,19 @@ use Medikaria\Http\Requests;
 
 use Medikaria\Http\Controllers\Controller;
 use Medikaria\Models\User;
+use Medikaria\Models\Medico;
+use Medikaria\Models\Hospital;
 
 class UserController extends Controller
 {
     public function index($id)
     {
       $user = User::findOrFail($id);
-      return view('admin.user.profile',['user' => $user]);
+      $medico = $user->medicos;
+      $hospital = $medico->hospitales;
+      $hospitales = Hospital::all();
+
+      return view('admin.user.profile', compact('user','medico','hospital','hospitales'));
     }
 
     public function getEdit($id)

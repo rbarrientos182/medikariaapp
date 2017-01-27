@@ -24,9 +24,9 @@
               <div class="box-body box-profile">
                 <img class="profile-user-img img-responsive img-circle" src="{{ asset('components/lte/img/userRoberto.jpg') }}" alt="User profile picture">
 
-                <h3 class="profile-username text-center">{{ $currentUser->nombre }}</h3>
+                <h3 class="profile-username text-center">{{ $user->nombre }}</h3>
 
-                <p class="text-muted text-center">Médico</p>
+                <p class="text-muted text-center">{{ $user->email }}</p>
 
                 <ul class="list-group list-group-unbordered">
                   <li class="list-group-item">
@@ -55,32 +55,32 @@
               <div class="box-body">
                 <strong><i class="fa fa-hospital-o margin-r-5"></i> Hospital</strong>
 
-                <p class="text-muted">Los Angeles</p>
+                <p class="text-muted">{{ $hospital->nombrehospital }}</p>
 
                 <hr>
                 <strong><i class="fa fa-mobile margin-r-5"></i> Celular</strong>
 
                 <p class="text-muted">
-                  2221123318
+                  {{ $medico->celular }}
                 </p>
 
                 <hr>
 
                 <strong><i class="fa fa-map-marker margin-r-5"></i> Dirección</strong>
 
-                <p class="text-muted">Privada Santa Lucila 31-301, Cutlancingo, Puebla</p>
+                <p class="text-muted">{{ $medico->direccion }}</p>
 
                 <hr>
 
                 <strong><i class="fa fa-file-text margin-r-5"></i> Cédula Profesional</strong>
 
-                <p class="text-muted">12313BA</p>
+                <p class="text-muted">{{ $medico->cedula }}</p>
 
                 <hr>
 
                 <strong><i class="fa fa-file-text-o margin-r-5"></i> RFC</strong>
 
-                <p "text-muted">BABR140985</p>
+                <p "text-muted">{{ $medico->rfc }}</p>
               </div>
               <!-- /.box-body -->
             </div>
@@ -92,7 +92,7 @@
               <ul class="nav nav-tabs">
                 <li class="active"><a href="#activity" data-toggle="tab">Actividad</a></li>
                 <li><a href="#timeline" data-toggle="tab">Línea de Tiempo</a></li>
-                <li><a href="#settings" data-toggle="tab">Ajustes</a></li>
+                <li><a href="#settings" data-toggle="tab">Actualizar Perfil</a></li>
               </ul>
               <div class="tab-content">
                 <div class="active tab-pane" id="activity">
@@ -205,13 +205,10 @@
 
                       <div class="col-sm-10">
                         <select class="form-control select2" name="hospital" id="inputHospital" >
+                          {{foreach ($variable as $key => $value) {
+                            # code...
+                          }}}
                           <option selected="selected">Alabama</option>
-                          <option>Alaska</option>
-                          <option>California</option>
-                          <option>Delaware</option>
-                          <option>Tennessee</option>
-                          <option>Texas</option>
-                          <option>Washington</option>
                         </select>
                       </div>
                     </div>
@@ -219,35 +216,35 @@
                       <label for="inputName" class="col-sm-2 control-label">Nombre</label>
 
                       <div class="col-sm-10">
-                        <input type="email" class="form-control" id="inputName" placeholder="Nombre">
+                        <input type="email" class="form-control" id="inputName" placeholder="Nombre" value="{{$user->nombre}}">
                       </div>
                     </div>
                     <div class="form-group">
                       <label for="inputEmail" class="col-sm-2 control-label">Celular</label>
 
                       <div class="col-sm-10">
-                        <input type="email" class="form-control" id="inputEmail" placeholder="Celular">
+                        <input type="email" class="form-control" id="inputEmail" placeholder="Celular" value="{{$medico->celular}}">
                       </div>
                     </div>
                     <div class="form-group">
                       <label for="inputName" class="col-sm-2 control-label">Dirección</label>
 
                       <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputName" placeholder="Dirección">
+                        <input type="text" class="form-control" id="inputName" placeholder="Dirección" value="{{$medico->direccion}}">
                       </div>
                     </div>
                     <div class="form-group">
                       <label for="inputExperience" class="col-sm-2 control-label">Cédula Profesional</label>
 
                       <div class="col-sm-10">
-                        <textarea class="form-control" id="inputExperience" placeholder="Cédula Profesional"></textarea>
+                        <input type="text" class="form-control" id="inputExperience" placeholder="Cédula Profesional" value="{{$medico->cedula}}">
                       </div>
                     </div>
                     <div class="form-group">
                       <label for="inputSkills" class="col-sm-2 control-label">RFC</label>
 
                       <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputSkills" placeholder="RFC">
+                        <input type="text" class="form-control" id="inputSkills" placeholder="RFC" value="{{$medico->rfc}}">
                       </div>
                     </div>
                     <div class="form-group">
