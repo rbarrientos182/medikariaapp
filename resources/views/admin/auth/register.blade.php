@@ -13,7 +13,7 @@
     <form action="{{route('auth_create_path')}}" method="post">
       {{ csrf_field() }}
       <div class="form-group has-feedback">
-        <input type="text" class="form-control" name="name" placeholder="Nombre Completo">
+        <input type="text" class="form-control" name="name" placeholder="Nombre Completo" value="{{old('name')}}">
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">

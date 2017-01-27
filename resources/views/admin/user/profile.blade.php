@@ -205,9 +205,6 @@
 
                       <div class="col-sm-10">
                         <select class="form-control select2" name="hospital" id="inputHospital" >
-                          {{foreach ($variable as $key => $value) {
-                            # code...
-                          }}}
                           <option selected="selected">Alabama</option>
                         </select>
                       </div>

@@ -6,6 +6,8 @@ use Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Medikaria\Models\User;
+use Medikaria\Models\Medico;
+use Medikaria\Models\Hospital;
 use Medikaria\Http\Requests;
 
 
@@ -69,16 +71,28 @@ class AuthController extends Controller
 
         $user = new User;
         $user->email = $request->email;
+        $user->nombre = $request->name;
         $user->password = bcrypt($request->password);
         $user->activo = 0;
         $user->remember_token = str_random(10);
         $user->save();
 
+        //$user = User::all();
+
+        $medico = new Medico;
+        $medico->rfc = ' ';
+        $medico->celular = ' ';
+        $medico->users_id = $user->id;
+        $medico->hospitales_id = 21;
+        $medico->save();
+
+
+
         // si el usuario no existe redireccionamos a la vista login
         if(!Auth::attempt($request->only(['email','password'])) ) {
             return redirect()->route('auth_show_path')->withErrors('No encontramos al usuario');
         }
-        
+
         //return redirect()->route('auth_show_completed_path');
         return redirect()->route('home_show_path');
     }// fin de create
