@@ -199,60 +199,62 @@
                 <!-- /.tab-pane -->
 
                 <div class="tab-pane" id="settings">
-                  <form class="form-horizontal">
+                  <form class="form-horizontal" method="post" enctype="multipart/form-data">
+                    {{ csrf_field() }}
                     <div class="form-group">
                       <label for="inputName" class="col-sm-2 control-label">Hospital</label>
-
                       <div class="col-sm-10">
                         <select class="form-control select2" name="hospital" id="inputHospital" >
-                          <option selected="selected">Alabama</option>
+                          @foreach ($hospitales as $hospitals)
+                            <option value="{{$hospitals->id}}" @if($hospitals->id==$hospital->id) selected="selected" @endif >{{$hospitals->nombrehospital}}</option>
+                          @endforeach
                         </select>
                       </div>
                     </div>
                     <div class="form-group">
-                      <label for="inputName" class="col-sm-2 control-label">Nombre</label>
+                      <label for="inputNombre" class="col-sm-2 control-label">Nombre</label>
 
                       <div class="col-sm-10">
-                        <input type="email" class="form-control" id="inputName" placeholder="Nombre" value="{{$user->nombre}}">
+                        <input type="text" class="form-control" id="inputNombre" placeholder="Nombre" value="{{$user->nombre}}">
                       </div>
                     </div>
                     <div class="form-group">
-                      <label for="inputEmail" class="col-sm-2 control-label">Celular</label>
+                      <label for="inputCelular" class="col-sm-2 control-label">Celular</label>
 
                       <div class="col-sm-10">
-                        <input type="email" class="form-control" id="inputEmail" placeholder="Celular" value="{{$medico->celular}}">
+                        <input type="text" class="form-control" id="inputCelular" placeholder="Celular" value="{{$medico->celular}}">
                       </div>
                     </div>
                     <div class="form-group">
-                      <label for="inputName" class="col-sm-2 control-label">Dirección</label>
+                      <label for="inputDireccion" class="col-sm-2 control-label">Dirección</label>
 
                       <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputName" placeholder="Dirección" value="{{$medico->direccion}}">
+                        <input type="text" class="form-control" id="inputDireccion" placeholder="Dirección" value="{{$medico->direccion}}">
                       </div>
                     </div>
                     <div class="form-group">
-                      <label for="inputExperience" class="col-sm-2 control-label">Cédula Profesional</label>
+                      <label for="inputCedula" class="col-sm-2 control-label">Cédula Profesional</label>
 
                       <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputExperience" placeholder="Cédula Profesional" value="{{$medico->cedula}}">
+                        <input type="text" class="form-control" id="inputCedula" placeholder="Cédula Profesional" value="{{$medico->cedula}}">
                       </div>
                     </div>
                     <div class="form-group">
-                      <label for="inputSkills" class="col-sm-2 control-label">RFC</label>
+                      <label for="inputRFC" class="col-sm-2 control-label">RFC</label>
 
                       <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputSkills" placeholder="RFC" value="{{$medico->rfc}}">
+                        <input type="text" class="form-control" id="inputRFC" placeholder="RFC" value="{{$medico->rfc}}">
                       </div>
                     </div>
                     <div class="form-group">
-                      <label for="inputSkills" class="col-sm-2 control-label">Subir Foto de Perfil</label>
+                      <label for="inputFoto" class="col-sm-2 control-label">Subir Foto de Perfil</label>
                       <div class="col-sm-10">
-                        <input type="file" id="exampleInputFile">
+                        <input type="file" id="inputFoto">
                       </div>
                     </div>
                     <div class="form-group">
                       <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-danger">Editar Ajustes</button>
+                        <button type="submit" class="btn btn-danger">Actualizar</button>
                       </div>
                     </div>
                   </form>

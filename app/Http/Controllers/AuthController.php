@@ -83,7 +83,7 @@ class AuthController extends Controller
         $medico->rfc = ' ';
         $medico->celular = ' ';
         $medico->users_id = $user->id;
-        $medico->hospitales_id = 21;
+        $medico->hospitales_id = 1;
         $medico->save();
 
 
