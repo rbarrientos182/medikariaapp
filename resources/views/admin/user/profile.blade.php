@@ -90,12 +90,12 @@
           <div class="col-md-9">
             <div class="nav-tabs-custom">
               <ul class="nav nav-tabs">
-                <li class="active"><a href="#activity" data-toggle="tab">Actividad</a></li>
+                <li><a href="#activity" data-toggle="tab">Actividad</a></li>
                 <li><a href="#timeline" data-toggle="tab">Línea de Tiempo</a></li>
-                <li><a href="#settings" data-toggle="tab">Actualizar Perfil</a></li>
+                <li class="active"><a href="#settings" data-toggle="tab">Actualizar Perfil</a></li>
               </ul>
               <div class="tab-content">
-                <div class="active tab-pane" id="activity">
+                <div class="ab-pane" id="activity">
                   <!-- Post -->
                   <div class="post">
                   </div>
@@ -198,13 +198,16 @@
                 </div>
                 <!-- /.tab-pane -->
 
-                <div class="tab-pane" id="settings">
-                  <form class="form-horizontal" method="post" enctype="multipart/form-data">
+                <div class="active tab-pane" id="settings">
+                  @include('partials.errors')
+                  <form class="form-horizontal" action="{{route('user_patch_path',$user->id)}}" enctype="multipart/form-data" method="post">
                     {{ csrf_field() }}
                     <div class="form-group">
                       <label for="inputName" class="col-sm-2 control-label">Hospital</label>
                       <div class="col-sm-10">
-                        <select class="form-control select2" name="hospital" id="inputHospital" >
+                        <input type="hidden" name="_method" value="patch">
+                        <input type="hidden" name="idmedico" value="{{$medico->id}}">
+                        <select class="form-control select2" name="idhospital" id="inputHospital" >
                           @foreach ($hospitales as $hospitals)
                             <option value="{{$hospitals->id}}" @if($hospitals->id==$hospital->id) selected="selected" @endif >{{$hospitals->nombrehospital}}</option>
                           @endforeach
@@ -215,46 +218,60 @@
                       <label for="inputNombre" class="col-sm-2 control-label">Nombre</label>
 
                       <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputNombre" placeholder="Nombre" value="{{$user->nombre}}">
+                        <input type="text" class="form-control" id="inputNombre" name="name" placeholder="Nombre" value="{{$user->nombre}}">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="inputPassword" class="col-sm-2 control-label">Contraseña</label>
+
+                      <div class="col-sm-10">
+                        <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Contraseña" value="{{$user->password}}">
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="inputPassword2" class="col-sm-2 control-label">Confirma Contraseña</label>
+
+                      <div class="col-sm-10">
+                        <input type="password" class="form-control" id="inputPassword2" name="password_confirmation" placeholder="Volver a Escribir Contraseña" value="{{$user->password}}">
                       </div>
                     </div>
                     <div class="form-group">
                       <label for="inputCelular" class="col-sm-2 control-label">Celular</label>
 
                       <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputCelular" placeholder="Celular" value="{{$medico->celular}}">
+                        <input type="text" class="form-control" id="inputCelular" name="celular" placeholder="Celular" value="{{$medico->celular}}">
                       </div>
                     </div>
                     <div class="form-group">
                       <label for="inputDireccion" class="col-sm-2 control-label">Dirección</label>
 
                       <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputDireccion" placeholder="Dirección" value="{{$medico->direccion}}">
+                        <input type="text" class="form-control" id="inputDireccion" name="direccion" placeholder="Dirección" value="{{$medico->direccion}}">
                       </div>
                     </div>
                     <div class="form-group">
                       <label for="inputCedula" class="col-sm-2 control-label">Cédula Profesional</label>
 
                       <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputCedula" placeholder="Cédula Profesional" value="{{$medico->cedula}}">
+                        <input type="text" class="form-control" id="inputCedula" name="cedula" placeholder="Cédula Profesional" value="{{$medico->cedula}}">
                       </div>
                     </div>
                     <div class="form-group">
                       <label for="inputRFC" class="col-sm-2 control-label">RFC</label>
 
                       <div class="col-sm-10">
-                        <input type="text" class="form-control" id="inputRFC" placeholder="RFC" value="{{$medico->rfc}}">
+                        <input type="text" class="form-control" id="inputRFC" name="RFC" placeholder="RFC" value="{{$medico->rfc}}">
                       </div>
                     </div>
-                    <div class="form-group">
+                    <!--<div class="form-group">
                       <label for="inputFoto" class="col-sm-2 control-label">Subir Foto de Perfil</label>
                       <div class="col-sm-10">
                         <input type="file" id="inputFoto">
                       </div>
-                    </div>
+                    </div>-->
                     <div class="form-group">
                       <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-danger">Actualizar</button>
+                        <button type="submit" class="btn btn-danger" value="guardar">Actualizar</button>
                       </div>
                     </div>
                   </form>
