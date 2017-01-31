@@ -35,6 +35,12 @@ Route::group(['middleware' => 'auth'],function () {
         'as'   => 'user_show_profile_path',
       ])->where('id','[0-9]+');
 
+      //ruta para mostrar a los pacientes
+      Route::get('home/paciente/{id}',[
+        'uses' => 'Admin\PacienteController@index',
+        'as'   => 'paciente_show_path',
+      ])->where('id','[0-9]+');
+
 });
 
 /***************************************************************************************/

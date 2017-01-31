@@ -15,11 +15,6 @@ class Receta extends Model
     return $this->hasOne(HistorialClinico::class,'recetas_id');
   }
 
-  public function medicos()
-  {
-    return $this->belongsTo(Medico::class);
-  }
-
   public function pacientes()
   {
     return $this->belongsTo(Paciente::class);

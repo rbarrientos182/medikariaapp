@@ -14,6 +14,7 @@ class CreatePacientesTable extends Migration
     {
       Schema::create('pacientes', function (Blueprint $table) {
           $table->increments('id');
+          $table->integer('medicos_id')->unsigned();
           $table->string('nombrepaciente',60);
           $table->string('direccionpaciente',60);
           $table->string('estatura',60);
@@ -23,6 +24,7 @@ class CreatePacientesTable extends Migration
           $table->string('foto',60)->nullable();
           $table->timestamps();
           $table->softDeletes();
+          $table->foreign('medicos_id')->references('id')->on('medicos');
       });
     }
 

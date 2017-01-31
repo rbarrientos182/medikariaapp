@@ -15,8 +15,6 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-
-
         factory(Medikaria\Models\User::class, 10)->create()->each(function ($user) {
         });
     }

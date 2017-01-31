@@ -34,7 +34,7 @@
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="#"><i class="fa fa-list"></i>Ver pacientes</a></li>
+          <li><a href="{{route('paciente_show_path',$currentUser->id)}}"><i class="fa fa-list"></i>Ver pacientes</a></li>
           <li><a href="#"><i class="fa fa-file"></i>Historial Clinico</a></li>
 
         </ul>

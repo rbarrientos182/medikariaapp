@@ -15,6 +15,11 @@ class Medico extends Model
     return $this->hasMany(Receta::class,'medicos_id');
   }
 
+  public function pacientes()
+  {
+    return $this->hasMany(Paciente::class,'medicos_id');
+  }
+
   public function users()
   {
     return $this->belongsTo(User::class);

@@ -8,6 +8,9 @@
 </script>
 <!-- Bootstrap 3.3.6 -->
 <script src="{{ asset('components/plugins/bootstrap/js/bootstrap.min.js') }}" type="text/javascript"></script>
+<!-- DataTables -->
+<script src="{{ asset('components/plugins/datatables/jquery.dataTables.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('components/plugins/datatables/dataTables.bootstrap.min.js') }}" type="text/javascript"></script>
 <!-- Morris.js charts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js" type="text/javascript"></script>
 <script src="{{ asset('components/plugins/morris/morris.min.js') }}" type="text/javascript"></script>
@@ -25,6 +28,8 @@
 <script src="{{ asset('components/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js') }}" type="text/javascript"></script>
 <!-- Slimscroll -->
 <script src="{{ asset('components/plugins/slimScroll/jquery.slimscroll.min.js') }}" type="text/javascript"></script>
+<!-- ChartJS 1.0.1 -->
+<script src="{{ asset('components/plugins/chartjs/Chart.min.js') }}"></script>
 <!-- FastClick -->
 <script src="{{ asset('components/plugins/fastclick/fastclick.min.js') }}" type="text/javascript"></script>
 <!-- iCheck -->
@@ -39,6 +44,7 @@
 <script src="{{ asset('components/lte/js/demo.js') }}" type="text/javascript"></script>
 <!-- ToasTR Alert -->
 <script src="{{ asset('components/plugins/toastr/toastr.js') }}" type="text/javascript"></script>
+
 @section('scripts')
 
 @show
