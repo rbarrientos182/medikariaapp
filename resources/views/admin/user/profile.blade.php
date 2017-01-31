@@ -90,8 +90,8 @@
           <div class="col-md-9">
             <div class="nav-tabs-custom">
               <ul class="nav nav-tabs">
-                <li><a href="#activity" data-toggle="tab">Actividad</a></li>
-                <li><a href="#timeline" data-toggle="tab">Línea de Tiempo</a></li>
+                <!--<li><a href="#activity" data-toggle="tab">Actividad</a></li>
+                <li><a href="#timeline" data-toggle="tab">Línea de Tiempo</a></li>-->
                 <li class="active"><a href="#settings" data-toggle="tab">Actualizar Perfil</a></li>
               </ul>
               <div class="tab-content">
