@@ -22,11 +22,11 @@
   <div class="col-xs-12">
      <div class="box">
        <div class="box-header">
-         <h3 class="box-title">Data Table With Full Features</h3>
+         <h3 class="box-title">Tabla de Pacientes</h3>
        </div>
        <!-- /.box-header -->
        <div class="box-body">
-         <table id="example1" class="table table-bordered table-striped">
+         <table id="tablaPacientes" class="table table-bordered table-striped">
            <thead>
              <tr>
               <th>Nombre</th>
@@ -35,6 +35,7 @@
               <th>Peso</th>
               <th>Fecha de Nacimiento</th>
               <th>Celular</th>
+              <th>Acciones</th>
             </tr>
           </thead>
           <tbody>
@@ -46,6 +47,7 @@
               <td>{{$pacientes->peso}}</td>
               <td>{{$pacientes->nacimiento}}</td>
               <td>{{$pacientes->celular}}</td>
+              <td></td>
             </tr>
             @endforeach
           </tbody>
@@ -57,6 +59,7 @@
               <th>Peso</th>
               <th>Fecha de Nacimiento</th>
               <th>Celular</th>
+              <th>Acciones</th>
             </tr>
           </tfoot>
          </table>
@@ -72,7 +75,12 @@
 @section('scripts')
   <script>
     $(function () {
-      $("#example1").DataTable();
+      $("#tablaPacientes").DataTable({
+          "language":{
+             //"url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Spanish.json"
+             "url": "../../components/plugins/datatables/Spanish.json"
+          }
+      });
     });
   </script>
 @stop

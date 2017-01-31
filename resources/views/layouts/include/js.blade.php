@@ -39,7 +39,7 @@
 <!-- AdminLTE App -->
 <script src="{{ asset('components/lte/js/app.min.js') }}" type="text/javascript"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="{{ asset('components/lte/js/pages/dashboard.js') }}" type="text/javascript"></script>
+<!--<script src="{{ asset('components/lte/js/pages/dashboard.js') }}" type="text/javascript"></script>-->
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('components/lte/js/demo.js') }}" type="text/javascript"></script>
 <!-- ToasTR Alert -->
