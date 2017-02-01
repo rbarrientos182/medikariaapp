@@ -39,6 +39,7 @@
             </tr>
           </thead>
           <tbody>
+          @if($paciente)
             @foreach ($paciente as $pacientes)
             <tr>
               <td>{{$pacientes->nombrepaciente}}</td>
@@ -50,6 +51,7 @@
               <td></td>
             </tr>
             @endforeach
+          @endif
           </tbody>
           <tfoot>
             <tr>
