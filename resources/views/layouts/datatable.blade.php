@@ -35,7 +35,7 @@
                 @yield('content')
             </section>
         </div>
-
+        <!-- /.content-wrapper -->
         <footer class="main-footer">
             <div class="pull-right hidden-xs">
                 <b>Versión</b> 1.0
@@ -44,7 +44,8 @@
         </footer>
 
     </div>
-    <!-- Scripts -->
+    <!-- ./wrapper -->
     @include('layouts.include.datatablejs')
+    <!-- Scripts -->
 </body>
 </html>

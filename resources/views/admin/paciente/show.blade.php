@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 @extends('layouts.datatable')
 @section('styles')
 
