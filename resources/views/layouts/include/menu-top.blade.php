@@ -1,5 +1,5 @@
 <header class="main-header">
-    <a href="" class="logo">
+    <a href="{{route('home_show_path')}}" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
       <span class="logo-mini"><b>M</b>App</span>
       <!-- logo for regular state and mobile devices -->
@@ -10,9 +10,9 @@
         <!-- Sidebar toggle button-->
         <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
             <span class="sr-only">Toggle navigation</span>
-            <!--<span class="icon-bar"></span>
             <span class="icon-bar"></span>
-            <span class="icon-bar"></span>-->
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
         </a>
         <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
@@ -34,8 +34,8 @@
                     </li>
                     <!-- Menu Body -->
                     <li class="user-body">
-                      <!--<div class="row">
-                        <div class="col-xs-4 text-center">
+                      <div class="row">
+                        <!--<div class="col-xs-4 text-center">
                           <a href="#">Followers</a>
                         </div>
                         <div class="col-xs-4 text-center">
@@ -43,8 +43,8 @@
                         </div>
                         <div class="col-xs-4 text-center">
                           <a href="#">Friends</a>
-                        </div>
-                      </div>-->
+                        </div>-->
+                      </div>
                       <!-- /.row -->
                     </li>
                     <!-- Menu Footer-->

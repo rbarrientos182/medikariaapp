@@ -12,13 +12,13 @@
 			</div>
 			<div class="pull-left info">
 				<p>{{ $currentUser->nombre }}</p>
-				<i class="fa fa-circle text-success"></i> En Línea
+				<a href="#"><i class="fa fa-circle text-success"></i> En Línea</a>
 			</div>
 		</div>
   <!-- sidebar menu: : style can be found in sidebar.less -->
 		<ul class="sidebar-menu">
 			<li class="header"> Menú</li>
-			<li class="active treeview">
+			<li class="treeview active">
 				<a href="{{route('home_show_path')}}">
 					<i class="fa fa-home"></i>
 					<span>Inicio</span>
@@ -27,8 +27,7 @@
       <li class="header"> General</li>
       <li class="treeview">
         <a href="#">
-          <i class="fa fa-users"></i>
-          <span> Pacientes</span>
+          <i class="fa fa-users"></i><span> Pacientes</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>
@@ -36,7 +35,6 @@
         <ul class="treeview-menu">
           <li><a href="{{route('paciente_show_path',$currentUser->id)}}"><i class="fa fa-list"></i>Ver pacientes</a></li>
           <li><a href="#"><i class="fa fa-file"></i>Historial Clinico</a></li>
-
         </ul>
       </li>
       <li class="header">Plataforma</li>
@@ -81,50 +79,7 @@
           <li><a href="#"><i class="fa fa-user-md"></i>Perfil</a></li>
         </ul>
       </li>
-
-            <!-- Sección de ajustes -->
-            <!--<li class="header"> Ajustes</li>
-            <li class="">
-                <a href="#">
-                    <i class="fa fa-users"></i> Usuarios
-                </a>
-            </li>
-            <li class="">
-                <a href="#">
-                    <i class="fa fa-puzzle-piece"></i> Servicios
-                </a>
-            </li>
-            <li class="">
-                <a href="#">
-                    <i class="fa fa-ticket"></i> Folios
-                </a>
-            </li>
-            <li class="">
-                <a href="#">
-                    <i class="fa fa-money"></i> Formas de Pago
-                </a>
-            </li>-->
-
-            <!-- Sección de Clientes -->
-            <!--<li class="header"> Clientes</li>
-            <li class="">
-                <a href="#">
-                    <i class="fa fa-suitcase"></i> Clientes
-                </a>
-            </li>
-            <li class="header"> Ordenes</li>
-            <li class="">
-                <a href="#">
-                    <i class="fa fa-file-o"></i> Ordenes
-                </a>
-            </li>
-            <li class="header"> Facturación</li>
-            <li class="">
-                <a href="#">
-                    <i class="fa fa-file-o"></i> Facturas
-                </a>
-            </li>-->
 		</ul>
-
 	</section>
+  <!-- /.sidebar -->
 </aside>
