@@ -2,29 +2,35 @@
 @extends('layouts.default')
 @section('styles')
 <style type="text/css">
-    /* the magic part */
-    .img-circle:hover{
-      background-color: #4786ea;
-    }
-    .image_holder {
-				width: 100%;
+    .contenedor-img {
+				width: 100px;
+        height: 100px;
 				text-align: center;
 				margin: 0 auto;
-				position: relative;
+				position:static;
+
 			}
-			#image_info {
+    .img1{
+      float: left;
+      z-index: 0;
+    }
+    .img2{
+      display: none;
+      height: 100px;
+      width: 100px;
+      position: absolute;
+      z-index: 1;
+      color: #FFFFFF;
+      background-color: rgb(124,124,127); opacity: 0.7;
+    }
+		.contenedor-img:hover .img2{
+
 				display: block;
-				position: absolute;
-        height:100%;
-				top: 0;
-        left: 0;
-        text-align: center;
-				background-color: rgba(200, 200, 200, 0.5);
-			}
+		}
 
 
 			/* La parte magica */
-			.image_holder:hover #image_info {
+			.image_holder:hover .image_info {
 				display: block;
 			}
 
@@ -54,11 +60,15 @@
             <!-- Profile Image -->
             <div class="box box-primary">
               <div class="box-body box-profile">
-                <div class="image_holder">
-                  <img class="profile-user-img img-responsive img-circle" src="{{ asset('components/lte/img/userRoberto.jpg') }}" alt="User profile picture">
+                <div class="contenedor-img">
+                  <div class="img1">
+                    <img class="profile-user-img img-responsive img-circle" src="{{ asset('components/lte/img/userRoberto.jpg') }}" alt="User profile picture">
+                  </div>
                   <a href="#">
-                  <div id="image_info" class="profile-user-img img-responsive img-circle">
-                    <h4>Cambiar Imagen</h4>
+                  <div class="img2 img-responsive img-circle">
+                    <p></p>
+                    <strong><i class="fa fa-camera margin-r-5"></i>
+                      <p>Cambiar Imagen</p></strong>
                   </div>
                   </a>
                 </div>
