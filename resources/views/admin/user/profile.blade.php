@@ -1,4 +1,36 @@
+<!DOCTYPE html>
 @extends('layouts.default')
+@section('styles')
+<style type="text/css">
+    /* the magic part */
+    .img-circle:hover{
+      background-color: #4786ea;
+    }
+    .image_holder {
+				width: 100%;
+				text-align: center;
+				margin: 0 auto;
+				position: relative;
+			}
+			#image_info {
+				display: block;
+				position: absolute;
+        height:100%;
+				top: 0;
+        left: 0;
+        text-align: center;
+				background-color: rgba(200, 200, 200, 0.5);
+			}
+
+
+			/* La parte magica */
+			.image_holder:hover #image_info {
+				display: block;
+			}
+
+</style>
+@stop
+
   @section('head-title')<title>Medikaria | Perfil de Usuario</title>@show
 @section('section-title')
   <section class="content-header">
@@ -22,7 +54,14 @@
             <!-- Profile Image -->
             <div class="box box-primary">
               <div class="box-body box-profile">
-                <img class="profile-user-img img-responsive img-circle" src="{{ asset('components/lte/img/userRoberto.jpg') }}" alt="User profile picture">
+                <div class="image_holder">
+                  <img class="profile-user-img img-responsive img-circle" src="{{ asset('components/lte/img/userRoberto.jpg') }}" alt="User profile picture">
+                  <a href="#">
+                  <div id="image_info" class="profile-user-img img-responsive img-circle">
+                    <h4>Cambiar Imagen</h4>
+                  </div>
+                  </a>
+                </div>
 
                 <h3 class="profile-username text-center">{{ $user->nombre }}</h3>
 

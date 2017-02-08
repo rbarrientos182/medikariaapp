@@ -7,7 +7,7 @@
 <!-- DataTables -->
 <link href="{{ asset('components/plugins/datatables/dataTables.bootstrap.css') }}"  rel="stylesheet" type="text/css" />
 <!-- Theme style -->
-<link href="{{ asset('components/lte/css/AdminLTE.min.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('components/lte/css/AdminLTE.css') }}" rel="stylesheet" type="text/css" />
 <!-- AdminLTE Skins. Choose a skin from the css/skins
      folder instead of downloading all of them to reduce the load. -->
 <link href="{{ asset('components/lte/css/skins/skin-blue-light.css') }}" rel="stylesheet" type="text/css" />

@@ -7,7 +7,7 @@
       <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="icon" type="image/png" href="{{ asset('components/lte/img/medikaria_logo.ico') }}" />
-    @include('layouts.include.datatablecss')
+    @include('layouts.include.css')
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
@@ -45,7 +45,7 @@
 
     </div>
     <!-- ./wrapper -->
-    @include('layouts.include.datatablejs')
+    @include('layouts.include.js')
     <!-- Scripts -->
 </body>
 </html>

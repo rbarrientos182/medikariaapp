@@ -5,7 +5,7 @@
 <!-- Ionicons -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
 <!-- Theme style -->
-<link href="{{ asset('components/lte/css/AdminLTE.min.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('components/lte/css/AdminLTE.css') }}" rel="stylesheet" type="text/css" />
 <!-- iCheck -->
 <link href="{{ asset('components/plugins/iCheck/square/blue.css') }}" rel="stylesheet" type="text/css" />
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
