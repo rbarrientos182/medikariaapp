@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-@extends('layouts.datatable')
+@extends('layouts.default')
 @section('styles')
 
 @stop

@@ -18,10 +18,10 @@ Route::group(['middleware' => 'auth'],function () {
       ]);
 
       //ruta que envia al formulario de edición del user
-      /*Route::get('home/user/{id}/edit',[
-        'uses' => 'Admin\UserController@getEdit',
-        'as'   => 'user_show_edit_path',
-      ])->where('id','[0-9]+');*/
+      Route::get('home/user/{id}/phptoedit',[
+        'uses' => 'Admin\UserController@getEditPhoto',
+        'as'   => 'user_show_photoedit_path',
+      ])->where('id','[0-9]+');
 
       //ruta que se manda para actualizar
       Route::patch('home/user/{id}/edit',[

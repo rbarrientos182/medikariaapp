@@ -75,6 +75,7 @@ class AuthController extends Controller
         $user->password = bcrypt($request->password);
         $user->activo = 0;
         $user->remember_token = str_random(10);
+        $user->foto = 'profile.png';
         $user->save();
 
         //$user = User::all();

@@ -23,10 +23,10 @@ class UserController extends Controller
       return view('admin.user.profile', compact('user','medico','hospital','hospitales'));
     }
 
-    public function getEdit($id)
+    public function getEditPhoto($id)
     {
       $user = User::findOrFail($id);
-      return view('admin.user.edit',['user' => $user]);
+      return view('admin.user.photoprofile',['user' => $user]);
       //<input type="hidden" value="_method" value="patch">
     }
 
