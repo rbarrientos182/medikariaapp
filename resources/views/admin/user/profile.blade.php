@@ -45,7 +45,7 @@
           <small></small>
       </h1>
       <ol class="breadcrumb">
-          <li class="#"><i class="fa fa-home"></i> Inicio</li>
+          <li class="#"><i class="fa fa-home"></i><a href="{{route('home_show_path')}}">Inicio</a></li>
           <li class="active"><i class="fa fa-user"></i> Perfil</li>
       </ol>
   </section>
@@ -215,7 +215,7 @@
                     </div>
                     <div class="form-group">
                       <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-danger" value="guardar">Actualizar</button>
+                        <button type="submit" class="btn btn-primary" value="guardar">Actualizar</button>
                       </div>
                     </div>
                   </form>

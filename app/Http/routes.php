@@ -18,7 +18,7 @@ Route::group(['middleware' => 'auth'],function () {
       ]);
 
       //ruta que envia al formulario de edición del user
-      Route::get('home/user/{id}/phptoedit',[
+      Route::get('home/user/{id}/photoedit',[
         'uses' => 'Admin\UserController@getEditPhoto',
         'as'   => 'user_show_photoedit_path',
       ])->where('id','[0-9]+');
