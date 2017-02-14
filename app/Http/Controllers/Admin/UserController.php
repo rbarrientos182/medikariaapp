@@ -66,4 +66,21 @@ class UserController extends Controller
         $medico->save();
         return redirect()->route('user_show_profile_path', $user->id);
     }
+
+    public function updatePhoto(Request $request, $id)
+    {
+      $validator = Validator::make($request->all(),[
+        'imagen'      => 'required|image',
+      ]);
+
+      if($validator->fails()) {
+        return redirect()
+        ->route('user_show_photoedit_path',$id)
+        ->withErrors($validator)
+        ->withInput();
+      }
+
+      // resizing an uploaded file
+      Image::make(Input::file('photo'))->resize(120,120)->save('foo.jpg')
+    }
 }

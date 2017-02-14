@@ -17,16 +17,22 @@ Route::group(['middleware' => 'auth'],function () {
       'as'    => 'home_show_path',
       ]);
 
-      //ruta que envia al formulario de edición del user
-      Route::get('home/user/{id}/photoedit',[
-        'uses' => 'Admin\UserController@getEditPhoto',
-        'as'   => 'user_show_photoedit_path',
+      //ruta que manda a actualizar la imagen de perfil
+      Route::patch('home/user/{id}/photoedit',[
+        'uses' => 'Admin\UserController@updatePhoto',
+        'as'   => 'user_photo_patch_path',
       ])->where('id','[0-9]+');
 
       //ruta que se manda para actualizar
       Route::patch('home/user/{id}/edit',[
         'uses' => 'Admin\UserController@update',
         'as'   => 'user_patch_path',
+      ])->where('id','[0-9]+');
+
+      //ruta que envia al formulario de edición del user
+      Route::get('home/user/{id}/photoedit',[
+        'uses' => 'Admin\UserController@getEditPhoto',
+        'as'   => 'user_show_photoedit_path',
       ])->where('id','[0-9]+');
 
       //ruta que envia al profile del user en la app

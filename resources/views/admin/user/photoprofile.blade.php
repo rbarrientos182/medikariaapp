@@ -37,7 +37,7 @@
 </style>
 @stop
 
-  @section('head-title')<title>Medikaria | Perfil de Usuario</title>@show
+  @section('head-title')<title>Medikaria | Imagen de Usuario</title>@show
 @section('section-title')
   <section class="content-header">
       <h1>
@@ -151,7 +151,7 @@
                 </div>
                 <div class="active tab-pane" id="settings">
                   @include('partials.errors')
-                  <form class="form-horizontal" action="{{route('user_patch_path',$user->id)}}" enctype="multipart/form-data" method="post">
+                  <form class="form-horizontal" action="{{route('user_photo_patch_path',$user->id)}}" enctype="multipart/form-data" method="post">
                     {{ csrf_field() }}
                     <div class="form-group">
                       <div class="col-sm-10">
@@ -162,8 +162,7 @@
                       <label for="exampleInputFile" class="col-sm-2 control-label">Nombre del Archivo</label>
                       <div class="col-sm-10">
                         <input type="hidden" name="_method" value="patch">
-                        <input type="hidden" name="idmedico" value="{{$medico->id}}">
-                        <input type="file" id="exampleInputFile" class="form-control">
+                        <input type="file" name="imagen" id="exampleInputFile" class="form-control">
                         <p class="help-block">sube una fotografía de tu rostro, sin gafas ni pañuelos.</p>
                       </div>
                     </div>

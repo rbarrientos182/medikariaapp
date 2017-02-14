@@ -150,13 +150,12 @@
                 </div>
                 <div class="active tab-pane" id="settings">
                   @include('partials.errors')
-                  <form class="form-horizontal" action="{{route('user_patch_path',$user->id)}}" enctype="multipart/form-data" method="post">
+                  <form class="form-horizontal" action="{{route('user_patch_path',$user->id)}}" method="post">
                     {{ csrf_field() }}
                     <div class="form-group">
                       <label for="inputName" class="col-sm-2 control-label">Hospital</label>
                       <div class="col-sm-10">
                         <input type="hidden" name="_method" value="patch">
-                        <input type="hidden" name="idmedico" value="{{$medico->id}}">
                         <select class="form-control select2" name="idhospital" id="inputHospital" >
                           @foreach ($hospitales as $hospitals)
                             <option value="{{$hospitals->id}}" @if($hospitals->id==$hospital->id) selected="selected" @endif >{{$hospitals->nombrehospital}}</option>
