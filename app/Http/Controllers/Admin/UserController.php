@@ -3,6 +3,7 @@
 namespace Medikaria\Http\Controllers\Admin;
 
 use Validator;
+use Image;
 use Illuminate\Http\Request;
 use Medikaria\Http\Requests;
 
@@ -64,7 +65,10 @@ class UserController extends Controller
         $medico->hospitales_id = $request->idhospital;
         $medico->direccion = $request->direccion;
         $medico->save();
-        return redirect()->route('user_show_profile_path', $user->id)->with('status','Los cambios se realizaron con éxito.');
+
+        return redirect()
+        ->route('user_show_profile_path',$id)
+        ->with('status','Los cambios se realizarón con éxito.');
     }
 
     public function updatePhoto(Request $request, $id)
@@ -79,7 +83,7 @@ class UserController extends Controller
         ->withErrors($validator)
         ->withInput();
       }
-      $user = Auth::user();
+      $user = User::findOrFail($id);
       $extension = $request->file('imagen')->getClientOriginalExtension(); //capturamos la extension de la imagen
       $file_name = $user->id.'.'.$extension;
 
@@ -88,10 +92,12 @@ class UserController extends Controller
       ->resize(120,120)
       ->save('img/users/'.$file_name);
 
-      $user->foto = $extension;
+      $user->foto = $file_name;
       $user->save();
 
-      return redirect()->route('user_show_photoedit_path', $user->id)->with('status','Los cambios se realizaron con éxito.');
+      return redirect()
+      ->route('user_show_photoedit_path', $user->id)
+      ->with('status','La imagen se cambio con éxito.');
 
     }
 

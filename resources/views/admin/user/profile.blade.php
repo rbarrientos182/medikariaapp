@@ -156,6 +156,7 @@
                     <div class="form-group">
                       <label for="inputName" class="col-sm-2 control-label">Hospital</label>
                       <div class="col-sm-10">
+                        <input type="hidden" name="idmedico" value="{{$medico->id}}">
                         <input type="hidden" name="_method" value="patch">
                         <select class="form-control select2" name="idhospital" id="inputHospital" >
                           @foreach ($hospitales as $hospitals)
