@@ -62,7 +62,7 @@
               <div class="box-body box-profile">
                 <div class="contenedor-img">
                   <div class="img1">
-                    <img class="profile-user-img img-responsive img-circle" src="{{ asset('components/lte/img/'.$user->foto) }}" alt="User profile picture">
+                    <img class="profile-user-img img-responsive img-circle" src="{{ asset('img/users/'.$user->foto) }}" alt="User profile picture">
                   </div>
                   <a href="{{route('user_show_photoedit_path',$user->id)}}">
                   <div class="img2 img-responsive img-circle">
@@ -150,6 +150,7 @@
                 </div>
                 <div class="active tab-pane" id="settings">
                   @include('partials.errors')
+                  @include('partials.alerts')
                   <form class="form-horizontal" action="{{route('user_patch_path',$user->id)}}" method="post">
                     {{ csrf_field() }}
                     <div class="form-group">

@@ -151,11 +151,12 @@
                 </div>
                 <div class="active tab-pane" id="settings">
                   @include('partials.errors')
+                  @include('partials.alerts')
                   <form class="form-horizontal" action="{{route('user_photo_patch_path',$user->id)}}" enctype="multipart/form-data" method="post">
                     {{ csrf_field() }}
                     <div class="form-group">
                       <div class="col-sm-10">
-                        <img class="profile-user-img img-responsive" src="{{ asset('components/lte/img/'.$user->foto) }}" alt="imagen-perfil">
+                        <img class="profile-user-img img-responsive" src="{{ asset('img/users/'.$user->foto) }}" alt="imagen-perfil">
                       </div>
                     </div>
                     <div class="form-group">

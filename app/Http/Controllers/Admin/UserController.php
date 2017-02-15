@@ -64,7 +64,7 @@ class UserController extends Controller
         $medico->hospitales_id = $request->idhospital;
         $medico->direccion = $request->direccion;
         $medico->save();
-        return redirect()->route('user_show_profile_path', $user->id);
+        return redirect()->route('user_show_profile_path', $user->id)->with('status','Los cambios se realizaron con éxito.');
     }
 
     public function updatePhoto(Request $request, $id)
@@ -73,14 +73,33 @@ class UserController extends Controller
         'imagen'      => 'required|image',
       ]);
 
-      if($validator->fails()) {
+      if($validator->fails()){
         return redirect()
         ->route('user_show_photoedit_path',$id)
         ->withErrors($validator)
         ->withInput();
       }
+      $user = Auth::user();
+      $extension = $request->file('imagen')->getClientOriginalExtension(); //capturamos la extension de la imagen
+      $file_name = $user->id.'.'.$extension;
 
-      // resizing an uploaded file
-      Image::make(Input::file('photo'))->resize(120,120)->save('foo.jpg')
+      // ajustamos tamaño de imagen y lo subimos
+      Image::make($request->file('imagen'))
+      ->resize(120,120)
+      ->save('img/users/'.$file_name);
+
+      $user->foto = $extension;
+      $user->save();
+
+      return redirect()->route('user_show_photoedit_path', $user->id)->with('status','Los cambios se realizaron con éxito.');
+
     }
+
+    /*public function getUserPhotoRouteAtribute()
+    {
+        if ($this->foto) {
+           return 'img/users/'.$this->id.'.'.$this->foto;
+        }
+        return 'img/users/drive-male.png'
+    }*/
 }
