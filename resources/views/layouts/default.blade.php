@@ -45,7 +45,5 @@
     </div>
     <!-- Scripts -->
     @include('layouts.include.js')
-    {{-- Scripts con todas las alerta posibles --}}
-    @include('layouts.include.noti')
 </body>
 </html>
