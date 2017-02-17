@@ -1,15 +1,14 @@
-<!DOCTYPE html>
 <html lang="es">
 <head>
     <link rel="icon" type="image/png" href="{{ asset('components/lte/img/medikaria_logo.ico') }}" />
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     @section('head-title')<title>Medikaria | Home</title>@show
-      <!-- Tell the browser to be responsive to screen width -->
+    <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     @include('layouts.include.css')
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-blue-light sidebar-mini">
     <div class="wrapper">
         @include('layouts.include.menu-top')
         <!-- =============================================== -->

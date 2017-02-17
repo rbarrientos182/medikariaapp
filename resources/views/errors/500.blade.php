@@ -24,7 +24,7 @@
               Mientras tanto, usted puede <a href="#">volver al tablero</a> o intenta usar el formulario de búsqueda.
             </p>
 
-            <form class="search-form">
+            <!--<form class="search-form">
               <div class="input-group">
                 <input type="text" name="search" class="form-control" placeholder="Search">
 
@@ -32,9 +32,9 @@
                   <button type="submit" name="submit" class="btn btn-danger btn-flat"><i class="fa fa-search"></i>
                   </button>
                 </div>
-              </div>
+              </div>-->
               <!-- /.input-group -->
-            </form>
+            <!--</form>-->
           </div>
         </div>
         <!-- /.error-page -->
