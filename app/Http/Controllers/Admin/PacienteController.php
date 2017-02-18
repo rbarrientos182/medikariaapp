@@ -29,4 +29,18 @@ class PacienteController extends Controller
 
         return view('admin.paciente.show', compact('paciente'));
     }
+
+    public function create($id)
+    {
+        $user = User::findOrFail($id);
+
+        if($user->medicos){
+          $medico = $user->medicos;
+        }
+        else {
+          $medico = "";
+        }
+
+        return view('admin.paciente.create', compact('paciente'));
+    }
 }
