@@ -75,6 +75,15 @@
                </div>
              </div>
              <div class="form-group">
+               <label class="col-sm-2 control-label">Sexo:</label>
+               <div class="col-sm-6">
+                 <select class="form-control pull-right" name="sexo">
+                    <option value="Hombre">Hombre</option>
+                    <option value="Mujer">Mujer</option>
+                 </select>
+               </div>
+             </div>
+             <div class="form-group">
                <div class="col-sm-offset-2 col-sm-10">
                  <button type="submit" class="btn btn-primary" value="guardar">Agregar</button>
                </div>
