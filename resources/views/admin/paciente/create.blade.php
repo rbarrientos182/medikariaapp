@@ -61,7 +61,7 @@
              <div class="form-group">
                <label class="col-sm-2 control-label">Nacimiento:</label>
                <div class="col-sm-6">
-                 <input type="text" class="form-control pull-right" name="nacimiento" placeholder="Nacimiento" id="nacimiento">
+                 <input type="text" class="form-control pull-right" name="nacimiento" placeholder="Nacimiento" id="nacimiento" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask>
                </div>
              </div>
              <div class="form-group">
@@ -102,6 +102,9 @@
 <script src="{{asset('components/plugins/datepicker/locales/bootstrap-datepicker.es.js')}}" charset="UTF-8"></script>
 <script type="text/javascript">
 $(function () {
+
+  //Datemask dd/mm/yyyy
+  $("#nacimiento").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
   //Date picker
   $('#nacimiento').datepicker({
     language: 'es',
