@@ -30,7 +30,7 @@ class PacienteController extends Controller
         return view('admin.paciente.show', compact('paciente'));
     }
 
-    public function create($id)
+    public function getCreate($id)
     {
         $user = User::findOrFail($id);
 
@@ -41,6 +41,11 @@ class PacienteController extends Controller
           $medico = "";
         }
 
-        return view('admin.paciente.create', compact('paciente'));
+        return view('admin.paciente.create', compact('user','medico'));
+    }
+
+    public function create(Request $request, $id)
+    {
+      # code...
     }
 }

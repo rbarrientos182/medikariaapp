@@ -43,7 +43,7 @@ Route::group(['middleware' => 'auth'],function () {
 
       //ruta para mostrar el formulario de alta del paciente
       Route::get('home/paciente/{id}/create',[
-        'uses' => 'Admin\PacienteController@create',
+        'uses' => 'Admin\PacienteController@getCreate',
         'as'   => 'paciente_show_create_path'
       ])->where('id','[0-9]+');
 

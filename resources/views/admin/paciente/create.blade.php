@@ -31,11 +31,15 @@
              <h3 class="box-title">Agregar Paciente</h3>
            </div>
            <!-- form start -->
+           @include('partials.errors')
+           @include('partials.alerts')
            <form class="form-horizontal">
+            {{ csrf_field() }}
            <div class="box-body">
              <div class="form-group">
                <label class="col-sm-2 control-label">Nombre:</label>
                <div class="col-sm-6">
+                 <input type="hidden" name="idmedico" value="{{$medico->id}}">
                  <input type="text" class="form-control pull-right" name="nombre" placeholder="Nombre" id="nombre">
                </div>
              </div>
