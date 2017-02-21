@@ -21,7 +21,7 @@ class CreatePacientesTable extends Migration
           $table->string('peso',60);
           $table->date('nacimiento');
           $table->string('celular',60)->nullable();
-          $table->string('foto',60)->nullable();
+          $table->string('imagenpaciente',60)->nullable();
           $table->string('sexo',45);
           $table->timestamps();
           $table->softDeletes();
