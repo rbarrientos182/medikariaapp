@@ -46,6 +46,11 @@ class PacienteController extends Controller
 
     public function create(Request $request, $id)
     {
-      # code...
+        $validator = Validator::make($request->all(),[
+          'name'      => 'required',
+          'password'  => 'required|min:6|confirmed',
+          'celular'   => 'required|integer',
+          'direccion' => 'required',
+        ]);
     }
 }

@@ -26,6 +26,7 @@ $factory->define(Medikaria\Models\Paciente::class, function (Faker\Generator $fa
         'direccionpaciente' => $faker->address,
         'estatura' => $faker->randomFloat($nbMaxDecimals = 2, $min = 1, $max = 2),
         'nacimiento' => $faker->date($format = 'Y-m-d', $max = 'now'),
+        'sexo' => $faker->randomElement($array = array ('Hombre','Mujer')),
         'celular' => $faker->phoneNumber,
     ];
 });
