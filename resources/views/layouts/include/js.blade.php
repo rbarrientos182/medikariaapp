@@ -35,7 +35,7 @@
   <!-- iCheck -->
   <script src="{{ asset('components/plugins/iCheck/icheck.min.js') }}" type="text/javascript"></script>
   <!-- Select2 -->
-  <script src="{{ asset('components/plugins/select2/select2.min.js') }}" type="text/javascript"></script>
+  <script src="{{ asset('components/plugins/select2/select2.full.min.js') }}" type="text/javascript"></script>
   <!-- AdminLTE App -->
   <script src="{{ asset('components/lte/js/app.min.js') }}" type="text/javascript"></script>
   <!-- AdminLTE dashboard demo (This is only for demo purposes) -->

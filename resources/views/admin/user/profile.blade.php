@@ -37,7 +37,7 @@
 </style>
 @stop
 
-  @section('head-title')<title>Medikaria | Perfil de Usuario</title>@show
+@section('head-title')<title>Medikaria | Perfil de Usuario</title>@stop
 @section('section-title')
   <section class="content-header">
       <h1>

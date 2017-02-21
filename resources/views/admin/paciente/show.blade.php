@@ -3,7 +3,7 @@
 @section('styles')
 
 @stop
-@section('head-title')<title>Medikaria | Pacientes</title>@show
+@section('head-title')<title>Medikaria | Pacientes</title>@stop
 @section('section-title')
   <section class="content-header">
       <h1>
