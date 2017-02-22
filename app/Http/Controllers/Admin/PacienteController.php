@@ -49,8 +49,8 @@ class PacienteController extends Controller
         $validator = Validator::make($request->all(),[
           'nombre'     => 'required',
           'direccion'  => 'required',
-          'estatura'   => 'required|integer',
-          'peso'       => 'required|integer',
+          'estatura'   => 'required|numeric',
+          'peso'       => 'required|numeric',
           'nacimiento' => 'required|date',
           'celular'    => 'required|integer',
           'sexo'       => 'required'
@@ -76,7 +76,7 @@ class PacienteController extends Controller
 
         return redirect()
         ->route('paciente_show_create_path',$id)
-        ->with('status','Los cambios se realizarón con éxito.');
+        ->with('status','Paciente registrado exitósamente.');
 
     }
 }

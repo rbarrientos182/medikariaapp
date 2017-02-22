@@ -118,9 +118,10 @@
 $(function () {
 
   //Datemask dd/mm/yyyy
-  $("#nacimiento").inputmask("dd/mm/yyyy", {"placeholder": "dd/mm/yyyy"});
+  $("#nacimiento").inputmask("yyyy-mm-dd", {"placeholder": "yyyy-mm-dd"});
   //Date picker
   $('#nacimiento').datepicker({
+    format: 'yyyy-mm-dd',
     language: 'es',
     autoclose: true,
   });
