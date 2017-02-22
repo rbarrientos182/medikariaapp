@@ -28,6 +28,7 @@ $factory->define(Medikaria\Models\Paciente::class, function (Faker\Generator $fa
         'nacimiento' => $faker->date($format = 'Y-m-d', $max = 'now'),
         'sexo' => $faker->randomElement($array = array ('Hombre','Mujer')),
         'celular' => $faker->phoneNumber,
+        'emailpaciente' => $faker->safeEmail,
     ];
 });
 

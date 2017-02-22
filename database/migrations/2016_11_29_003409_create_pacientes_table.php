@@ -20,9 +20,13 @@ class CreatePacientesTable extends Migration
           $table->string('estatura',60);
           $table->string('peso',60);
           $table->date('nacimiento');
-          $table->string('celular',60)->nullable();
+          $table->string('celular',60);
           $table->string('imagenpaciente',60)->nullable();
           $table->string('sexo',45);
+          $table->string('emailpaciente'60);->nullable();
+          $table->text('padecimientos')->nullable();
+          $table->text('alergias')->nullable();
+          $tabla->text('cirugias')->nullable();
           $table->timestamps();
           $table->softDeletes();
           $table->foreign('medicos_id')->references('id')->on('medicos');

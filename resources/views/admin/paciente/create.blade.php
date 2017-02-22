@@ -85,6 +85,12 @@
                </div>
              </div>
              <div class="form-group">
+               <label class="col-sm-2 control-label">Email:</label>
+               <div class="col-sm-6">
+                 <input type="text" class="form-control pull-right" name="email" placeholder="Email" value="{{old('email')}}">
+               </div>
+             </div>
+             <div class="form-group">
                <div class="col-sm-offset-2 col-sm-10">
                  <button type="submit" class="btn btn-primary" value="guardar">Agregar</button>
                </div>

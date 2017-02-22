@@ -52,8 +52,9 @@ class PacienteController extends Controller
           'estatura'   => 'required|numeric',
           'peso'       => 'required|numeric',
           'nacimiento' => 'required|date',
-          'celular'    => 'required|integer',
-          'sexo'       => 'required'
+          'celular'    => 'required|string',
+          'sexo'       => 'required',
+          'email'      => 'email'
         ]);
 
         if($validator->fails()){
@@ -78,5 +79,10 @@ class PacienteController extends Controller
         ->route('paciente_show_create_path',$id)
         ->with('status','Paciente registrado exitosamente.');
 
+    }
+
+    public function getUpdate($value='')
+    {
+      # code...
     }
 }

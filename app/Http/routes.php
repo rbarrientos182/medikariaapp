@@ -49,7 +49,7 @@ Route::group(['middleware' => 'auth'],function () {
 
       //ruta para mostrar el formulario de alta del paciente
       Route::post('home/paciente/{id}/create',[
-        'uses' => 'Admin\PacienteController@Create',
+        'uses' => 'Admin\PacienteController@create',
         'as'   => 'paciente_create_path'
       ])->where('id','[0-9]+');
 
@@ -57,6 +57,18 @@ Route::group(['middleware' => 'auth'],function () {
       Route::get('home/paciente/{id}',[
         'uses' => 'Admin\PacienteController@index',
         'as'   => 'paciente_show_path',
+      ])->where('id','[0-9]+');
+
+      //ruta para mostrar el formulario de alta del paciente
+      Route::post('home/paciente/{id}/update',[
+        'uses' => 'Admin\PacienteController@getUpdate',
+        'as'   => 'paciente_show_update_path'
+      ])->where('id','[0-9]+');
+
+      //ruta para mostrar a los pacientes
+      Route::get('home/paciente/{id}',[
+        'uses' => 'Admin\PacienteController@update',
+        'as'   => 'paciente_update_path',
       ])->where('id','[0-9]+');
 
 });

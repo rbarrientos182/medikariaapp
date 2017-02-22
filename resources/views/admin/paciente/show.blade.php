@@ -43,7 +43,7 @@
             @if($paciente)
               @foreach($paciente as $pacientes)
               <tr>
-                <td><a class="btn btn-block btn-primary btn-sm"><i class="fa fa-edit"></i> Editar</a></td>
+                <td><a class="btn btn-block btn-primary btn-sm" href="#"><i class="fa fa-edit"></i> Editar</a></td>
                 <td>{{$pacientes->nombrepaciente}}</td>
                 <td>{{$pacientes->direccionpaciente}}</td>
                 <td>{{$pacientes->estatura}}</td>
@@ -56,13 +56,13 @@
             </tbody>
             <tfoot>
               <tr>
+                <th>Acciones</th>
                 <th>Nombre</th>
                 <th>Dirección</th>
                 <th>Estatura</th>
                 <th>Peso</th>
                 <th>Fecha de Nacimiento</th>
                 <th>Celular</th>
-                <th>Acciones</th>
               </tr>
             </tfoot>
            </table>
