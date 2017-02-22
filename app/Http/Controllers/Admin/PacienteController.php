@@ -76,7 +76,7 @@ class PacienteController extends Controller
 
         return redirect()
         ->route('paciente_show_create_path',$id)
-        ->with('status','Paciente registrado exitósamente.');
+        ->with('status','Paciente registrado exitosamente.');
 
     }
 }
