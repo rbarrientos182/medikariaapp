@@ -31,47 +31,48 @@
              <h3 class="box-title">Agregar Paciente</h3>
            </div>
            <!-- form start -->
-           @include('partials.errors')
-           @include('partials.alerts')
-           <form class="form-horizontal">
+
+           <form class="form-horizontal" method="post" action="{{route('paciente_create_path',$user->id)}}">
             {{ csrf_field() }}
            <div class="box-body">
+             @include('partials.errors')
+             @include('partials.alerts')
              <div class="form-group">
                <label class="col-sm-2 control-label">Nombre:</label>
                <div class="col-sm-6">
                  <input type="hidden" name="idmedico" value="{{$medico->id}}">
-                 <input type="text" class="form-control pull-right" name="nombre" placeholder="Nombre" id="nombre">
+                 <input type="text" class="form-control pull-right" name="nombre" placeholder="Nombre" id="nombre" value="{{old('nombre')}}">
                </div>
              </div>
              <div class="form-group">
                <label class="col-sm-2 control-label">Dirección:</label>
                <div class="col-sm-6">
-                 <input type="text" class="form-control pull-right" name="direccion" placeholder="Dirección" id="direccion">
+                 <input type="text" class="form-control pull-right" name="direccion" placeholder="Dirección" id="direccion" value="{{old('direccion')}}">
                </div>
              </div>
              <div class="form-group">
                <label class="col-sm-2 control-label">Estatura:</label>
                <div class="col-sm-6">
-                 <input type="text" class="form-control pull-right" name="estatura" placeholder="Estatura" id="estatura">
+                 <input type="text" class="form-control pull-right" name="estatura" placeholder="Estatura" id="estatura" value="{{old('estatura')}}">
                </div>
              </div>
              <div class="form-group">
                <label class="col-sm-2 control-label">Peso:</label>
                <div class="col-sm-6">
-                 <input type="text" class="form-control pull-right" name="peso" placeholder="Peso" id="peso">
+                 <input type="text" class="form-control pull-right" name="peso" placeholder="Peso" id="peso" value="{{old('peso')}}">
                </div>
              </div>
              <!-- Date -->
              <div class="form-group">
                <label class="col-sm-2 control-label">Nacimiento:</label>
                <div class="col-sm-6">
-                 <input type="text" class="form-control pull-right" name="nacimiento" placeholder="Nacimiento" id="nacimiento" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask>
+                 <input type="text" class="form-control pull-right" name="nacimiento" placeholder="Nacimiento" id="nacimiento" data-inputmask="'alias': 'dd/mm/yyyy'" data-mask value="{{old('nacimiento')}}">
                </div>
              </div>
              <div class="form-group">
                <label class="col-sm-2 control-label">Celular:</label>
                <div class="col-sm-6">
-                 <input type="text" class="form-control pull-right" name="celular" placeholder="Celular" id="celular">
+                 <input type="text" class="form-control pull-right" name="celular" placeholder="Celular" id="celular" value="{{old('celular')}}">
                </div>
              </div>
              <div class="form-group">

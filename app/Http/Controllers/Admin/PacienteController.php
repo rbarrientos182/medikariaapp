@@ -47,10 +47,36 @@ class PacienteController extends Controller
     public function create(Request $request, $id)
     {
         $validator = Validator::make($request->all(),[
-          'name'      => 'required',
-          'password'  => 'required|min:6|confirmed',
-          'celular'   => 'required|integer',
-          'direccion' => 'required',
+          'nombre'     => 'required',
+          'direccion'  => 'required',
+          'estatura'   => 'required|integer',
+          'peso'       => 'required|integer',
+          'nacimiento' => 'required|date',
+          'celular'    => 'required|integer',
+          'sexo'       => 'required'
         ]);
+
+        if($validator->fails()){
+          return redirect()
+          ->route('paciente_show_create_path',$id)
+          ->withErrors($validator)
+          ->withInput();
+        }
+
+        $paciente = new Paciente;
+        $paciente->nombrepaciente = $request->nombre;
+        $paciente->direccionpaciente = $request->direccion;
+        $paciente->estatura = $request->estatura;
+        $paciente->peso = $request->peso;
+        $paciente->nacimiento = $request->nacimiento;
+        $paciente->celular = $request->celular;
+        $paciente->sexo = $request->sexo;
+        $paciente->medicos_id = $request->idmedico;
+        $paciente->save();
+
+        return redirect()
+        ->route('paciente_show_create_path',$id)
+        ->with('status','Los cambios se realizarón con éxito.');
+
     }
 }
