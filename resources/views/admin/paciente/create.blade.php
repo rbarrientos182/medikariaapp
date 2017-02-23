@@ -91,6 +91,24 @@
                </div>
              </div>
              <div class="form-group">
+               <label class="col-sm-2 control-label">Padecimientos o Enfermedades:</label>
+               <div class="col-sm-6">
+                 <textarea name="padecimientos" class="form-control pull-right" rows="3" placeholder="Padecimientos o Enfermedades">{{old('padecimientos')}}</textarea>
+               </div>
+             </div>
+             <div class="form-group">
+               <label class="col-sm-2 control-label">Alergias:</label>
+               <div class="col-sm-6">
+                 <textarea name="alergias" class="form-control pull-right" rows="3" placeholder="Alergias">{{old('alergias')}}</textarea>
+               </div>
+             </div>
+             <div class="form-group">
+               <label class="col-sm-2 control-label">Intervenciones Quirúrgicas:</label>
+               <div class="col-sm-6">
+                 <textarea name="cirugias" class="form-control pull-right" rows="3" placeholder="Intervenciones Quirúrgicas">{{old('cirugias')}}</textarea>
+               </div>
+             </div>
+             <div class="form-group">
                <div class="col-sm-offset-2 col-sm-10">
                  <button type="submit" class="btn btn-primary" value="guardar">Agregar</button>
                </div>
