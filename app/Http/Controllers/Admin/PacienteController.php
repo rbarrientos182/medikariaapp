@@ -72,6 +72,7 @@ class PacienteController extends Controller
         $paciente->nacimiento = $request->nacimiento;
         $paciente->celular = $request->celular;
         $paciente->sexo = $request->sexo;
+        $paciente->emailpaciente = $request->email;
         $paciente->padecimientos = $request->padecimientos;
         $paciente->alergias = $request->alergias;
         $paciente->cirugias = $request->cirugias;
