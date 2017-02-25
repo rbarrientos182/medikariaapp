@@ -134,4 +134,34 @@ class PacienteController extends Controller
         ->with('status','Paciente editado exitosamente.');
 
     }
+
+    public function updateFoto(Request $request, $idpaciente)
+    {
+        $validator = Validator::make($request->all(),[
+          'imagen'     => 'required|image',
+        ]);
+
+        if($validator->fails()){
+          return redirect()
+          ->route('paciente_show_update_path',$idpaciente)
+          ->withErrors($validator)
+          ->withInput();
+        }
+
+        $user = Paciente::findOrFail($idpaciente);
+        $extension = $request->file('imagen')->getClientOriginalExtension(); //capturamos la extension de la imagen
+        $file_name = $idpaciente->id.'.'.$extension;
+
+        // ajustamos tamaño de imagen y lo subimos
+        Image::make($request->file('imagen'))
+        ->resize(240,240)
+        ->save('img/pacientes/'.$file_name);
+
+        $idpaciente->imagenpaciente = $file_name;
+        $idpaciente->save();
+
+        return redirect()
+        ->route('paciente_show_update_path', $idpaciente)
+        ->with('status','La imagen se cambio con éxito.');
+    }
 }
