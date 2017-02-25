@@ -71,6 +71,7 @@ class PacienteController extends Controller
         $paciente->peso = $request->peso;
         $paciente->nacimiento = $request->nacimiento;
         $paciente->celular = $request->celular;
+        $paciente->imagenpaciente = 'paciente.png';
         $paciente->sexo = $request->sexo;
         $paciente->emailpaciente = $request->email;
         $paciente->padecimientos = $request->padecimientos;
@@ -85,7 +86,16 @@ class PacienteController extends Controller
 
     }
 
-    public function getUpdate($value='')
+    public function getUpdate($idpaciente)
+    {
+        $paciente = Paciente::findOrFail($idpaciente);
+        if(!$paciente){
+          $paciente = "";
+        }
+        return view('admin.paciente.edit', compact('paciente'));
+    }
+
+    public function update($idpaciente)
     {
       # code...
     }
