@@ -109,7 +109,7 @@
                      </div>
                    </div>
                    <div class="form-group">
-                     <div class="col-sm-offset-2 col-sm-10">
+                     <div class="col-sm-offset-2 col-sm-6">
                        <button type="submit" class="btn btn-primary" value="guardar">Editar</button>
                      </div>
                    </div>
@@ -131,14 +131,14 @@
                      </div>
                      <div class="form-group">
                        <label for="exampleInputFile" class="col-sm-2 control-label">Nombre del Archivo</label>
-                       <div class="col-sm-10">
+                       <div class="col-sm-6">
                          <input type="hidden" name="_method" value="patch">
                          <input type="file" name="imagen" id="exampleInputFile" class="form-control">
                          <p class="help-block">sube una fotografía del paciente, sin gafas ni pañuelos.</p>
                        </div>
                      </div>
                      <div class="form-group">
-                       <div class="col-sm-offset-2 col-sm-10">
+                       <div class="col-sm-offset-2 col-sm-6">
                          <button type="submit" class="btn btn-primary" value="guardar">Actualizar Imagen</button>
                        </div>
                      </div>
