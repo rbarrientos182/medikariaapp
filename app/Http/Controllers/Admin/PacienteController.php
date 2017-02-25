@@ -131,7 +131,7 @@ class PacienteController extends Controller
 
         return redirect()
         ->route('paciente_show_update_path',$idpaciente)
-        ->with('status','Paciente registrado exitosamente.');
+        ->with('status','Paciente editado exitosamente.');
 
     }
 }
