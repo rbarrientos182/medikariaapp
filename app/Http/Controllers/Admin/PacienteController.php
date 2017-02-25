@@ -64,7 +64,7 @@ class PacienteController extends Controller
           ->withInput();
         }
 
-        $paciente = new Paciente;
+        $paciente = User::findOrFail($id);
         $paciente->nombrepaciente = $request->nombre;
         $paciente->direccionpaciente = $request->direccion;
         $paciente->estatura = $request->estatura;
@@ -95,8 +95,44 @@ class PacienteController extends Controller
         return view('admin.paciente.edit', compact('paciente'));
     }
 
-    public function update($idpaciente)
+    public function update(Request $request, $idpaciente)
     {
-      # code...
+        $validator = Validator::make($request->all(),[
+          'nombre'     => 'required',
+          'direccion'  => 'required',
+          'estatura'   => 'required|numeric',
+          'peso'       => 'required|numeric',
+          'nacimiento' => 'required|date',
+          'celular'    => 'required|string',
+          'sexo'       => 'required',
+          'email'      => 'email'
+        ]);
+
+        if($validator->fails()){
+          return redirect()
+          ->route('paciente_show_update_path',$idpaciente)
+          ->withErrors($validator)
+          ->withInput();
+        }
+
+        $paciente = Paciente::findOrFail($idpaciente);
+        $paciente->nombrepaciente = $request->nombre;
+        $paciente->direccionpaciente = $request->direccion;
+        $paciente->estatura = $request->estatura;
+        $paciente->peso = $request->peso;
+        $paciente->nacimiento = $request->nacimiento;
+        $paciente->celular = $request->celular;
+        $paciente->sexo = $request->sexo;
+        $paciente->emailpaciente = $request->email;
+        $paciente->padecimientos = $request->padecimientos;
+        $paciente->alergias = $request->alergias;
+        $paciente->cirugias = $request->cirugias;
+        $paciente->medicos_id = $request->idmedico;
+        $paciente->save();
+
+        return redirect()
+        ->route('paciente_show_update_path',$idpaciente)
+        ->with('status','Paciente registrado exitosamente.');
+
     }
 }

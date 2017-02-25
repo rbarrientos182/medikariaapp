@@ -54,19 +54,19 @@ Route::group(['middleware' => 'auth'],function () {
       ])->where('id','[0-9]+');
 
       //ruta para mostrar el formulario de edición del paciente
-      Route::get('home/paciente/{id}/update',[
+      Route::get('home/paciente/{idpaciente}/update',[
         'uses' => 'Admin\PacienteController@getUpdate',
         'as'   => 'paciente_show_update_path'
       ])->where('id','[0-9]+');
 
-      //ruta para mostrar editar al paciente
-      Route::get('home/paciente/{idpaciente}',[
+      //ruta para  editar al paciente
+      Route::patch('home/paciente/{idpaciente}/update',[
         'uses' => 'Admin\PacienteController@update',
         'as'   => 'paciente_update_path',
       ])->where('id','[0-9]+');
 
       //ruta para mostrar a los pacientes
-      Route::get('home/paciente/{idpaciente}',[
+      Route::get('home/paciente/{id}',[
         'uses' => 'Admin\PacienteController@index',
         'as'   => 'paciente_show_path',
       ])->where('id','[0-9]+');

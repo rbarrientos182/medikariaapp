@@ -41,6 +41,8 @@
                    <div class="form-group">
                      <label class="col-sm-2 control-label">Nombre:</label>
                      <div class="col-sm-6">
+                       <input type="hidden" name="idpaciente" value="{{$paciente->id}}">
+                       <input type="hidden" name="_method" value="patch">
                        <input type="text" class="form-control pull-right" name="nombre" placeholder="Nombre" id="nombre" value="{{$paciente->nombrepaciente}}">
                      </div>
                    </div>

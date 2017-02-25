@@ -31,7 +31,6 @@
              <h3 class="box-title">Agregar Paciente</h3>
            </div>
            <!-- form start -->
-
            <form class="form-horizontal" method="post" action="{{route('paciente_create_path',$user->id)}}">
             {{ csrf_field() }}
            <div class="box-body">
