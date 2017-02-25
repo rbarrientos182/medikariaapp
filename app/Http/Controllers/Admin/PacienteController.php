@@ -127,7 +127,6 @@ class PacienteController extends Controller
         $paciente->padecimientos = $request->padecimientos;
         $paciente->alergias = $request->alergias;
         $paciente->cirugias = $request->cirugias;
-        $paciente->medicos_id = $request->idmedico;
         $paciente->save();
 
         return redirect()
