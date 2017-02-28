@@ -3,6 +3,7 @@
 namespace Medikaria\Http\Controllers;
 
 use Validator;
+use Mail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Medikaria\Models\User;
@@ -48,15 +49,8 @@ class AuthController extends Controller
 
     public function create(Request $request)
     {
-        /*$this->validate($request,[
-        //'name'     => 'required',
-        'email'    => 'required|email|unique:users',
-        'password' => 'required|min:6|confirmed',
-        'accept' => 'accepted',]
-      );*/
-
         $validator = Validator::make($request->all(),[
-          //'name'     => 'required',
+          'name'     => 'required',
           'email'    => 'required|email|unique:users',
           'password' => 'required|min:6|confirmed',
           'accept' => 'accepted',
@@ -78,8 +72,6 @@ class AuthController extends Controller
         $user->foto = 'profile.png';
         $user->save();
 
-        //$user = User::all();
-
         $medico = new Medico;
         $medico->rfc = ' ';
         $medico->celular = ' ';
@@ -87,24 +79,21 @@ class AuthController extends Controller
         $medico->hospitales_id = 1;
         $medico->save();
 
+        Mail::send('admin.auth.emails.bienvenido',$request->all(),function($msj) use ($user)
+        {
+          $msj->from('barrientos.isc@gmail.com', 'Your Aplication!');
+          $msj->to($user->email,$user->nombre)->subject('Yor reminder!');
+          /*$msj->subject('barrientos.isc@gmail.com'!);
+          $msj->to('barrientos.isc@gmail.com');*/
+        });
+        /*Session::flash('message','Mensaje enviado correctamente');
+        return Redirect::to('auth_show_completed_path');*/
 
-
-        // si el usuario no existe redireccionamos a la vista login
-        if(!Auth::attempt($request->only(['email','password'])) ) {
-            return redirect()->route('auth_show_path')->withErrors('No encontramos al usuario');
-        }
-
-        //return redirect()->route('auth_show_completed_path');
-        return redirect()->route('home_show_path');
+        return redirect()->route('auth_show_completed_path',$request->name);
     }// fin de create
 
-    public function getCompleted()
+    public function getCompleted($nombre)
     {
-        return 'Contacto guardado correctamente';
+        return('bienvenido: '.$nombre);
     }// fin de getCompleted
-
-    public function postEmail()
-    {
-      // envio de correo
-    }
 }

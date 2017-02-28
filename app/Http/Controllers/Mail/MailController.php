@@ -1,5 +1,4 @@
 <?php
-
 namespace Medikaria\Http\Controllers\Mail;
 
 use Illuminate\Http\Request;

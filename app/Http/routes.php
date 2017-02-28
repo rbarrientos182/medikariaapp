@@ -107,7 +107,7 @@ Route::post('auth/register',[
   'as'   => 'auth_create_path',
 ]);
 // ruta que manda a la vista de registro completado
-Route::get('auth/register/completed',[
+Route::get('auth/register/completed/{nombre}',[
   'uses' => 'AuthController@getCompleted',
   'as'   => 'auth_show_completed_path',
 ]);
