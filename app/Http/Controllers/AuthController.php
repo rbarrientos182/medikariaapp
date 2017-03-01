@@ -73,7 +73,7 @@ class AuthController extends Controller
         $user->save();
 
         $medico = new Medico;
-        $medico->rfc = ' ';
+        $medico->rfc = bcrypt($user->id);
         $medico->celular = ' ';
         $medico->users_id = $user->id;
         $medico->hospitales_id = 1;
@@ -81,14 +81,10 @@ class AuthController extends Controller
 
         Mail::send('admin.auth.emails.bienvenido',$request->all(),function($msj) use ($user)
         {
-          $msj->from('barrientos.isc@gmail.com', 'Your Aplication!');
-          $msj->to($user->email,$user->nombre)->subject('Yor reminder!');
-          /*$msj->subject('barrientos.isc@gmail.com'!);
-          $msj->to('barrientos.isc@gmail.com');*/
-        });
-        /*Session::flash('message','Mensaje enviado correctamente');
-        return Redirect::to('auth_show_completed_path');*/
+          $msj->from('barrientos.isc@gmail.com', '¡Bienvenido!');
+          $msj->to($user->email,$user->nombre)->subject('¡Hola '.$user->nombre.'!');
 
+        });
         return redirect()->route('auth_show_completed_path',$request->name);
     }// fin de create
 
