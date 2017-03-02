@@ -35,7 +35,7 @@
         </ul>
       </li>
       <li class="header">Plataforma</li>
-      <li class="treeview">º
+      <li class="treeview">
         <a href="#">
           <i class="fa fa-hospital-o"></i>
           <span> Consultas</span>
