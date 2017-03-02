@@ -74,6 +74,7 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="#"><i class="fa fa-user-md"></i>Perfil</a></li>
+					<li><a href="#"><i class="fa fa-file-pdf-o"></i>Receta</a></li>
         </ul>
       </li>
 		</ul>
