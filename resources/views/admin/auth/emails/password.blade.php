@@ -1,8 +1,7 @@
 @extends('admin.auth.emails.default')
-
 @section('content')
-  Recupera tu contraseña<br>
-  Para recuperar tu contraseña haz click en la siguiente botón.<br><br>
+Éste correo te ha llegado ya que indicaste la necesida de recuperar tu contraseña de acceso.<br><br>
+Para recuperarla, haz click en el siguiente botón:
   <table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" style="margin: auto;">
       <tr>
           <td style="border-radius: 3px; background: #cc0b47; text-align: center;" class="button-td">
@@ -12,4 +11,14 @@
           </td>
       </tr>
   </table>
+
+@stop
+@section('emailfooter')
+En dado caso de que no hayas sido quien hizo la petición de recuperación de
+contraseña cambiala a la brevedad haciendo click <a href="#">aquí</a>.
+<webversion style="color:#cccccc; text-decoration:underline; font-weight: bold;">Ver Pagina</webversion>
+<br><br>
+MEDIKARIA<br>Puebla, Pue<br> (222) 1 864579
+<br><br>
+<unsubscribe style="color:#888888; text-decoration:underline;">Terminos</unsubscribe>
 @stop

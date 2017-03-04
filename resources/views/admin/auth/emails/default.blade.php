@@ -136,7 +136,7 @@
             <table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" width="100%" style="max-width: 600px;">
                 <tr>
                     <td style="padding: 20px 0; text-align: center">
-                        <img src="{{asset('http://i.imgur.com/sV74cEI.jpg')}}" width="200" height="50" alt="alt_text" border="0" style="height: auto; background: #dddddd; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555;">
+                      @yield('emailheader')
                     </td>
                 </tr>
             </table>
@@ -172,11 +172,7 @@
             <table role="presentation" cellspacing="0" cellpadding="0" border="0" align="center" width="100%" style="max-width: 680px;">
                 <tr>
                     <td style="padding: 40px 10px;width: 100%;font-size: 12px; font-family: sans-serif; line-height:18px; text-align: center; color: #888888;" class="x-gmail-data-detectors">
-                        <webversion style="color:#cccccc; text-decoration:underline; font-weight: bold;">Ver Pagina</webversion>
-                        <br><br>
-                        MEDIKARIA<br>Puebla, Pue<br> (222) 1 864579
-                        <br><br>
-                        <unsubscribe style="color:#888888; text-decoration:underline;">Terminos</unsubscribe>
+                      @yield('emailfooter')
                     </td>
                 </tr>
             </table>
