@@ -44,7 +44,7 @@
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="#"><i class="fa fa-stethoscope"></i>Diagnóstico</a></li>
+          <li><a href="{{route('diagnostico_show_path',$currentUser->id)}}"><i class="fa fa-stethoscope"></i>Diagnóstico</a></li>
           <li><a href="#"><i class="fa fa-list-ul"></i>Recetas</a></li>
           <li><a href="#"><i class="fa fa-money"></i>Cotización Virtual</a></li>
 

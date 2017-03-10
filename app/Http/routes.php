@@ -71,6 +71,11 @@ Route::group(['middleware' => 'auth'],function () {
         'as'   => 'paciente_show_path',
       ])->where('id','[0-9]+');
 
+      //ruta para crear una receta (Diagnóstico)
+      Route::get('home/diagnostico/{id}',[
+        'uses' => 'Admin\RecetaController@index',
+        'as'   => 'diagnostico_show_path',
+      ])->where('id','[0-9]+');
 });
 
 /***************************************************************************************/
