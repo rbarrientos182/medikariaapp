@@ -16,6 +16,8 @@ class CreateMedicamentosHasRecetasTable extends Migration
           $table->primary(['medicamentos_id', 'recetas_id']);
           $table->integer('medicamentos_id')->unsigned()->index();
           $table->integer('recetas_id')->unsigned()->index();
+          $table->text('dosis');
+          $table->integer('dias');
           $table->timestamps();
           $table->softDeletes();
           $table->foreign('medicamentos_id')->references('id')->on('medicamentos');

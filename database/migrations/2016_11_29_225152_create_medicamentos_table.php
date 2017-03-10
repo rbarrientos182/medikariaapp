@@ -18,6 +18,7 @@ class CreateMedicamentosTable extends Migration
           $table->string('laboratorio',60);
           $table->string('presentacion',60);
           $table->string('contenido',60);
+          $table->decimal('precio',5,2);
           $table->string('imagenmedicamento',60)->nullable();
           $table->timestamps();
           $table->softDeletes();

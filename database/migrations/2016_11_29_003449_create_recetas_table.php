@@ -15,7 +15,7 @@ class CreateRecetasTable extends Migration
       Schema::create('recetas', function (Blueprint $table) {
           $table->increments('id');
           $table->integer('pacientes_id')->unsigned();
-          $table->text('descripcionDosis');
+          $table->text('diagnostico');
           $table->date('fechaExpedicion');
           $table->timestamps();
           $table->softDeletes();
