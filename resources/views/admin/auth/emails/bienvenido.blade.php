@@ -7,7 +7,7 @@
   ¡Hola {!!$name!!}!
   <br><br>
   Gracias por unirte a MEDIKARIA.<br>
-  Ya puede comenzar a disfrutar de la plataforma. <br>
+  Ya puedes comenzar a disfrutar de la plataforma. <br>
   Úsala, aprovéchala, y realiza a partir de este momento los pedidos de los
   medicamentos que prescribas a tus pacientes, y que ellos recibirán en la
   comodidad de su casa.
