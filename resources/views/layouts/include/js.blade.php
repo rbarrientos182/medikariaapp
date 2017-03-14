@@ -1,5 +1,5 @@
   <!-- jQuery 2.2.3 -->
-  <script src="{{ asset('components/plugins/jQuery/jQuery-2.2.3.min.js') }}" type="text/javascript"></script>
+  <script src="{{ asset('components/plugins/jQuery/jquery-2.2.3.min.js') }}" type="text/javascript"></script>
   <!-- jQuery UI 1.11.4 -->
   <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js" type="text/javascript"></script>
   <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->

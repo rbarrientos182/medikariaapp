@@ -30,7 +30,7 @@ return [
     */
 
     //'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
-    'host' => env('MAIL_HOST', 'smtp.gmail.com'),
+    'host' => env('MAIL_HOST', 'mail.medikaria.com'),
 
     /*
     |--------------------------------------------------------------------------
@@ -56,7 +56,7 @@ return [
     |
     */
 
-    'from' => ['address' => 'barrientos.isc@gmail.com', 'name' => 'Roberto Barrientos'],
+    'from' => ['address' => 'info@medikaria.com', 'name' => 'Medikaria'],
 
     /*
     |--------------------------------------------------------------------------
