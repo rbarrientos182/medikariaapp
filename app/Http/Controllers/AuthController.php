@@ -73,8 +73,6 @@ class AuthController extends Controller
         $user->save();
 
         $medico = new Medico;
-        $medico->rfc = bcrypt($user->id);
-        $medico->celular = ' ';
         $medico->users_id = $user->id;
         $medico->hospitales_id = 1;
         $medico->save();

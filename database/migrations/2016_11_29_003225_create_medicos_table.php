@@ -14,9 +14,9 @@ class CreateMedicosTable extends Migration
     {
       Schema::create('medicos', function (Blueprint $table) {
           $table->increments('id');
-          $table->string('rfc',60)->unique();
+          $table->string('rfc',60)->unique()->nullable();
           $table->string('cedula',60)->nullable();
-          $table->string('celular',60);
+          $table->string('celular',60)->nullable();
           $table->integer('users_id')->unsigned();
           $table->integer('hospitales_id')->unsigned();
           $table->string('direccion',60)->nullable();
