@@ -29,7 +29,7 @@
 
                       <p>
                         {{ $currentUser->nombre }}
-                        <small>Miembro desde: {{ $currentUser->created_at }}</small>
+                        <small>Miembro desde: {{ date_format($currentUser->created_at,'Y-m-d') }}</small>
                       </p>
                     </li>
                     <!-- Menu Body -->
