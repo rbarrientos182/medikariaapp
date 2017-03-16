@@ -40,6 +40,11 @@
              </div>
              <div class="form-group">
                <div class="col-sm-offset-2 col-sm-6">
+                  <img class="profile-user-img img-responsive" src="{{}}" alt="imagen del paciente">
+               </div>
+             </div>
+             <div class="form-group">
+               <div class="col-sm-offset-2 col-sm-6">
                  <button type="button" class="btn btn-primary" value="guardar">Agregar</button>
                </div>
              </div>

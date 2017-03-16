@@ -3,6 +3,7 @@
 namespace Medikaria\Http\Controllers\Admin;
 
 use Validator;
+use Image;
 use Illuminate\Http\Request;
 use Medikaria\Http\Requests;
 
@@ -86,13 +87,14 @@ class PacienteController extends Controller
 
     }
 
-    public function getUpdate($idpaciente)
+    public function getUpdate($idpaciente,$editar)
     {
         $paciente = Paciente::findOrFail($idpaciente);
         if(!$paciente){
           $paciente = "";
         }
-        return view('admin.paciente.edit', compact('paciente'));
+
+        return view('admin.paciente.edit', compact('paciente','editar'));
     }
 
     public function update(Request $request, $idpaciente)
@@ -108,9 +110,11 @@ class PacienteController extends Controller
           'email'      => 'email'
         ]);
 
+        $editar = 1;
+
         if($validator->fails()){
           return redirect()
-          ->route('paciente_show_update_path',$idpaciente)
+          ->route('paciente_show_update_path',[$idpaciente,$editar])
           ->withErrors($validator)
           ->withInput();
         }
@@ -129,9 +133,11 @@ class PacienteController extends Controller
         $paciente->cirugias = $request->cirugias;
         $paciente->save();
 
+
+
         return redirect()
-        ->route('paciente_show_update_path',$idpaciente)
-        ->with('status','Paciente editado exitosamente.');
+        ->route('paciente_show_update_path',[$idpaciente,$editar])
+        ->with('status','El paciente se editó con éxito.');
 
     }
 
@@ -141,27 +147,29 @@ class PacienteController extends Controller
           'imagen'     => 'required|image',
         ]);
 
+        $editar = 0;
+
         if($validator->fails()){
           return redirect()
-          ->route('paciente_show_update_path',$idpaciente)
+          ->route('paciente_show_update_path', [$idpaciente, $editar])
           ->withErrors($validator)
           ->withInput();
         }
 
-        $user = Paciente::findOrFail($idpaciente);
+        $paciente = Paciente::findOrFail($idpaciente);
         $extension = $request->file('imagen')->getClientOriginalExtension(); //capturamos la extension de la imagen
-        $file_name = $idpaciente->id.'.'.$extension;
+        $file_name = $paciente->id.'.'.$extension;
 
         // ajustamos tamaño de imagen y lo subimos
         Image::make($request->file('imagen'))
         ->resize(240,240)
         ->save('img/pacientes/'.$file_name);
 
-        $idpaciente->imagenpaciente = $file_name;
-        $idpaciente->save();
+        $paciente->imagenpaciente = $file_name;
+        $paciente->save();
 
         return redirect()
-        ->route('paciente_show_update_path', $idpaciente)
+        ->route('paciente_show_update_path', [$idpaciente, $editar])
         ->with('status','La imagen se cambio con éxito.');
     }
 }

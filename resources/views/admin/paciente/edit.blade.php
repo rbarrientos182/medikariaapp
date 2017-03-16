@@ -22,22 +22,23 @@
       </ol>
   </section>
 @stop
-
 @section('content')
   <div class="row">
        <div class="col-md-10">
          <div class="nav-tabs-custom">
            <ul class="nav nav-tabs">
-             <li class="active"><a href="#editar" data-toggle="tab">Editar</a></li>
-             <li><a href="#foto" data-toggle="tab">Editar Foto</a></li>
+             <li @if($editar) class="active" @endif><a href="#editar" data-toggle="tab">Editar</a></li>
+             <li @if(!$editar)class="active" @endif><a href="#foto" data-toggle="tab">Editar Foto</a></li>
            </ul>
            <div class="tab-content">
-             <div class="active tab-pane" id="editar">
-                 <form class="form-horizontal" method="post" action="">
+             <div @if($editar) class="active tab-pane" @else class="tab-pane"  @endif  id="editar">
+                 <form class="form-horizontal" method="post" action="{{route('paciente_patch_path',$paciente->id)}}">
                   {{ csrf_field() }}
                  <div class="box-body">
-                   @include('partials.errors')
-                   @include('partials.alerts')
+                   @if($editar)
+                     @include('partials.errors')
+                     @include('partials.alerts')
+                   @endif
                    <div class="form-group">
                      <label class="col-sm-2 control-label">Nombre:</label>
                      <div class="col-sm-6">
@@ -121,29 +122,33 @@
 
              </div>
              <!-- /.tab-pane -->
-             <div class="tab-pane" id="foto">
-                   @include('partials.errors')
-                   @include('partials.alerts')
-                   <form class="form-horizontal" action="" enctype="multipart/form-data" method="post">
+             <div @if(!$editar) class="active tab-pane" @else class="tab-pane"  @endif  id="foto">
+                   <form class="form-horizontal" action="{{route('paciente_photo_patch_path',$paciente->id)}}" enctype="multipart/form-data" method="post">
                      {{ csrf_field() }}
-                     <div class="form-group">
-                       <div class="col-sm-10">
-                         <img class="profile-user-img img-responsive" src="{{ asset('img/pacientes/'.$paciente->imagenpaciente) }}" alt="imagen-paciente">
+                     <div class="box-body">
+                       @if(!$editar)
+                         @include('partials.errors')
+                         @include('partials.alerts')
+                       @endif
+                       <div class="form-group">
+                         <div class="col-sm-10">
+                           <img class="profile-user-img img-responsive" src="{{ asset('img/pacientes/'.$paciente->imagenpaciente) }}" alt="imagen-paciente">
+                         </div>
                        </div>
-                     </div>
-                     <div class="form-group">
-                       <label for="exampleInputFile" class="col-sm-2 control-label">Nombre del Archivo</label>
-                       <div class="col-sm-6">
-                         <input type="hidden" name="_method" value="patch">
-                         <input type="file" name="imagen" id="exampleInputFile" class="form-control">
-                         <p class="help-block">sube una fotografía del paciente, sin gafas ni pañuelos.</p>
+                       <div class="form-group">
+                         <label for="exampleInputFile" class="col-sm-2 control-label">Nombre del Archivo</label>
+                         <div class="col-sm-6">
+                           <input type="hidden" name="_method" value="patch">
+                           <input type="file" name="imagen" id="exampleInputFile" class="form-control">
+                           <p class="help-block">sube una fotografía del paciente, sin gafas ni pañuelos.</p>
+                         </div>
                        </div>
-                     </div>
-                     <div class="form-group">
-                       <div class="col-sm-offset-2 col-sm-6">
-                         <button type="submit" class="btn btn-primary" value="guardar">Actualizar Imagen</button>
+                       <div class="form-group">
+                         <div class="col-sm-offset-2 col-sm-6">
+                           <button type="submit" class="btn btn-primary" value="guardar">Actualizar Imagen</button>
+                         </div>
                        </div>
-                     </div>
+                   </div>
                    </form>
              </div>
              <!-- /.tab-pane -->
