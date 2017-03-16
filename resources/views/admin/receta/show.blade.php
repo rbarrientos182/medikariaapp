@@ -40,7 +40,7 @@
              </div>
              <div class="form-group">
                <div class="col-sm-offset-2 col-sm-6">
-                  <img class="profile-user-img img-responsive" src="{{}}" alt="imagen del paciente">
+                  <img class="profile-user-img img-responsive" src="{{{ asset('img/pacientes/default.png') }}}" alt="imagen del paciente">
                </div>
              </div>
              <div class="form-group">
