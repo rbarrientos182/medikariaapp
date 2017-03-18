@@ -26,28 +26,64 @@
            <form class="form-horizontal" method="post">
             {{ csrf_field() }}
            <div class="box-body">
-             <div class="form-group">
+            <div class="form-group">
                <label class="col-sm-2 control-label">Pacientes:</label>
-               <div class="col-sm-6">
-                 <input type="hidden" name="idmedico" value="{{$medico->id}}">
-                 <select class="form-control select2" name="paciente">
-                   @foreach ($paciente as $pacientes)
-                     <option value="{{$pacientes->id}}">{{$pacientes->nombrepaciente}}</option>
-                   @endforeach
-                 </select>
+            <div class="col-sm-8">
+             <div class="input-group">
+               <select class="form-control select2" name="paciente">
+                 @foreach ($paciente as $pacientes)
+                   <option value="{{$pacientes->id}}">{{$pacientes->nombrepaciente}}</option>
+                 @endforeach
+               </select>
+                    <div class="input-group-btn">
+                      <button type="button" class="btn btn-info btn-flat btn-olive">Buscar</button>
+                    </div>
+              </div>
+            </div>
+          </div>
+            <div class="col-md-2">
+               <div class="form-group">
+                    <img class="profile-user-img  img-responsive" src="{{{ asset('img/pacientes/default.png') }}}" alt="imagen del paciente">
                </div>
-               <button type="button" class="btn bg-olive"  name="button">Buscar</button>
+           </div>
+
+           <div class="col-md-10">
+             <div class="form-group">
+               <label class="col-sm-2 control-label">Nombre:</label>
+               <div class="col-sm-10">
+                 <input type="text" class="form-control pull-right" name="nombre" placeholder="Nombre" value="">
+               </div>
              </div>
              <div class="form-group">
-               <div class="col-sm-offset-2 col-sm-6">
-                  <img class="profile-user-img img-responsive" src="{{{ asset('img/pacientes/default.png') }}}" alt="imagen del paciente">
+               <label class="col-sm-2 control-label">Dirección:</label>
+               <div class="col-sm-10">
+                 <input type="text" class="form-control pull-right" name="direccion" placeholder="Dirección" value="">
                </div>
              </div>
              <div class="form-group">
-               <div class="col-sm-offset-2 col-sm-6">
-                 <button type="button" class="btn btn-primary" value="guardar">Agregar</button>
+               <label class="col-sm-2 control-label">Fecha de Nacimiento:</label>
+               <div class="col-sm-10">
+                 <input type="text" class="form-control pull-right" name="nacimiento" placeholder="Fecha de Nacimiento" value="">
                </div>
              </div>
+             <div class="form-group">
+               <label class="col-sm-2 control-label">Sexo:</label>
+               <div class="col-sm-10">
+                 <input type="text" class="form-control pull-right" name="sexo" placeholder="Sexo" value="">
+               </div>
+             </div>
+             <div class="form-group">
+               <label class="col-sm-2 control-label">Email:</label>
+               <div class="col-sm-10">
+                 <input type="text" class="form-control pull-right" name="email" placeholder="Email" value="">
+               </div>
+             </div>
+           </div>
+           <div class="form-group">
+             <div class="col-sm-offset-2 col-sm-6">
+               <button type="button" class="btn btn-primary" value="guardar">Agregar</button>
+             </div>
+           </div>
            </div>
            <!-- /.box-body -->
          </form>

@@ -162,7 +162,7 @@ class PacienteController extends Controller
 
         // ajustamos tamaño de imagen y lo subimos
         Image::make($request->file('imagen'))
-        ->resize(240,240)
+        ->resize(120,120)
         ->save('img/pacientes/'.$file_name);
 
         $paciente->imagenpaciente = $file_name;
