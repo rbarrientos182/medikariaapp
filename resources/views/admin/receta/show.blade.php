@@ -27,7 +27,7 @@
             {{ csrf_field() }}
            <div class="box-body">
             <div class="form-group">
-               <label class="col-sm-2 control-label">Pacientes:</label>
+               <label class="col-sm-2 control-label">Paciente:</label>
             <div class="col-sm-8">
              <div class="input-group">
                <select class="form-control select2" name="paciente">
