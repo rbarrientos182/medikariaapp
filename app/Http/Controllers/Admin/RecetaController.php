@@ -18,6 +18,8 @@ class RecetaController extends Controller
     public function index($id)
     {
       $user = User::findOrFail($id);
+      $medicamento = Medicamento::all();
+
       if($user->medicos){
         $medico = $user->medicos;
         if($medico->pacientes)
@@ -28,6 +30,11 @@ class RecetaController extends Controller
       else {
         $paciente = "";
       }
-      return view('admin.receta.show', compact('user','medico','paciente'));
+
+      if(!$medicamento){
+          $medicamento="";
+      }
+
+      return view('admin.receta.show', compact('user','medico','paciente','medicamento'));
     }
 }
