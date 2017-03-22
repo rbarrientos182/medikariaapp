@@ -30,13 +30,13 @@
                <label class="col-sm-2 control-label">Paciente:</label>
             <div class="col-sm-8">
              <div class="input-group">
-               <select class="form-control select2" name="paciente">
+               <select class="form-control select2" name="paciente" id="paciente">
                  @foreach ($paciente as $pacientes)
                    <option value="{{$pacientes->id}}">{{$pacientes->nombrepaciente}}</option>
                  @endforeach
                </select>
                     <div class="input-group-btn">
-                      <button type="button" class="btn btn-info btn-flat btn-olive">Buscar</button>
+                      <button type="button" id="btnBuscar" class="btn btn-info btn-flat btn-olive">Buscar</button>
                     </div>
               </div>
             </div>
