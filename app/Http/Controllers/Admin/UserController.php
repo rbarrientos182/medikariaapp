@@ -41,7 +41,7 @@ class UserController extends Controller
         'password'  => 'required|min:6|confirmed',
         'celular'   => 'required|integer',
         'direccion' => 'required',
-        'RFC'       => array('required','regex:/^([A-Z,Ñ,&]{3,4}([0-9]{2})(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1])[A-Z|\d]{3})$/'),
+        'RFC'       => array('required','regex:/^([A-Z,Ñ,&]{3,4}([0-9]{2})(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1])[A-Z|\d]{3})$/','unique:medicos'),
         //'accept'    => 'accepted',
       ]);
 
