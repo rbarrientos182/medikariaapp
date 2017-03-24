@@ -172,4 +172,12 @@ class PacienteController extends Controller
         ->route('paciente_show_update_path', [$idpaciente, $editar])
         ->with('status','La imagen se cambio con éxito.');
     }
+
+    public function getPacientes(Request $request,$id)
+    {
+        if($request->ajax()){
+          $paciente = Paciente::findOrFail($id);
+          return response()->json($paciente);
+        }
+    }
 }

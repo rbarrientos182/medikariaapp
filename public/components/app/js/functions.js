@@ -1,9 +1,13 @@
-$(function () {
-alert('entro a funciones');
-$("#btnBuscar").click(function() {
-    alert('dio click en boton');
-    var idpaciente = $('#paciente').val();
-    alert('el valor del id paciente es '+idpaciente);
-});
+$("#btnBuscar").click(function(e) {
 
+  e.preventDefault();
+    var idpaciente = $('#paciente').val();
+    $.get("../../pacientes/"+idpaciente+"",function(response,state){
+          console.log(response);
+          $("#nombre").val(response.nombrepaciente);
+          $("#direccion").val(response.direccionpaciente);
+          $("#nacimiento").val(response.nacimiento);
+          $("#sexo").val(response.sexo);
+          $("#email").val(response.emailpaciente);
+    });
 });

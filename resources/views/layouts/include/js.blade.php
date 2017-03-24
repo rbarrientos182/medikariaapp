@@ -43,7 +43,7 @@
   <!-- AdminLTE for demo purposes -->
   <script src="{{ asset('components/lte/js/demo.js') }}" type="text/javascript"></script>
   <!-- ToasTR Alert -->
-  <script src="{{ asset('components/plugins/toastr/toastr.js') }}" type="text/javascript"></script>
+  <!--<script src="{{ asset('components/plugins/toastr/toastr.js') }}" type="text/javascript"></script>-->
 
   @section('scripts')
 

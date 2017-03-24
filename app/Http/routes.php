@@ -78,6 +78,12 @@ Route::group(['middleware' => 'auth'],function () {
         'as'   => 'paciente_show_path',
       ])->where('id','[0-9]+');
 
+      /**
+      * Rutas para ajax
+      **/
+      //Route::resource('pacientes','Admin\PacienteController');
+      Route::get('pacientes/{id}','Admin\PacienteController@getPacientes');
+
       //ruta para crear una receta (Diagnóstico)
       Route::get('home/diagnostico/{id}',[
         'uses' => 'Admin\RecetaController@index',
@@ -148,10 +154,10 @@ Route::post('password/reset',[
 ]);
 
 
-/***************************************************************************************/
+/*******************************************************************************/
 /**
  * Rutas de las vistas de la página web
- */
+ **/
 
 // ruta que manda a la vista de registro completado
 Route::get('welcome',function () {
@@ -163,3 +169,6 @@ Route::get('welcome',function () {
 Route::get('/',function () {
     return view('welcome');
 });
+
+
+/******************************************************************************/

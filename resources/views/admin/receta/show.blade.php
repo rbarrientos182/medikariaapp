@@ -23,7 +23,7 @@
              <h3 class="box-title">Crear Receta</h3>
            </div>
            <!-- form start -->
-           <form class="form-horizontal" method="post">
+           <form class="form-horizontal" method="get">
             {{ csrf_field() }}
            <div class="box-body">
             <div class="form-group">
@@ -52,48 +52,50 @@
                <label class="col-sm-2 control-label">Nombre:</label>
                <div class="col-sm-10">
                  <input type="text" class="form-control pull-right"
-                 name="nombre" placeholder="Nombre" value="" disabled>
+                 name="nombre" placeholder="Nombre" id="nombre" disabled>
                </div>
              </div>
              <div class="form-group">
                <label class="col-sm-2 control-label">Dirección:</label>
                <div class="col-sm-10">
                  <input type="text" class="form-control pull-right"
-                 name="direccion" placeholder="Dirección" value="" disabled>
+                 name="direccion" placeholder="Dirección" id="direccion" disabled>
                </div>
              </div>
              <div class="form-group">
                <label class="col-sm-2 control-label">Fecha de Nacimiento:</label>
                <div class="col-sm-10">
                  <input type="text" class="form-control pull-right"
-                 name="nacimiento" placeholder="Fecha de Nacimiento" value="" disabled>
+                 name="nacimiento" placeholder="Fecha de Nacimiento"
+                 id="nacimiento" disabled>
                </div>
              </div>
              <div class="form-group">
                <label class="col-sm-2 control-label">Sexo:</label>
                <div class="col-sm-4">
-                 <input type="text" class="form-control pull-right"
-                 name="sexo" placeholder="Sexo" value="" disabled>
+                 <input type="text" class="form-control pull-right" name="sexo"
+                 placeholder="Sexo" id="sexo" disabled>
                </div>
              </div>
              <div class="form-group">
                <label class="col-sm-2 control-label">Email:</label>
                <div class="col-sm-10">
-                 <input type="text" class="form-control pull-right"
-                 name="email" placeholder="Email" value="" disabled>
+                 <input type="text" class="form-control pull-right" name="email"
+                 placeholder="Email" id="email" disabled>
                </div>
              </div>
              <div class="form-group">
                <label class="col-sm-2 control-label">Diagnóstico:</label>
                <div class="col-sm-10">
                  <textarea class="form-control pull-right" name="diagnostico"
-                 placeholder="Diagnóstico" rows="5" cols="80" ></textarea>
+                 placeholder="Diagnóstico" id="diagnostico"  rows="5" cols="80">
+               </textarea>
                </div>
              </div>
              <div class="form-group">
                <label class="col-sm-2 control-label">Medicamento:</label>
                <div class="col-sm-10">
-                 <select class="form-control select2" name="medicamento">
+                 <select class="form-control select2" name="medicamento" id="medicamento">
                    @foreach ($medicamento as $medicamentos)
                      <option value="{{$medicamentos->id}}">
                        {{$medicamentos->nombremedicamento}}
@@ -106,27 +108,29 @@
                <label class="col-sm-2 control-label">Cantidad:</label>
                <div class="col-sm-4">
                  <input type="text" class="form-control pull-right" name="cant"
-                 id="cant" placeholder="Cantidad" value="">
+                 placeholder="Cantidad" id="cant"   value="">
                </div>
              </div>
              <div class="form-group">
                <label class="col-sm-2 control-label">Dosis:</label>
                <div class="col-sm-10">
                  <textarea class="form-control pull-right" name="dosis"
-                placeholder="Dosis"  rows="5" cols="80"></textarea>
+                placeholder="Dosis" id="dosis"  rows="5" cols="80"></textarea>
                </div>
              </div>
              <div class="form-group">
                <label class="col-sm-2 control-label">Días:</label>
                <div class="col-sm-4">
                  <input type="text" class="form-control pull-right" name="cant"
-                 id="dias" placeholder="Días" value="">
+                 placeholder="Días" id="dias"  value="">
                </div>
              </div>
            </div>
            <div class="form-group">
              <div class="col-sm-offset-2 col-sm-6">
-               <button type="button" class="btn btn-primary" value="guardar">Agregar</button>
+               <button type="button" class="btn btn-primary" value="guardar">
+                 Agregar
+               </button>
              </div>
            </div>
            </div>
