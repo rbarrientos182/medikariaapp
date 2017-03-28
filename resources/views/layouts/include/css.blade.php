@@ -4,6 +4,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <!-- Ionicons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+    <!-- Animated -->
+    <link href="{{ asset('components/plugins/animate/animate.css') }}" rel="stylesheet" type="text/css" />
     <!-- DataTables -->
     <link href="{{ asset('components/plugins/datatables/dataTables.bootstrap.css') }}"  rel="stylesheet" type="text/css" />
     <!-- Select2 -->

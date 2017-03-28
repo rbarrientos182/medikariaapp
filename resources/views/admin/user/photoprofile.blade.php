@@ -63,7 +63,7 @@
               <div class="box-body box-profile">
                 <div class="contenedor-img">
                   <div class="img1">
-                    <img class="profile-user-img img-responsive img-circle" src="{{ asset('img/users/'.$user->foto) }}" alt="Imagen-Usuario">
+                    <img class="profile-user-img img-responsive img-circle animated rotateIn" src="{{ asset('img/users/'.$user->foto) }}" alt="Imagen-Usuario">
                   </div>
                   <a href="{{route('user_show_photoedit_path',$user->id)}}">
                   <div class="img2 img-responsive img-circle">

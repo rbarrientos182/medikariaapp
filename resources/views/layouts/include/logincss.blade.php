@@ -1,5 +1,7 @@
 <!-- Bootstrap 3.3.6 -->
 <link href="{{ asset('components/plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
+<!-- Animated -->
+<link href="{{ asset('components/plugins/animate/animate.css') }}" rel="stylesheet" type="text/css" />
 <!-- Font Awesome -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 <!-- Ionicons -->

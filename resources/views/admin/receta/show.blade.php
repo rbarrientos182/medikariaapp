@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 @extends('layouts.default')
+@section('styles')
+  <!-- app -->
+  <link rel="stylesheet" href="{{asset('components/app/css/styles.css')}}">
+@stop
 @section('head-title')<title>Medikaria | Realizar Diagnóstico</title>@stop
 @section('section-title')
   <section class="content-header">
@@ -43,7 +47,7 @@
           </div>
             <div class="col-md-2">
                <div class="form-group">
-                    <img class="profile-user-img  img-responsive" src="{{{ asset('img/pacientes/default.png') }}}" alt="imagen del paciente">
+                    <img id="imagenperfil" class="profile-user-img  img-responsive" src="{{ asset('img/pacientes/default.png') }}" alt="imagen del paciente">
                </div>
            </div>
 
@@ -51,6 +55,7 @@
              <div class="form-group">
                <label class="col-sm-2 control-label">Nombre:</label>
                <div class="col-sm-10">
+                 <input type="hidden" name="idpaciente" id="idpaciente">
                  <input type="text" class="form-control pull-right"
                  name="nombre" placeholder="Nombre" id="nombre" disabled>
                </div>
@@ -88,8 +93,7 @@
                <label class="col-sm-2 control-label">Diagnóstico:</label>
                <div class="col-sm-10">
                  <textarea class="form-control pull-right" name="diagnostico"
-                 placeholder="Diagnóstico" id="diagnostico"  rows="5" cols="80">
-               </textarea>
+                 placeholder="Diagnostico" id="diagnostico"  rows="5" cols="80"></textarea>
                </div>
              </div>
              <div class="form-group">
@@ -128,7 +132,7 @@
            </div>
            <div class="form-group">
              <div class="col-sm-offset-2 col-sm-6">
-               <button type="button" class="btn btn-primary" value="guardar">
+               <button type="button" id="btnAdd" class="btn btn-primary" value="guardar">
                  Agregar
                </button>
              </div>
@@ -145,6 +149,8 @@
      <!-- /.row -->
 @stop
 @section('scripts')
+<!-- Bootstrap Notify-->
+<script src="{{ asset('components/plugins/bootstrap-notify/bootstrap-notify.min.js') }}"></script>
 <!-- InputMask -->
 <script src="{{ asset('components/plugins/input-mask/jquery.inputmask.js') }}"></script>
 <script src="{{asset('components/plugins/input-mask/jquery.inputmask.date.extensions.js')}}"></script>
@@ -154,7 +160,7 @@ $(function () {
    $(".select2").select2();
 
    $("#cant").inputmask("99");
-   $("#dias").inputmask("99");
+   $("#dias").inputmask("999");
 });
 </script>
 <script src="{{asset('components/app/js/functions.js')}}"></script>

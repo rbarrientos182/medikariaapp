@@ -1,9 +1,9 @@
 <header class="main-header">
     <a href="{{route('home_show_path')}}" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>M</b>App</span>
+      <span class="logo-mini animated  lightSpeedIn"><b>M</b>App</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Medikaria</b></span>
+      <span class="logo-lg animated  lightSpeedIn"><b>Medikaria</b></span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
