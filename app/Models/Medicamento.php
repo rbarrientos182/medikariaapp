@@ -12,6 +12,6 @@ class Medicamento extends Model
 
   public function recetas()
   {
-    return $this->belongsToMany(Receta::class);
+    return $this->belongsToMany(Receta::class,'medicamentos_has_recetas','medicamentos_id','recetas_id');
   }
 }

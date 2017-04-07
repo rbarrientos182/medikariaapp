@@ -65,7 +65,7 @@ class PacienteController extends Controller
           ->withInput();
         }
 
-        $paciente = User::findOrFail($id);
+        $paciente = new Paciente;
         $paciente->nombrepaciente = $request->nombre;
         $paciente->direccionpaciente = $request->direccion;
         $paciente->estatura = $request->estatura;

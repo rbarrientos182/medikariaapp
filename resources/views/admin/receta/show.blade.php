@@ -109,17 +109,29 @@
                </div>
              </div>
              <div class="form-group">
-               <label class="col-sm-2 control-label">Cantidad:</label>
+               <label class="col-sm-2 control-label">Dosis:</label>
                <div class="col-sm-4">
-                 <input type="text" class="form-control pull-right" name="cant"
-                 placeholder="Cantidad" id="cant"   value="">
+                 <!--<input type="text" class="form-control pull-right" name="dosis"
+                 id="dosis" placeholder="Dosis">-->
+                 <select class="form-control pull-right" name="dosis" id="dosis" >
+                   @for ($i=1; $i <=10 ; $i++)
+                     <option value="{{$i}}">
+                       {{$i}}
+                     </option>
+                   @endfor
+                 </select>
                </div>
              </div>
              <div class="form-group">
-               <label class="col-sm-2 control-label">Dosis:</label>
-               <div class="col-sm-10">
-                 <textarea class="form-control pull-right" name="dosis"
-                placeholder="Dosis" id="dosis"  rows="5" cols="80"></textarea>
+               <label class="col-sm-2 control-label">Periodicidad:</label>
+               <div class="col-sm-4">
+                 <select class="form-control pull-right" name="cant" id="cant" >
+                   @for ($i=1; $i <=24 ; $i++)
+                     <option value="{{$i}}">
+                       {{$i}} Hrs
+                     </option>
+                   @endfor
+                 </select>
                </div>
              </div>
              <div class="form-group">
@@ -154,13 +166,16 @@
 <!-- InputMask -->
 <script src="{{ asset('components/plugins/input-mask/jquery.inputmask.js') }}"></script>
 <script src="{{asset('components/plugins/input-mask/jquery.inputmask.date.extensions.js')}}"></script>
+<script src="{{asset('components/plugins/input-mask/jquery.inputmask.regex.extensions.js')}}"></script>
 <script src="{{asset('components/plugins/input-mask/jquery.inputmask.extensions.js')}}"></script>
 <script type="text/javascript">
 $(function () {
    $(".select2").select2();
 
-   $("#cant").inputmask("99");
-   $("#dias").inputmask("999");
+   //$("#dosis").inputmask("99");
+   $("#dias").inputmask('Regex', {
+    regex: "^[1-9]{1}[0-9]{1,2}$"
+});
 });
 </script>
 <script src="{{asset('components/app/js/functions.js')}}"></script>

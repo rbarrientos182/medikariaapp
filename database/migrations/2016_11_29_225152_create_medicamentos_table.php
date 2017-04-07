@@ -17,7 +17,8 @@ class CreateMedicamentosTable extends Migration
           $table->string('nombremedicamento',60);
           $table->string('laboratorio',60);
           $table->string('presentacion',60);
-          $table->string('contenido',60);
+          $table->string('contenidodescripcion',60);
+          $table->integer('contenidomedida');
           $table->decimal('precio',5,2);
           $table->string('imagenmedicamento',60)->nullable();
           $table->timestamps();
