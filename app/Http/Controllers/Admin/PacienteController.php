@@ -49,6 +49,8 @@ class PacienteController extends Controller
     {
         $validator = Validator::make($request->all(),[
           'nombre'     => 'required',
+          'apellidop'     => 'required',
+          'apellidom'     => 'required',
           'direccion'  => 'required',
           'estatura'   => 'required|numeric',
           'peso'       => 'required|numeric',
@@ -67,6 +69,8 @@ class PacienteController extends Controller
 
         $paciente = new Paciente;
         $paciente->nombrepaciente = $request->nombre;
+        $paciente->apellidopacientep = $request->apellidop;
+        $paciente->apellidopacientem = $request->apellidom;
         $paciente->direccionpaciente = $request->direccion;
         $paciente->estatura = $request->estatura;
         $paciente->peso = $request->peso;
@@ -101,6 +105,8 @@ class PacienteController extends Controller
     {
         $validator = Validator::make($request->all(),[
           'nombre'     => 'required',
+          'apellidop'     => 'required',
+          'apellidom'     => 'required',
           'direccion'  => 'required',
           'estatura'   => 'required|numeric',
           'peso'       => 'required|numeric',
@@ -121,6 +127,8 @@ class PacienteController extends Controller
 
         $paciente = Paciente::findOrFail($idpaciente);
         $paciente->nombrepaciente = $request->nombre;
+        $paciente->apellidopacientep = $request->apellidop;
+        $paciente->apellidopacientem = $request->apellidom;
         $paciente->direccionpaciente = $request->direccion;
         $paciente->estatura = $request->estatura;
         $paciente->peso = $request->peso;

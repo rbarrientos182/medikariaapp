@@ -16,6 +16,8 @@ class CreatePacientesTable extends Migration
           $table->increments('id');
           $table->integer('medicos_id')->unsigned();
           $table->string('nombrepaciente',60);
+          $table->string('apellidopacientep',60);
+          $table->string('apellidopacientem',60);
           $table->string('direccionpaciente',60);
           $table->string('estatura',60);
           $table->string('peso',60);

@@ -48,6 +48,18 @@
                      </div>
                    </div>
                    <div class="form-group">
+                     <label class="col-sm-2 control-label">Apellido Paterno:</label>
+                     <div class="col-sm-6">
+                       <input type="text" class="form-control pull-right" name="apellidop" placeholder="Apellido Paterno" id="apellidop" value="{{$paciente->apellidopacientep}}">
+                     </div>
+                   </div>
+                   <div class="form-group">
+                     <label class="col-sm-2 control-label">Apellido Materno:</label>
+                     <div class="col-sm-6">
+                       <input type="text" class="form-control pull-right" name="apellidom" placeholder="Apellido Materno" id="apellidom" value="{{$paciente->apellidopacientem}}">
+                     </div>
+                   </div>
+                   <div class="form-group">
                      <label class="col-sm-2 control-label">Dirección:</label>
                      <div class="col-sm-6">
                        <input type="text" class="form-control pull-right" name="direccion" placeholder="Dirección" id="direccion" value="{{$paciente->direccionpaciente}}">
