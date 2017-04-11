@@ -19,12 +19,28 @@ $("#btnBuscar").click(function(e) {
 $("#btnAdd").click(function(e) {
 
   e.preventDefault();
+
+  var message = '\n';
+  var bandera = false;
     if(!$('#idpaciente').val()) {
-        showMessageAlert('No ha Escogido un paciente');
+      bandera = true;
+      message += '* No ha Escogido un Paciente <br>';
+        //showMessageAlert('No ha Escogido un paciente');
     }
 
     if(!$('#diagnostico').val()) {
-        showMessageAlert('Falta llenar campo Diagnóstico');
+      bandera = true;
+      message += '* Falta Llenar Campo Diagnóstico  <br>'
+        //showMessageAlert('Falta llenar campo Diagnóstico');
+    }
+    if(!$('#dias').val()) {
+      bandera = true;
+      message += '* Falta Llenar Campo Días  <br>'
+        //showMessageAlert('Falta llenar campo Diagnóstico');
+    }
+
+    if(bandera){
+        showMessageAlert(message);
     }
 });
 /*** fin de boton agregar medicamento - módulo de crear receta***/

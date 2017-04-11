@@ -36,7 +36,7 @@
              <div class="input-group">
                <select class="form-control select2" name="paciente" id="paciente">
                  @foreach ($paciente as $pacientes)
-                   <option value="{{$pacientes->id}}">{{$pacientes->nombrepaciente}}</option>
+                   <option value="{{$pacientes->id}}">{{$pacientes->nombrepaciente.' '.$pacientes->apellidopacientep.' '.$pacientes->apellidopacientem}}</option>
                  @endforeach
                </select>
                     <div class="input-group-btn">

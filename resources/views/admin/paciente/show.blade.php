@@ -44,7 +44,7 @@
               @foreach($paciente as $pacientes)
               <tr>
                 <td><a class="btn btn-block btn-primary btn-sm" href="{{route('paciente_show_update_path',[$pacientes->id,1])}}"><i class="fa fa-edit"></i> Editar</a></td>
-                <td>{{$pacientes->nombrepaciente}}</td>
+                <td>{{$pacientes->nombrepaciente.' '.$pacientes->apellidopacientep.' '.$pacientes->apellidopacientem}}</td>
                 <td>{{$pacientes->direccionpaciente}}</td>
                 <td>{{$pacientes->estatura}}</td>
                 <td>{{$pacientes->peso}}</td>
