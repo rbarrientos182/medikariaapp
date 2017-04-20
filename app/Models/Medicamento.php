@@ -14,4 +14,9 @@ class Medicamento extends Model
   {
     return $this->belongsToMany(Receta::class,'medicamentos_has_recetas','medicamentos_id','recetas_id');
   }
+
+  public function categorias()
+  {
+    return $this->belongsTo(Categoria::class,'bancos_id');
+  }
 }
