@@ -79,7 +79,7 @@ Route::group(['middleware' => 'auth'],function () {
       ])->where('id','[0-9]+');
 
       /**
-      * Rutas para ajax
+      * Ruta ajax
       **/
       //Route::resource('pacientes','Admin\PacienteController');
       Route::get('pacientes/{id}','Admin\PacienteController@getPacientes');
@@ -89,6 +89,13 @@ Route::group(['middleware' => 'auth'],function () {
         'uses' => 'Admin\RecetaController@index',
         'as'   => 'diagnostico_show_path',
       ])->where('id','[0-9]+');
+
+      /**
+      * Ruta ajax
+      **/
+      Route::post('recetas/{id}',[
+        'uses' => 'Admin\RecetaController@makeReceta',
+        'as'   => 'receta_ajax_path',]);
 });
 
 /***************************************************************************************/

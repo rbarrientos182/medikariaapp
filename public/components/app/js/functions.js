@@ -15,7 +15,6 @@ $("#btnBuscar").click(function(e) {
 });
 
 /*** fin de boton buscar cliente - módulo de crear receta***/
-
 $("#btnAdd").click(function(e) {
 
   e.preventDefault();
@@ -38,9 +37,25 @@ $("#btnAdd").click(function(e) {
       message += '* Falta Llenar Campo Días  <br>'
         //showMessageAlert('Falta llenar campo Diagnóstico');
     }
-
     if(bandera){
         showMessageAlert(message);
+    }
+    else {
+      var formId = '#form-receta-ajax';
+      var datos_formulario = $(formId).serialize();
+      //alert(datos_formulario);
+      $.ajax({
+        url: $(formId).attr('action'),
+        data: datos_formulario,
+        type: $(formId).attr('method'),
+        dataType: 'json',
+        success:function(datos){
+          showMessageAlert(datos.message);
+        },
+        error:function(obj,error,objerror){
+          showMessageAlert('obj: '+obj+' error: '+error+' objerror: '+objerror);
+        }
+      });
     }
 });
 /*** fin de boton agregar medicamento - módulo de crear receta***/

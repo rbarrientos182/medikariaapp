@@ -27,7 +27,7 @@
              <h3 class="box-title">Crear Receta</h3>
            </div>
            <!-- form start -->
-           <form class="form-horizontal" method="get">
+           <form class="form-horizontal" method="post" action="{{route('receta_ajax_path',$medico->id)}}" id="form-receta-ajax">
             {{ csrf_field() }}
            <div class="box-body">
             <div class="form-group">
@@ -125,7 +125,7 @@
              <div class="form-group">
                <label class="col-sm-2 control-label">Periodicidad:</label>
                <div class="col-sm-4">
-                 <select class="form-control pull-right" name="cant" id="cant" >
+                 <select class="form-control pull-right" name="perio" id="perio" >
                    @for ($i=1; $i <=24 ; $i++)
                      <option value="{{$i}}">
                        {{$i}} Hrs
@@ -137,7 +137,7 @@
              <div class="form-group">
                <label class="col-sm-2 control-label">Días:</label>
                <div class="col-sm-4">
-                 <input type="text" class="form-control pull-right" name="cant"
+                 <input type="text" class="form-control pull-right" name="dias"
                  placeholder="Días" id="dias"  value="">
                </div>
              </div>

@@ -37,4 +37,18 @@ class RecetaController extends Controller
 
       return view('admin.receta.show', compact('user','medico','paciente','medicamento'));
     }
+
+    public function makeReceta(Request $request, $id)
+    {
+        if($request->ajax()){
+          $pacientes_id = $request->idpaciente;
+          $diagnostico = $request->diagnostico;
+          $medicamentos_id = $request->medicamento;
+          $dosis = $request->dosis;
+          $periodicidad = $request->perio;
+          $dias = $request->dias;
+          //$paciente = Medico::findOrFail($id);
+          return response()->json(['pacientes_id' => $pacientes_id]);
+        }
+    }
 }
