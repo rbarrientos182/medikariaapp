@@ -41,6 +41,16 @@ class RecetaController extends Controller
     public function makeReceta(Request $request, $id)
     {
         if($request->ajax()){
+
+          $validator = Validator::make($request->all(),[
+            'idpaciente'     => 'required',
+            'diagnostico'     => 'required',
+            'dias'     => 'required|numeric'
+          ]);
+
+          if($validator->fails()){
+            return response()->json(['errors' => $validator->errors()->all()]);
+          }
           $pacientes_id = $request->idpaciente;
           $diagnostico = $request->diagnostico;
           $medicamentos_id = $request->medicamento;

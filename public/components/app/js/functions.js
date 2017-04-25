@@ -20,27 +20,6 @@ $("#btnAdd").click(function(e) {
   e.preventDefault();
 
   var message = '\n';
-  var bandera = false;
-    if(!$('#idpaciente').val()) {
-      bandera = true;
-      message += '* No ha Escogido un Paciente <br>';
-        //showMessageAlert('No ha Escogido un paciente');
-    }
-
-    if(!$('#diagnostico').val()) {
-      bandera = true;
-      message += '* Falta Llenar Campo Diagnóstico  <br>'
-        //showMessageAlert('Falta llenar campo Diagnóstico');
-    }
-    if(!$('#dias').val()) {
-      bandera = true;
-      message += '* Falta Llenar Campo Días  <br>'
-        //showMessageAlert('Falta llenar campo Diagnóstico');
-    }
-    if(bandera){
-        showMessageAlert(message);
-    }
-    else {
       var formId = '#form-receta-ajax';
       var datos_formulario = $(formId).serialize();
       //alert(datos_formulario);
@@ -50,13 +29,23 @@ $("#btnAdd").click(function(e) {
         type: $(formId).attr('method'),
         dataType: 'json',
         success:function(datos){
-          showMessageAlert(datos.message);
+          if (datos.errors){
+            var errors = '';
+            for(var i in datos.errors) {
+                errors += datos.errors[i]+"<br>";
+                console.log(datos.errors[i]);
+            }
+            showMessageAlert(errors);
+          }
+          else {
+              console.log('entra para hacer la receta');
+          }
         },
         error:function(obj,error,objerror){
           showMessageAlert('obj: '+obj+' error: '+error+' objerror: '+objerror);
         }
       });
-    }
+    //}
 });
 /*** fin de boton agregar medicamento - módulo de crear receta***/
 
