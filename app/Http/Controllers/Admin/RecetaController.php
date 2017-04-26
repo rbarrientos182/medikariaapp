@@ -12,13 +12,14 @@ use Medikaria\Models\Medico;
 use Medikaria\Models\Paciente;
 use Medikaria\Models\Receta;
 use Medikaria\Models\Medicamento;
+use Medikaria\Models\Categoria;
 
 class RecetaController extends Controller
 {
     public function index($id)
     {
       $user = User::findOrFail($id);
-      $medicamento = Medicamento::all();
+      $categoria = Categoria::all();
 
       if($user->medicos){
         $medico = $user->medicos;
@@ -31,11 +32,11 @@ class RecetaController extends Controller
         $paciente = "";
       }
 
-      if(!$medicamento){
-          $medicamento="";
+      if(!$categoria){
+          $categoria="";
       }
 
-      return view('admin.receta.show', compact('user','medico','paciente','medicamento'));
+      return view('admin.receta.show', compact('user','medico','paciente','categoria'));
     }
 
     public function makeReceta(Request $request, $id)
@@ -54,11 +55,41 @@ class RecetaController extends Controller
           $pacientes_id = $request->idpaciente;
           $diagnostico = $request->diagnostico;
           $medicamentos_id = $request->medicamento;
+
+
+
+          //evaluación para saber la cantidad de medicamento a obtener
+
+          $bandera=0;
+          //obtenemos el medicamento para sacar el valor de contenido
+          $medicamento = Medicamento::findOrFail($medicamentos_id);
+          $contenido = $medicamento->contenidomedida;
           $dosis = $request->dosis;
-          $periodicidad = $request->perio;
           $dias = $request->dias;
+          $periodicidad = $request->perio;
+          define("DIA",24);// definimos una constante para las horas totales de un dia
+          $horasTotales = DIA * $dias; // sacamos las horas totales de acuerdo a cuantos dias
+          $cantidad = 0;
+          $totalContenido = 1;
+          for($i=1; $i<=$horasTotales; $i=$i+$periodicidad) {
+            if ($bandera==0) {
+              $cantidad = $dosis;
+              $bandera = 1;
+            }// fin de if
+            else {
+              $cantidad = $cantidad + $dosis;
+              if ($cantidad>$contenido) {
+                 $totalContenido++;
+                 $contenido = $contenido + $contenido;
+              }// fin de if
+            }// fin de else
+          }// fin de for
+
+          $totalContenido;
+
+
           //$paciente = Medico::findOrFail($id);
-          return response()->json(['pacientes_id' => $pacientes_id]);
+          return response()->json(['mensaje' => $totalContenido]);
         }
     }
 }

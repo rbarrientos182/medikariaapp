@@ -100,10 +100,16 @@
                <label class="col-sm-2 control-label">Medicamento:</label>
                <div class="col-sm-10">
                  <select class="form-control select2" name="medicamento" id="medicamento">
-                   @foreach ($medicamento as $medicamentos)
-                     <option value="{{$medicamentos->id}}">
-                       {{$medicamentos->nombremedicamento}}
-                     </option>
+                   @foreach ($categoria as $categorias)
+                     @if(COUNT($categorias->medicamentos)>0)
+                       <optgroup label="{{$categorias->categoria}}">
+                         @foreach ($categorias->medicamentos as $medicamentos)
+                             <option value="{{$medicamentos->id}}">
+                               {{$medicamentos->nombremedicamento.' '.$medicamentos->contenidomedida.' '.$medicamentos->contenidodescripcion}}
+                             </option>
+                         @endforeach
+                       </optgroup>
+                     @endif
                    @endforeach
                  </select>
                </div>

@@ -1,6 +1,6 @@
 <?php
 
-namespace Medikaria;
+namespace Medikaria\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,8 +10,8 @@ class Categoria extends Model
       'categoria',
   ];
 
-  public function datos_bancarios()
+  public function medicamentos()
   {
-    return $this->hasMany(Medicamento::class);
+    return $this->hasMany(Medicamento::class,'categorias_id');
   }
 }

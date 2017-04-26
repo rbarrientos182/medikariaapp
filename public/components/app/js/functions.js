@@ -38,7 +38,7 @@ $("#btnAdd").click(function(e) {
             showMessageAlert(errors);
           }
           else {
-              console.log('entra para hacer la receta');
+            showMessageAlert("La cantidad de medicamento es: "+datos.mensaje);
           }
         },
         error:function(obj,error,objerror){
