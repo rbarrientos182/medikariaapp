@@ -26,13 +26,17 @@ class AuthController extends Controller
         'password' => 'required']
       );
 
-      // si el usuario no existe redireccionamos a la vista login
-      if(!Auth::attempt($request->only(['email','password'])) ) {
-          return redirect()->route('auth_show_path')->withErrors('No encontramos al usuario');
+      //Si el usuario existe y mandamos a home
+      if(Auth::attempt(['email' => $request->email, 'password' => $request->password], $request->remember)) {
+
+        return redirect()->route('home_show_path');
+
+      }
+      //en caso contrario significa que no existe redireccionamos a la vista login
+      else{
+        return redirect()->route('auth_show_path')->withErrors('No encontramos al usuario');
       }
 
-      // en caso contrario significa que el usuario existe y mandamos a home
-      return redirect()->route('home_show_path');
 
     }// fin de store
 

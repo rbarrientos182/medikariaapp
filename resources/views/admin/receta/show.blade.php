@@ -25,6 +25,9 @@
          <div class="box box-primary">
            <div class="box-header with-border">
              <h3 class="box-title">Crear Receta</h3>
+             <div class="box-tools pull-right">
+               <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+             </div>
            </div>
            <!-- form start -->
            <form class="form-horizontal" method="post" action="{{route('receta_ajax_path',$medico->id)}}" id="form-receta-ajax">
@@ -44,13 +47,12 @@
                     </div>
               </div>
             </div>
-          </div>
+            </div>
             <div class="col-md-2">
                <div class="form-group">
                     <img id="imagenperfil" class="profile-user-img  img-responsive" src="{{ asset('img/pacientes/default.png') }}" alt="imagen del paciente">
                </div>
-           </div>
-
+            </div>
            <div class="col-md-10">
              <div class="form-group">
                <label class="col-sm-2 control-label">Nombre:</label>
@@ -95,6 +97,9 @@
                  <textarea class="form-control pull-right" name="diagnostico"
                  placeholder="Diagnostico" id="diagnostico"  rows="5" cols="80"></textarea>
                </div>
+             </div>
+             <div class="alert alert-info">
+               Añadir Medicamento
              </div>
              <div class="form-group">
                <label class="col-sm-2 control-label">Medicamento:</label>
@@ -161,9 +166,46 @@
          <!-- /.form -->
          </div>
          <!-- /.box -->
+         <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Tabla de Medicamentos</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body no-padding">
+              <table class="table table-striped">
+                <tr>
+                  <th style="width: 10px">#</th>
+                  <th>Nombre</th>
+                  <th style="width: 40px">Dosis</th>
+                  <th style="width: 40px">Periodicidad</th>
+                  <th style="width: 40px">Días</th>
+                  <th style="width: 40px">Cantidad</th>
+                </tr>
+                <tr>
+                  <td>1.</td>
+                  <td>Omeprazol 50 Cápsulas</td>
+                  <td><span class="badge bg-green">1</span></td>
+                  <td><span class="badge bg-light-blue">2 hrs</span></td>
+                  <td><span class="badge bg-yellow">2</span></td>
+                  <td><span class="badge bg-red">1</span></td>
+                </tr>
+                <tr>
+                  <td>2.</td>
+                  <td>Binotal 50 Cápsulas</td>
+                  <td><span class="badge bg-green">2</span></td>
+                  <td><span class="badge bg-light-blue">4 hrs</span></td>
+                  <td><span class="badge bg-yellow">3</span></td>
+                  <td><span class="badge bg-red">2</span></td>
+                </tr>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
        </div>
        <!-- /.col (right) -->
+
      </div>
+
      <!-- /.row -->
 @stop
 @section('scripts')
