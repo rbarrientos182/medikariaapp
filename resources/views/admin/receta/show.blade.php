@@ -99,7 +99,7 @@
                </div>
              </div>
              <div class="alert alert-info">
-               Añadir Medicamento
+                 Añadir Medicamento
              </div>
              <div class="form-group">
                <label class="col-sm-2 control-label">Medicamento:</label>
@@ -182,30 +182,18 @@
                   <th style="width: 40px">Cantidad</th>
                   <th style="width: 40px">Acción</th>
                 </tr>
-                <!--<tr>
-                  <td>1.</td>
-                  <td>Omeprazol 50 Cápsulas</td>
-                  <td><span class="badge bg-green">1</span></td>
-                  <td><span class="badge bg-light-blue">2 hrs</span></td>
-                  <td><span class="badge bg-yellow">2</span></td>
-                  <td><span class="badge bg-red">1</span></td>
-                  <td><button type="button" id="delete" class="btn btn-block btn-danger btn-xs">Eliminar</button></td>
-                </tr>-->
-                <!--<tr>
-                  <td>2.</td>
-                  <td>Binotal 50 Cápsulas</td>
-                  <td><span class="badge bg-green">2</span></td>
-                  <td><span class="badge bg-light-blue">4 hrs</span></td>
-                  <td><span class="badge bg-yellow">3</span></td>
-                  <td><span class="badge bg-red">2</span></td>
-                </tr>-->
               </table>
-            </div>
+              <div class="col-xs-12">
+                <div class="form-group">
+                    <button type="button" id="btnAdd" class="btn btn-success" value="guardar">
+                      Guardar
+                    </button>
+                </div>
+              <div>
             <!-- /.box-body -->
           </div>
        </div>
        <!-- /.col (right) -->
-
      </div>
 
      <!-- /.row -->
