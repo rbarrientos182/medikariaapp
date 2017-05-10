@@ -172,31 +172,33 @@
             </div>
             <!-- /.box-header -->
             <div class="box-body no-padding">
-              <table class="table table-striped">
+              <table id="tablaMedicamento" class="table table-striped">
                 <tr>
-                  <th style="width: 10px">#</th>
+                  <th style="width: 10px">ID</th>
                   <th>Nombre</th>
                   <th style="width: 40px">Dosis</th>
                   <th style="width: 40px">Periodicidad</th>
                   <th style="width: 40px">Días</th>
                   <th style="width: 40px">Cantidad</th>
+                  <th style="width: 40px">Acción</th>
                 </tr>
-                <tr>
+                <!--<tr>
                   <td>1.</td>
                   <td>Omeprazol 50 Cápsulas</td>
                   <td><span class="badge bg-green">1</span></td>
                   <td><span class="badge bg-light-blue">2 hrs</span></td>
                   <td><span class="badge bg-yellow">2</span></td>
                   <td><span class="badge bg-red">1</span></td>
-                </tr>
-                <tr>
+                  <td><button type="button" id="delete" class="btn btn-block btn-danger btn-xs">Eliminar</button></td>
+                </tr>-->
+                <!--<tr>
                   <td>2.</td>
                   <td>Binotal 50 Cápsulas</td>
                   <td><span class="badge bg-green">2</span></td>
                   <td><span class="badge bg-light-blue">4 hrs</span></td>
                   <td><span class="badge bg-yellow">3</span></td>
                   <td><span class="badge bg-red">2</span></td>
-                </tr>
+                </tr>-->
               </table>
             </div>
             <!-- /.box-body -->

@@ -38,7 +38,12 @@ $("#btnAdd").click(function(e) {
             showMessageAlert(errors);
           }
           else {
-            showMessageAlert("La cantidad de medicamento es: "+datos.mensaje);
+            //showMessageAlert("La cantidad de medicamento es: "+datos.mensaje);
+            //showMessageAlert("medicamento: "+datos.nombre+" dosis: "+datos.dosis+" perio: "+datos.periodicidad+" dias: "+datos.dias+" total: "+datos.total);
+            var trs=$("#tablaMedicamento tr").length;
+              if(!searchNameTable(datos)){
+                $('#tablaMedicamento tr:last').after('<tr><td>'+datos.id+'.</td><td>'+datos.nombre+'</td><td><span class="badge bg-green">'+datos.dosis+'</span></td><td><span class="badge bg-light-blue">'+datos.periodicidad+' hrs</span></td><td><span class="badge bg-yellow">'+datos.dias+'</span></td><td><span class="badge bg-red">'+datos.total+'</span></td><td><button type="button" id="delete" class="btn btn-block btn-danger btn-xs">Eliminar</button></td></tr>');
+              }
           }
         },
         error:function(obj,error,objerror){
@@ -47,9 +52,49 @@ $("#btnAdd").click(function(e) {
       });
     //}
 });
+
+$(document).on('click', '#delete', function (event) {
+    //alert('dio click');
+    event.preventDefault();
+    $(this).closest('tr').remove();
+});
+
+function searchNameTable(datos) {
+  //obtenemos el valor insertado a buscar
+ console.log('id a buscar es: '+datos.id);
+ var id = datos.id;
+  //utilizamos esta variable solo de ayuda y mostrar que se encontro
+  var encontradoResultado = false;
+  //realizamos el recorrido solo por las celdas que contienen el código, que es la primera
+  $("#tablaMedicamento tr").find('td:eq(0)').each(function () {
+      //obtenemos el codigo de la celda
+        var codigo = $(this).html();
+         //comparamos para ver si el código es igual a la busqueda
+         if(codigo == id){
+              //aqui ya que tenemos el td que contiene el codigo utilizaremos parent para obtener el tr.
+              var trDelResultado=$(this).parent();
+              //ya que tenemos el tr seleccionado ahora podemos navegar a las otras celdas con find
+              var nombre = trDelResultado.find("td:eq(1)").html();
+              var dosis = trDelResultado.find("td:eq(2)").html();
+              //mostramos el resultado en el div
+              console.log('El nombre es: '+nombre+', la dosis es: '+dosis);
+              showMessageAlert('Ya ingreso ese Medicamento <br> si desea actualizarlo primero borre el Medicamento');
+              encontradoResultado = true;
+
+         }
+
+  })
+
+  //si no se encontro resultado mostramos que no existe.
+  if(!encontradoResultado){
+      console.log('No existe el código: '+id);
+      return false;
+  }
+  else{
+    return true;
+  }
+}
 /*** fin de boton agregar medicamento - módulo de crear receta***/
-
-
 
 /*** Metodos de Alerta ***/
 function showMessageAlert(mensaje){

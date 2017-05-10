@@ -63,7 +63,9 @@ class RecetaController extends Controller
           $bandera=0;
           //obtenemos el medicamento para sacar el valor de contenido
           $medicamento = Medicamento::findOrFail($medicamentos_id);
+          $id = $medicamento->id;
           $contenido = $medicamento->contenidomedida;
+          $nombre = $medicamento->nombremedicamento.' '.$medicamento->contenidomedida.' '.$medicamento->contenidodescripcion;
           $dosis = $request->dosis;
           $dias = $request->dias;
           $periodicidad = $request->perio;
@@ -89,7 +91,12 @@ class RecetaController extends Controller
 
 
           //$paciente = Medico::findOrFail($id);
-          return response()->json(['mensaje' => $totalContenido]);
+          return response()->json(['id' => $id,
+                                   'nombre' => $nombre,
+                                   'dosis' => $dosis,
+                                   'periodicidad' => $periodicidad,
+                                   'dias' => $dias,
+                                   'total' => $totalContenido,]);
         }
     }
 }
