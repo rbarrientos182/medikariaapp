@@ -174,7 +174,7 @@ Route::get('welcome',function () {
 
 // ruta index de la pagina web
 Route::get('/',function () {
-    return view('welcome');
+    return view('page/index');
 });
 
 
