@@ -14,6 +14,11 @@ $("#btnBuscar").click(function(e) {
     });
 });
 
+$("#medicamento").change(function(){
+  console.log('entro a medicamento');
+
+});
+
 /*** fin de boton buscar cliente - módulo de crear receta***/
 $("#btnAdd").click(function(e) {
 
