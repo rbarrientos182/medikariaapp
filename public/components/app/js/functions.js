@@ -16,6 +16,38 @@ $("#btnBuscar").click(function(e) {
 
 $("#medicamento").change(function(){
   console.log('entro a medicamento');
+  var idmedicamento = $("#medicamento").val();
+  console.log('el medicamento es: '+idmedicamento);
+  $.get("../../medicamentos/"+idmedicamento+"",function(response,state){
+        console.log(response.esjarabe);
+        if(response.esjarabe){
+            $("#dosis").empty();
+            $("#dosis").append('<option value="">2.5 ml</option>');
+            $("#dosis").append('<option value="">5 ml</option>');
+            $("#dosis").append('<option value="">7.5 ml</option>');
+            $("#dosis").append('<option value="">12.5 ml</option>');
+            $("#dosis").append('<option value="">15 ml</option>');
+        }
+        else {
+            $("#dosis").empty();
+            for(var i = 1; i <= 10; i++) {
+              $("#dosis").append('<option value="'+i+'">'+i+'</option>');
+            }
+        }
+  });
+  /*$.ajax({
+    url: "medicamento_ajax_path",
+    data: "idmedicamento="+idmedicamento,
+    type: "POST",
+    dataType: 'json',
+    success:function(datos){
+        showMessageAlert(datos.id);
+
+    },
+    error:function(obj,error,objerror){
+      showMessageAlert('obj: '+obj+' error: '+error+' objerror: '+objerror);
+    }
+  });*/
 
 });
 

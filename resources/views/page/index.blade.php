@@ -172,7 +172,12 @@
             <div class="col-sm-12 col-md-4">
               <div class="person-about">
                 <h3 class="about-subtitle">¿Que es Medikaria?</h3>
-                <p>Medikaria es la solución tecnológica más eficaz del mercado para eficientar el proceso de receta, compra y venta de medicamentos.</p>
+                <!--<p>Medikaria es la solución tecnológica más eficaz del mercado para eficientar el proceso de receta, compra y venta de medicamentos.</p>-->
+                <p>Medikaria es una plataforma tecnológica que sirve como enlace
+                  entre los médicos, los pacientes y las farmacias, al hacer que
+                  el proceso del pedido, la compra, el pago y la entrega de los
+                  medicamentos -comunes, antibióticos o controlados- sea más
+                  sencillo, cómodo, barato y eficiente.</p>
                 <a class="waves-effect waves-light btn-large brand-bg white-text"><i ></i> Leer más</a>
               </div>
             </div>
@@ -211,7 +216,7 @@
                   <div class="clearfix section-head experience-text">
                     <div class="col-sm-12">
                       <h2 class="title">¿Cómo funciona?</h2>
-                      <p class="regular-text">El proceso de funcionamiento de Medikaria es muy fácil de llevarse a cabo. Consta de sencillos pasos..</p>
+                      <p class="regular-text">El funcionamiento de Medikaria es muy sencillo. Tan sólo hay que seguir los siguientes pasos:<p>
                     </div>
                   </div>
                   <div class="col-lg-12">

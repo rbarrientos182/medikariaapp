@@ -99,4 +99,12 @@ class RecetaController extends Controller
                                    'total' => $totalContenido,]);
         }
     }
+
+    public function findMedicamento(Request $request,$id)
+    {
+      if($request->ajax()){
+        $medicamento = Medicamento::findOrFail($id);
+        return response()->json($medicamento);
+      }
+    }
 }

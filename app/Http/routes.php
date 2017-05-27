@@ -83,6 +83,7 @@ Route::group(['middleware' => 'auth'],function () {
       **/
       //Route::resource('pacientes','Admin\PacienteController');
       Route::get('pacientes/{id}','Admin\PacienteController@getPacientes');
+      Route::get('medicamentos/{id}','Admin\RecetaController@findMedicamento');
 
       //ruta para crear una receta (Diagnóstico)
       Route::get('home/diagnostico/{id}',[
@@ -96,6 +97,8 @@ Route::group(['middleware' => 'auth'],function () {
       Route::post('recetas/{id}',[
         'uses' => 'Admin\RecetaController@makeReceta',
         'as'   => 'receta_ajax_path',]);
+
+
 });
 
 /***************************************************************************************/
