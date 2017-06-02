@@ -2,7 +2,7 @@ $("#btnBuscar").click(function(e) {
 
   e.preventDefault();
     var idpaciente = $('#paciente').val();
-    $.get("../../pacientes/"+idpaciente+"",function(response,state){
+    $.get("../../ºs/"+idpaciente+"",function(response,state){
           console.log(response);
           $("#idpaciente").val(response.id);
           $("#nombre").val(response.nombrepaciente);
@@ -19,14 +19,23 @@ $("#medicamento").change(function(){
   var idmedicamento = $("#medicamento").val();
   console.log('el medicamento es: '+idmedicamento);
   $.get("../../medicamentos/"+idmedicamento+"",function(response,state){
-        console.log(response.esjarabe);
-        if(response.esjarabe){
+        console.log(response.tipo);
+        if(response.tipo==1){
             $("#dosis").empty();
-            $("#dosis").append('<option value="">2.5 ml</option>');
-            $("#dosis").append('<option value="">5 ml</option>');
-            $("#dosis").append('<option value="">7.5 ml</option>');
-            $("#dosis").append('<option value="">12.5 ml</option>');
-            $("#dosis").append('<option value="">15 ml</option>');
+            $("#dosis").append('<option value="2.5">2.5 ml</option>');
+            $("#dosis").append('<option value="5">5 ml</option>');
+            $("#dosis").append('<option value="7.5">7.5 ml</option>');
+            $("#dosis").append('<option value="12.5">12.5 ml</option>');
+            $("#dosis").append('<option value="15">15 ml</option>');
+        }
+        else if (response.tipo==2){
+          $("#dosis").empty();
+          $("#dosis").append('<option value="0.25">1/4</option>');
+          $("#dosis").append('<option value="0.5">1/2</option>');
+          $("#dosis").append('<option value="1">1</option>');
+          $("#dosis").append('<option value="1.25">1 1/4</option>');
+          $("#dosis").append('<option value="1.5">1 1/2</option>');
+          $("#dosis").append('<option value="2">2</option>');
         }
         else {
             $("#dosis").empty();

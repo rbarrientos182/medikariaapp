@@ -21,6 +21,7 @@ class CreateMedicamentosTable extends Migration
           $table->integer('contenidomedida');
           $table->decimal('precio',5,2);
           $table->string('imagenmedicamento',60)->nullable();
+          $table->tinyInteger('tipo')->default('0')->comment('0 - Normal \n 1 - Jarabe \n 2 - Tabletas');
           $table->timestamps();
           $table->softDeletes();
       });

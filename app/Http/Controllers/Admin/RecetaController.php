@@ -44,7 +44,6 @@ class RecetaController extends Controller
         if($request->ajax()){
 
           $validator = Validator::make($request->all(),[
-            'idpaciente'     => 'required',
             'diagnostico'     => 'required',
             'dias'     => 'required|numeric'
           ]);
