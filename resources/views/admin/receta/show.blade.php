@@ -37,8 +37,9 @@
                <div class="form-group">
                  <label class="col-sm-2 control-label">Paciente:</label>
                  <div class="col-sm-10">
+                   <input type="hidden" id="idmedico" name="idmedico" value="{{$medico->id}}">
                    <select class="form-control select2" name="paciente" id="paciente">
-                     <<option value="">Selecciona un Paciente</option>
+                     <option value="">Selecciona un Paciente</option>
                      @foreach ($paciente as $pacientes)
                        <option value="{{$pacientes->id}}">{{$pacientes->nombrepaciente.' '.$pacientes->apellidopacientep.' '.$pacientes->apellidopacientem}}</option>
                      @endforeach
@@ -59,6 +60,7 @@
                  <label class="col-sm-2 control-label">Medicamento:</label>
                  <div class="col-sm-10">
                    <select class="form-control select2" name="medicamento" id="medicamento">
+                     <option value="">Selecciona un Medicamento</option>
                      @foreach ($categoria as $categorias)
                        @if(COUNT($categorias->medicamentos)>0)
                          <optgroup label="{{$categorias->categoria}}">
@@ -139,7 +141,7 @@
                 </table>
                 <div class="col-xs-12">
                   <div class="form-group">
-                      <button type="button" id="btnAdd" class="btn btn-success" value="guardar">
+                      <button type="button" id="btnSave" class="btn btn-success" value="guardar">
                         Guardar
                       </button>
                   </div>

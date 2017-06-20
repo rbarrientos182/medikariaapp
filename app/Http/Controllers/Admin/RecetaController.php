@@ -44,7 +44,9 @@ class RecetaController extends Controller
         if($request->ajax()){
 
           $validator = Validator::make($request->all(),[
+            'paciente' => 'required',
             'diagnostico'     => 'required',
+            'medicamento'     => 'required',
             'dias'     => 'required|numeric'
           ]);
 
@@ -67,6 +69,32 @@ class RecetaController extends Controller
           $nombre = $medicamento->nombremedicamento.' '.$medicamento->contenidomedida.' '.$medicamento->contenidodescripcion;
           $dosis = $request->dosis;
           $dias = $request->dias;
+          $tipo = $medicamento->tipo;
+          //evaluacion para saber de que tipo es el medicamento
+          if ($tipo == 1) {
+             $dosisLabel = $dosis.' ml';
+          }
+          elseif ($tipo == 2) {
+              if($dosis == 0.25){
+                 $dosisLabel = '1/4';
+              }
+              elseif ($dosis == 0.5) {
+                 $dosisLabel = '1/2';
+              }
+              elseif ($dosis == 1.25) {
+                 $dosisLabel = '1 1/4';
+              }
+              elseif ($dosis == 1.5) {
+                 $dosisLabel = '1 1/2';
+              }
+              else {
+                 $dosisLabel = $dosis;
+              }
+          }
+          else {
+             $dosisLabel = $dosis;
+          }
+
           $periodicidad = $request->perio;
           define("DIA",24);// definimos una constante para las horas totales de un dia
           $horasTotales = DIA * $dias; // sacamos las horas totales de acuerdo a cuantos dias
@@ -92,7 +120,8 @@ class RecetaController extends Controller
           //$paciente = Medico::findOrFail($id);
           return response()->json(['id' => $id,
                                    'nombre' => $nombre,
-                                   'dosis' => $dosis,
+                                   'dosis' => $dosisLabel,
+                                   'dosisValor' => $dosis,
                                    'periodicidad' => $periodicidad,
                                    'dias' => $dias,
                                    'total' => $totalContenido,]);

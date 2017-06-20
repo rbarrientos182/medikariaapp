@@ -2,7 +2,7 @@ $("#btnBuscar").click(function(e) {
 
   e.preventDefault();
     var idpaciente = $('#paciente').val();
-    $.get("../../ºs/"+idpaciente+"",function(response,state){
+    $.get("../../pacientes/"+idpaciente+"",function(response,state){
           console.log(response);
           $("#idpaciente").val(response.id);
           $("#nombre").val(response.nombrepaciente);
@@ -86,9 +86,9 @@ $("#btnAdd").click(function(e) {
           else {
             //showMessageAlert("La cantidad de medicamento es: "+datos.mensaje);
             //showMessageAlert("medicamento: "+datos.nombre+" dosis: "+datos.dosis+" perio: "+datos.periodicidad+" dias: "+datos.dias+" total: "+datos.total);
-            var trs=$("#tablaMedicamento tr").length;
+            var trs=$("#tablaMedicamento  tr").length;
               if(!searchNameTable(datos)){
-                $('#tablaMedicamento tr:last').after('<tr><td>'+datos.id+'.</td><td>'+datos.nombre+'</td><td><span class="badge bg-green">'+datos.dosis+'</span></td><td><span class="badge bg-light-blue">'+datos.periodicidad+' hrs</span></td><td><span class="badge bg-yellow">'+datos.dias+'</span></td><td><span class="badge bg-red">'+datos.total+'</span></td><td><button type="button" id="delete" class="btn btn-block btn-danger btn-xs">Eliminar</button></td></tr>');
+                $('#tablaMedicamento  tr:last').after('<tr><td>'+datos.id+'.</td><td>'+datos.nombre+'</td><td><span class="badge bg-green">'+datos.dosis+'</span></td><td><span class="badge bg-light-blue">'+datos.periodicidad+' hrs</span></td><td><span class="badge bg-yellow">'+datos.dias+'</span></td><td><span class="badge bg-red">'+datos.total+'</span></td><td><button type="button" id="delete" class="btn btn-block btn-danger btn-xs">Eliminar</button></td></tr>');
               }
           }
         },
@@ -97,6 +97,58 @@ $("#btnAdd").click(function(e) {
         }
       });
     //}
+});
+
+$("#btnSave").click(function(e){
+  e.preventDefault();
+  var bandera = 0;
+  var contadortr = 0;
+  var cadena = null;
+  var medico = $("#idmedico").val();
+  $("#tablaMedicamento  tr").each(function(index) {
+    if(bandera!=0){
+      var campo1, campo2, campo3, campo4, campo5, campo6;
+      $(this).children("td").each(function(index2) {
+          switch (index2) {
+            case 0:
+              campo1 = $(this).text();
+              break;
+            case 1:
+              campo2 = $(this).text();
+              break;
+            case 2:
+              campo3 = $(this).text();
+              break;
+            case 3:
+              campo4 = $(this).text();
+              break;
+            case 4:
+              campo5 = $(this).text();
+              break;
+            case 5:
+              campo6 = $(this).text();
+              break;
+          }
+          $(this).css("background-color","#ECF8E0");
+      })
+    }
+    else {
+      bandera=1;
+    }
+    if(contadortr>1){
+        if (contadortr==2) {
+            //console.log(id+'-'+campo1+'-'+campo2+'-'+campo3+'-'+campo4);
+            cadena = id+','+campo1+','+campo2+','+campo3+','+campo4+';';
+        }
+        else{
+            //console.log(id+'-'+campo1+'-'+campo2+'-'+campo3+'-'+campo4);
+            cadena += id+','+campo1+','+campo2+','+campo3+','+campo4+';';
+        }
+    }
+    contadortr++;
+  })
+  console.log(cadena);
+  guardarReceta(cadena,medico);
 });
 
 $(document).on('click', '#delete', function (event) {
@@ -112,7 +164,7 @@ function searchNameTable(datos) {
   //utilizamos esta variable solo de ayuda y mostrar que se encontro
   var encontradoResultado = false;
   //realizamos el recorrido solo por las celdas que contienen el código, que es la primera
-  $("#tablaMedicamento tr").find('td:eq(0)').each(function () {
+  $("#tablaMedicamento  tr").find('td:eq(0)').each(function () {
       //obtenemos el codigo de la celda
         var codigo = $(this).html();
          //comparamos para ver si el código es igual a la busqueda
@@ -141,6 +193,14 @@ function searchNameTable(datos) {
   }
 }
 /*** fin de boton agregar medicamento - módulo de crear receta***/
+function guardarReceta(cadena,medico) {
+  //alert("la cadena es "+cadena+" y el medico es "+medico);
+  var notify = $.notify('<strong>Guardando</strong> No cierre la página...', {
+      allow_dismiss: false,
+      showProgressbar: true
+  });
+}
+
 
 /*** Metodos de Alerta ***/
 function showMessageAlert(mensaje){
