@@ -85,18 +85,24 @@ Route::group(['middleware' => 'auth'],function () {
       Route::get('pacientes/{id}','Admin\PacienteController@getPacientes');
       Route::get('medicamentos/{id}','Admin\RecetaController@findMedicamento');
 
+
       //ruta para crear una receta (Diagnóstico)
       Route::get('home/diagnostico/{id}',[
         'uses' => 'Admin\RecetaController@index',
         'as'   => 'diagnostico_show_path',
       ])->where('id','[0-9]+');
 
-      /**
-      * Ruta ajax
-      **/
+      //ruta para llenar la tabla de receta
       Route::post('recetas/{id}',[
         'uses' => 'Admin\RecetaController@makeReceta',
         'as'   => 'receta_ajax_path',]);
+
+      //ruta para guardar la receta en la db
+      Route::get('recetas/save','Admin\RecetaController@guardarReceta');
+      /**
+      * Ruta ajax
+      **/
+
 
 
 });

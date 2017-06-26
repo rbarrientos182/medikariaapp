@@ -135,4 +135,40 @@ class RecetaController extends Controller
         return response()->json($medicamento);
       }
     }
+
+    public function guardarReceta(Request $request)
+    {
+      if($request->ajax()){
+        //primero guardamos la receta
+        $receta = Receta::create(['pacientes_id' => $request->paciente,
+                                  'diagnostico' => $request->diagnostico,
+                                  'fechaExpedicion' => date('Y-m-d')]);
+        //obtenemos la cadena de la tabla receta y eliminamos el ultimo ;
+        $cadena = substr($request->cadena,0, -1);
+        // convierto la cadena de la tabla tarima a un array.
+        $cadena = explode(';',$cadena);
+
+        //recorremos las tuplas y las convertimos en array
+        for ($i=0; $i < count($cadena); $i++) {
+          $datos = explode(',',$cadena[$i]);
+          //$datos = explode(',',$cadena[0]);
+          if($datos[2] == '1/4'){
+             $datos[2] = 0.25;
+          }
+          elseif ($datos[2]== '1/2') {
+             $datos[2] = 0.5;
+          }
+          elseif ($datos[2] == '1 1/4') {
+             $datos[2] = 1.25;
+          }
+          elseif ($datos[2] == '1 1/2') {
+             $datos[2] = 1.5;
+          }
+          $receta->medicamentos()->attach($datos[0],['dosis' => $datos[2],
+          'periodicidad' => $datos[3], 'dias' => $datos[4], 'cantidad' => $datos[5]]); //A la relación, le agregamos el id del alumno, que es el 3.
+        }
+
+        return response()->json(' Datos guardados correctamente');
+      }
+    }
 }

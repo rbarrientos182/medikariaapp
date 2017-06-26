@@ -104,7 +104,9 @@ $("#btnSave").click(function(e){
   var bandera = 0;
   var contadortr = 0;
   var cadena = null;
-  var medico = $("#idmedico").val();
+  var paciente = $("#paciente").val();
+  var diagnostico = $("#diagnostico").val();
+
   $("#tablaMedicamento  tr").each(function(index) {
     if(bandera!=0){
       var campo1, campo2, campo3, campo4, campo5, campo6;
@@ -135,20 +137,26 @@ $("#btnSave").click(function(e){
     else {
       bandera=1;
     }
-    if(contadortr>1){
-        if (contadortr==2) {
+    if(contadortr>0){
+        if(contadortr==1) {
             //console.log(id+'-'+campo1+'-'+campo2+'-'+campo3+'-'+campo4);
-            cadena = id+','+campo1+','+campo2+','+campo3+','+campo4+';';
+            cadena = campo1+','+campo2+','+campo3+','+campo4+','+campo5+','+campo6+';';
         }
         else{
             //console.log(id+'-'+campo1+'-'+campo2+'-'+campo3+'-'+campo4);
-            cadena += id+','+campo1+','+campo2+','+campo3+','+campo4+';';
+            cadena += campo1+','+campo2+','+campo3+','+campo4+','+campo5+','+campo6+';';
         }
     }
     contadortr++;
   })
   console.log(cadena);
-  guardarReceta(cadena,medico);
+  if (cadena!=null) {
+    guardarReceta(cadena,paciente,diagnostico);
+  }
+  else {
+    showMessageAlert('No es posible guardar receta vacía');
+  }
+
 });
 
 $(document).on('click', '#delete', function (event) {
@@ -193,12 +201,33 @@ function searchNameTable(datos) {
   }
 }
 /*** fin de boton agregar medicamento - módulo de crear receta***/
-function guardarReceta(cadena,medico) {
-  //alert("la cadena es "+cadena+" y el medico es "+medico);
+function guardarReceta(cadena,paciente,diagnostico) {
+
+  console.log("el paciente es "+paciente+" el diagnostico es "+diagnostico+" y la cadena es "+cadena);
+
   var notify = $.notify('<strong>Guardando</strong> No cierre la página...', {
       allow_dismiss: false,
       showProgressbar: true
   });
+
+  $.ajax({
+    url: "../../recetas/save",
+    data: "cadena="+cadena+"&paciente="+paciente+"&diagnostico="+diagnostico,
+    type: "GET",
+    dataType: 'json',
+    success:function(datos){
+        //showMessageAlert(datos);
+        setTimeout(function() {
+      	notify.update({'type': 'success', 'message': '<strong>Éxito</strong>'+datos, 'progress': 25});
+      }, 4500);
+
+    },
+    error:function(obj,error,objerror){
+      showMessageAlert('obj: '+obj+' error: '+error+' objerror: '+objerror);
+    }
+  });
+
+
 }
 
 

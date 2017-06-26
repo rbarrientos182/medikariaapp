@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Receta extends Model
 {
   protected $fillable = [
-      'descripcionDosis','fechaExpedicion',
+      'pacientes_id','diagnostico','fechaExpedicion',
   ];
 
   public function pacientes()
@@ -17,7 +17,7 @@ class Receta extends Model
 
   public function medicamentos()
   {
-    return $this->belongsToMany(Medicamento::class,'medicamentos_has_recetas','medicamentos_id','recetas_id');
+    return $this->belongsToMany(Medicamento::class,'medicamentos_has_recetas','recetas_id','medicamentos_id')->withPivot('dosis','periodicidad','dias','cantidad');
   }
 
 }
