@@ -92,19 +92,23 @@ Route::group(['middleware' => 'auth'],function () {
         'as'   => 'diagnostico_show_path',
       ])->where('id','[0-9]+');
 
+      //ruta para crear una receta (Diagnóstico)
+      Route::get('home/diagnostico/{id}/receta',[
+        'uses' => 'Admin\RecetaController@printReceta',
+        'as'   => 'diagnostico_show_print_path',
+      ])->where('id','[0-9]+');
+
       //ruta para llenar la tabla de receta
       Route::post('recetas/{id}',[
         'uses' => 'Admin\RecetaController@makeReceta',
         'as'   => 'receta_ajax_path',]);
+
 
       //ruta para guardar la receta en la db
       Route::get('recetas/save','Admin\RecetaController@guardarReceta');
       /**
       * Ruta ajax
       **/
-
-
-
 });
 
 /***************************************************************************************/
