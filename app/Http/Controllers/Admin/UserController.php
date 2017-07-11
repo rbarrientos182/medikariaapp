@@ -64,6 +64,7 @@ class UserController extends Controller
         $medico->celular = $request->celular;
         $medico->hospitales_id = $request->idhospital;
         $medico->direccion = $request->direccion;
+        $medico->especialidad = $request->especialidad;
         $medico->save();
 
         return redirect()
@@ -100,12 +101,4 @@ class UserController extends Controller
       ->with('status','La imagen se cambio con éxito.');
 
     }
-
-    /*public function getUserPhotoRouteAtribute()
-    {
-        if ($this->foto) {
-           return 'img/users/'.$this->id.'.'.$this->foto;
-        }
-        return 'img/users/drive-male.png'
-    }*/
 }

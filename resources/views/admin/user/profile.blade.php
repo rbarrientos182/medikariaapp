@@ -215,6 +215,13 @@
                       </div>
                     </div>
                     <div class="form-group">
+                      <label for="inputRFC" class="col-sm-2 control-label">Especialidad</label>
+
+                      <div class="col-sm-10">
+                        <input type="text" class="form-control" id="inputEspecialidad" name="especialidad" placeholder="Especialidad" value="{{$medico->especialidad}}">
+                      </div>
+                    </div>
+                    <div class="form-group">
                       <div class="col-sm-offset-2 col-sm-10">
                         <button type="submit" class="btn btn-primary" value="guardar">Actualizar</button>
                       </div>

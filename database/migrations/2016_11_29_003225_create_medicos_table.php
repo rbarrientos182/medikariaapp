@@ -20,6 +20,7 @@ class CreateMedicosTable extends Migration
           $table->integer('users_id')->unsigned();
           $table->integer('hospitales_id')->unsigned();
           $table->string('direccion',60)->nullable();
+          $table->string('especialidad',60)->nullable();
           $table->timestamps();
           $table->softDeletes();
           $table->foreign('users_id')->references('id')->on('users');

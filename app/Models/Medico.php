@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Medico extends Model
 {
   protected $fillable = [
-      'rfc','correo','cedula','celular','direccion',
+      'rfc','correo','cedula','celular','direccion','especialidad',
   ];
 
   public function recetas()

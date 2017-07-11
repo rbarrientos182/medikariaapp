@@ -216,15 +216,21 @@ function guardarReceta(cadena,paciente,diagnostico) {
     type: "GET",
     dataType: 'json',
     success:function(datos){
-        //showMessageAlert(datos);
+        console.log("el mensaje es "+datos.mensaje+" y el idreceta es "+datos.idreceta+' y el usuario es '+datos.usuario);
         setTimeout(function() {
-      	notify.update({'type': 'success', 'message': '<strong>Éxito</strong>'+datos, 'progress': 25});
-      }, 4500);
+      	notify.update({'type': 'success', 'message': '<strong>Éxito</strong> '+datos.mensaje, 'progress': 25});
+        }, 4500);
 
+      if (datos.mensaje=='Datos guardados correctamente') {
+        setTimeout(function() {
+          window.location.href = '../../home/diagnostico/'+datos.usuario+'/receta/'+datos.idreceta;
+        }, 10000);
+
+      }
     },
     error:function(obj,error,objerror){
       showMessageAlert('obj: '+obj+' error: '+error+' objerror: '+objerror);
-    }
+    },
   });
 
 

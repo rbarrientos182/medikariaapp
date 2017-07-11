@@ -140,6 +140,9 @@ class RecetaController extends Controller
     {
       if($request->ajax()){
         //primero guardamos la receta
+        $paciente = Paciente::findOrFail($request->paciente);
+        $medico = $paciente->medicos;
+        $usuario = $medico->users;
         $receta = Receta::create(['pacientes_id' => $request->paciente,
                                   'diagnostico' => $request->diagnostico,
                                   'fechaExpedicion' => date('Y-m-d')]);
@@ -168,7 +171,27 @@ class RecetaController extends Controller
           'periodicidad' => $datos[3], 'dias' => $datos[4], 'cantidad' => $datos[5]]); //A la relación, le agregamos el id del alumno, que es el 3.
         }
 
-        return response()->json(' Datos guardados correctamente');
+        return response()->json(['mensaje' => 'Datos guardados correctamente',
+                                 'idreceta' => $receta->id,
+                                 'usuario' => $usuario->id]);
       }
+    }
+
+    public function showReceta($id,$idreceta)
+    {
+          $receta = Receta::findOrFail($idreceta);
+          $paciente = $receta->pacientes;
+          $user = User::findOrFail($id);
+          $medico = $user->medicos;
+          return view('admin.receta.receta', compact('receta','medico','paciente'));
+    }
+
+    public function printReceta($id,$idreceta)
+    {
+          $receta = Receta::findOrFail($idreceta);
+          $paciente = $receta->pacientes;
+          $user = User::findOrFail($id);
+          $medico = $user->medicos;
+          return view('admin.receta.print', compact('receta','medico','paciente'));
     }
 }

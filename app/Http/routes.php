@@ -92,8 +92,13 @@ Route::group(['middleware' => 'auth'],function () {
         'as'   => 'diagnostico_show_path',
       ])->where('id','[0-9]+');
 
-      //ruta para crear una receta (Diagnóstico)
-      Route::get('home/diagnostico/{id}/receta',[
+      //ruta para mandar a la vista de cotización e impresión de receta (Diagnóstico)
+      Route::get('home/diagnostico/{id}/receta/{idreceta}',[
+        'uses' => 'Admin\RecetaController@showReceta',
+        'as'   => 'diagnostico_show_receta_path',
+      ])->where('id','[0-9]+');
+
+      Route::get('home/diagnostico/{id}/printreceta/{idreceta}',[
         'uses' => 'Admin\RecetaController@printReceta',
         'as'   => 'diagnostico_show_print_path',
       ])->where('id','[0-9]+');
