@@ -5,6 +5,7 @@ namespace Medikaria\Http\Controllers\Admin;
 use Validator;
 use Illuminate\Http\Request;
 use Medikaria\Http\Requests;
+use PDF;
 
 use Medikaria\Http\Controllers\Controller;
 use Medikaria\Models\User;
@@ -193,5 +194,16 @@ class RecetaController extends Controller
           $user = User::findOrFail($id);
           $medico = $user->medicos;
           return view('admin.receta.print', compact('receta','medico','paciente'));
+    }
+
+    public function pdfReceta($id,$idreceta)
+    {
+          $receta = Receta::findOrFail($idreceta);
+          $paciente = $receta->pacientes;
+          $user = User::findOrFail($id);
+          $medico = $user->medicos;
+
+          $pdf = PDF::loadView('admin.receta.print',compact('receta','medico','paciente'));
+          return $pdf->download('archivo.pdf');
     }
 }

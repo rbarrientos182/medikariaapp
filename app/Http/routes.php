@@ -103,6 +103,11 @@ Route::group(['middleware' => 'auth'],function () {
         'as'   => 'diagnostico_show_print_path',
       ])->where('id','[0-9]+');
 
+      Route::get('home/diagnostico/{id}/pdfreceta/{idreceta}',[
+        'uses' => 'Admin\RecetaController@pdfReceta',
+        'as'   => 'diagnostico_show_pdf_path',
+      ])->where('id','[0-9]+');
+
       //ruta para llenar la tabla de receta
       Route::post('recetas/{id}',[
         'uses' => 'Admin\RecetaController@makeReceta',
@@ -179,6 +184,8 @@ Route::post('password/reset',[
 ]);
 
 
+
+
 /*******************************************************************************/
 /**
  * Rutas de las vistas de la página web
@@ -189,6 +196,11 @@ Route::get('welcome',function () {
     return view('welcome');
 });
 
+Route::get('pdf', function(){
+  $pdf = PDF::loadView('archivo');
+  return $pdf->download('archivo.pdf');
+
+});
 
 // ruta index de la pagina web
 Route::get('/',function () {
