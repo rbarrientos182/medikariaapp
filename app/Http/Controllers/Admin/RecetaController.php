@@ -203,7 +203,7 @@ class RecetaController extends Controller
           $user = User::findOrFail($id);
           $medico = $user->medicos;
 
-          $pdf = PDF::loadView('admin.receta.print',compact('receta','medico','paciente'));
-          return $pdf->download('archivo.pdf');
+          $pdf = \PDF::loadView('admin.receta.pdf',compact('receta','medico','paciente'));
+          return $pdf->download('Receta'.$idreceta.'.pdf');
     }
 }
