@@ -12,7 +12,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
     <div class="login-logo animated zoomInDown">
-      <img src="http://i.imgur.com/YggWOH4.png" alt="login">
+      <img src="http://i.imgur.com/w7r9l2I.png" alt="login">
     </div>
     <div class="login-box-body">
         @yield('content')

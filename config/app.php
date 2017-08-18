@@ -158,6 +158,7 @@ return [
         Medikaria\Providers\RouteServiceProvider::class,
         Medikaria\Providers\ViewComposerServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
+        Netshell\Paypal\PaypalServiceProvider::class,
 
 
     ],
@@ -207,6 +208,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Image' => Intervention\Image\Facades\Image::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
+        'Paypal' => Netshell\Paypal\Facades\Paypal::class,
 
 
     ],

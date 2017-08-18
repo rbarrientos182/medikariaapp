@@ -1,783 +1,530 @@
-"use strict";
-var scrollDirection, $ = jQuery;
+/*jshint jquery:true */
+/*global $:true */
 
-// for scrolling to targeted sections
+var $ = jQuery.noConflict();
 
-(function($){
-	$.fn.scrollingTo = function( opts ) {
-		var defaults = {
-			animationTime : 1000,
-			easing : '',
-			topSpace : 0,
-			callbackBeforeTransition : function(){},
-			callbackAfterTransition : function(){}
-		};
+$(document).ready(function($) {
+    "use strict";
 
-		var config = $.extend( {}, defaults, opts );
+    /* global google: false */
 
-	    $(this).on('click', function(e){
-	    	var eventVal = e;
-	    	e.preventDefault();
-
-	    	var $section = $(document).find( $(this).data('section') );
-	    	if ( $section.length < 1 ) {
-	    		return false;
-	    	}
-
-	        if ( $('html, body').is(':animated') ) {
-	            $('html, body').stop( true, true );
-	        }
-
-	        var scrollPos = $section.offset().top;
-
-	        if ( $(window).scrollTop() == ( scrollPos + config.topSpace ) ) {
-	        	return false;
-	        }
-
-	        config.callbackBeforeTransition(eventVal, $section);
-
-	        var newScrollPos = (scrollPos - config.topSpace);
-
-	        $('html, body').animate({
-	            'scrollTop' : ( newScrollPos+'px' )
-	        }, config.animationTime, config.easing, function(){
-	        	config.callbackAfterTransition(eventVal, $section);
-	        });
-
-	        return $(this);
+    /* ==============================================
+        Full height home-section
+    =============================================== */
+    
+	    var windowHeight = $(window).height(),
+	    	  topSection = $('#hero-section, #hero-slider-section');
+	    topSection.css('height', windowHeight);
+    
+    	    $(window).resize(function(){
+    	    	var windowHeight = $(window).height();
+    	    	topSection.css('height', windowHeight);       
 	    });
 
-	    $(this).data('scrollOps', config);
-	    return $(this);
-	};
-}(jQuery));
+    /* ==============================================
+        Scrollspy
+    =============================================== */
 
-$(document).ready(function($){
+        $('body').scrollspy({
+           target: '#navigation-nav',
+           offset: 140      //px/
+        });
 
-	var sklSlider = $("#skillSlider");
+    /* ==============================================
+        Parallax
+    =============================================== */
+    
+        $.stellar({
+            responsive: true,
+            horizontalScrolling: false,
+            verticalOffset: 0
+        });
 
-	
-	// sklSlider.owlCarousel({
-	// 	slideSpeed: 400,
-	// 	items : 6,
-	// 	itemsDesktop : false,
-	// 	itemsDesktopSmall : [991, 8],
-	// 	itemsTablet: [768, 8],
-	// 	itemsTabletSmall: [600, 6],
-	// 	itemsMobile : [479, 4],
-	// 	pagination : false
-	// });
+    /* ==============================================
+        Smooth Scroll on anchors
+    =============================================== */  
 
-	sklSlider.owlCarousel({
-		slideSpeed: 400,
-		itemsCustom: [
-			[0, 3],
-			[400, 4],
-			[500, 5],
-			[620, 6],
-			[700, 8],
-			[992, 5],
-			[1200, 6]
-		],
-		pagination : false
-	});
+        $('.section-scroll').bind('click', function(e) {
+            var anchor = $(this);
 
+            $('html, body').stop().animate({
+                scrollTop: $(anchor.attr('href')).offset().top -62
+            }, 1000);
 
-	var sklData = sklSlider.data('owlCarousel');
+            e.preventDefault();
+        });
 
+    /* ==============================================
+        Hero slider
+    =============================================== */  
 
-	var sklTgt = $('.skl-ctrl').find('.go');
-	sklTgt.on('click', function(e){
-		e.preventDefault();
-		if( $(this).hasClass('go-left') ) {
-			sklData.prev();
-		} else {
-			sklData.next();
-		}
-	});
+        $('#slides').superslides({
+            play: 8000,
+            animation: 'fade',
+            animation_speed: 1000,
+            pagination: true,
+            hashchange: false,
+            scrollable: true
+        });
 
+    /* ==============================================
+        Hero slider-2
+    =============================================== */  
 
-	var exSlider = $("#experienceSlider");
-	exSlider.owlCarousel({
-		items : 3,
-		slideSpeed : 600,
-		itemsDesktop : [1000,3],
-		itemsDesktopSmall : [900,3],
-		itemsTablet: [800,2],
-		itemsMobile : [500, 1],
-		pagination : false
-	});
-	var exData = exSlider.data('owlCarousel');
+        $('#slides-2').superslides({
+            play: 10000,
+            animation_speed: 700,
+        });
 
+    /* ==============================================
+        Morphext - text rotator
+    =============================================== */
 
-	var exTgt = $('.exp-ctrl').find('.go');
-	exTgt.on('click', function(e){
-		e.preventDefault();
-		if($(this).hasClass('go-left')){
-			exData.prev();
-		} else {
-			exData.next();
-		}
-	});
+        $("#text-rotator").Morphext({
+            // The [in] animation type. Refer to Animate.css for a list of available animations.
+            animation: "fadeInDown",
+            // An array of phrases to rotate are created based on this separator. Change it if you wish to separate the phrases differently (e.g. So Simple | Very Doge | Much Wow | Such Cool).
+            separator: ",",
+            // The delay between the changing of each phrase in milliseconds.
+            speed: 4000
+        });
 
+    /* ==============================================
+        Hero Content slider
+    =============================================== */
 
-	var edSlider = $("#educationSlider");
-		edSlider.owlCarousel({
-		slideSpeed : 600,
-		items : 3,
-		itemsDesktop : [1000,3],
-		itemsDesktopSmall : [900,3],
-		itemsTablet: [800,2],
-		itemsMobile : [500, 1],
-		pagination : false
-	});
-	var edData = edSlider.data('owlCarousel');
+        $('.caption-slides').bxSlider({
+            pager: false,
+            mode: 'fade',
+            adaptiveHeight: true,
+            controls: false,
+            auto: true
+        });
 
+    /* ==============================================
+        BxSlider Testimonial
+    =============================================== */ 
 
-	var edTgt = $('.edu-ctrl').find('.go');
-	edTgt.on('click', function(e){
-		e.preventDefault();
-
-		if($(this).hasClass('go-left')){
-			edData.prev();
-		} else {
-			edData.next();
-		}
-	});
+        $(".testimonials-slider").bxSlider({
+            auto: true,          // Boolean:  (true/false)
+            pause: 5000,         // Milliseconds before progressing to next slide automatically. Use a falsey value to disable.
+            adaptiveHeight: true,
+            controls: false,
+            useCSS: false        // Boolean:  (true/false)
+        });
 
 
-	var tmSlider = $("#teamSlider");
-	tmSlider.owlCarousel({
-		slideSpeed : 600,
-		items : 3,
-		itemsDesktop : [1000,3],
-		itemsDesktopSmall : [900,3],
-		itemsTablet: [800,2],
-		itemsMobile : [500, 1],
-		pagination : false
-	});
-	var tmData = tmSlider.data('owlCarousel');
+    /* ==============================================
+        Collapse menu on click
+    =============================================== */
+
+        $('.navbar-collapse a:not(.dropdown-toggle)').click(function(){
+            if($(window).width() < 768 )
+                $('.navbar-collapse').collapse('hide');
+        });
 
 
-	var tmTgt = $('.tmu-ctrl').find('.go');
-	tmTgt.on('click', function(e){
-		e.preventDefault();
+    /* ==============================================
+        Accordion
+    =============================================== */
 
-		if ($(this).hasClass('go-left')){
-			tmData.prev();
-		} else {
-			tmData.next();
-		}
-	});
-
-
-	var tesMoSlider = $("#testimonialSlider");
-		tesMoSlider.owlCarousel({
-		slideSpeed : 600,
-		items : 2,
-		itemsDesktop : [1000,2],
-		itemsDesktopSmall : [900,2],
-		itemsTablet: [600,1],
-		itemsMobile : false,
-		pagination : false
-	});
-
-	var tmoData = tesMoSlider.data('owlCarousel');
+        // Accordion
+        var allPanels = $(".accordion > dd").hide();
+        allPanels.first().slideDown("easeOutExpo");
+        $(".accordion > dt > a").first().addClass("active");
+        
+        $(".accordion > dt > a").click(function(){
+        
+            var current = $(this).parent().next("dd");
+            $(".accordion > dt > a").removeClass("active");
+            $(this).addClass("active");
+            allPanels.not(current).slideUp("easeInExpo");
+            $(this).parent().next().slideDown("easeOutExpo");
+            
+            return false;
+            
+        });
 
 
-	var tmoTgt = $('.tmo-ctrl').find('.go');
+    /* ==============================================
+     Bootstrap Tooltip
+    =============================================== */
+
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
 
 
-	tmoTgt.on('click', function(e){
-		e.preventDefault();
+    /* ==============================================
+        Animated content
+    =============================================== */
 
-		if($(this).hasClass('go-left')){
-			tmoData.prev();
-		} else {
-			tmoData.next();
-		}
-	});
+        $('.animated').appear(function(){
+            var el = $(this);
+            var anim = el.data('animation');
+            var animDelay = el.data('delay');
+            if (animDelay) {
 
+                setTimeout(function(){
+                    el.addClass( anim + " in" );
+                    el.removeClass('out');
+                }, animDelay);
 
-
-
-
-	$('.menu-smooth-scroll').scrollingTo({
-		easing : 'easeOutQuart',
-		animationTime : 1800,
-		callbackBeforeTransition : function(e){
-			if (e.currentTarget.hash !== "") {
-				if ( e.currentTarget.hash !== '#home' ) {
-					$(e.currentTarget).parent().addClass('current').siblings().removeClass('current');
-				}
-			}
-
-			$('.button-collapse').sideNav('hide');
-		},
-		callbackAfterTransition : function(e){
-			if (e.currentTarget.hash !== "") {
-				if ( e.currentTarget.hash === '#home' ) {
-					window.location.hash = '';
-				} else {
-					window.location.hash = e.currentTarget.hash;
-				}
-
-			}
-		}
-	});
+            }
+            else {
+                el.addClass( anim + " in" );
+                el.removeClass('out');
+            }    
+        },{accY: -150});  
 
 
+    /* ==============================================
+        Counter increment
+    =============================================== */
 
-	$('.section-call-to-btn').scrollingTo({
-		easing : 'easeOutQuart',
-		animationTime : 1800,
-		callbackBeforeTransition : function(e){
+        function countUp() {   
+            var dataperc;   
+            $('.statistic-percent').each(function(){
+                dataperc = $(this).attr('data-perc'),
+                $(this).find('.percentfactor').delay(6000).countTo({
+                    from: 0,                 // number to begin counting
+                    to: dataperc,      
+                    speed: 1000,             // ms
+                    refreshInterval: 10,
+                });  
+            });
+        }   
+        $('.statistic-percent').waypoint(function() {
+            countUp();
+        },
+        {
+            offset: '95%',                 
+            triggerOnce: true
+        });
 
-		},
-		callbackAfterTransition : function(e){
-		}
-	});
 
-	// Animate scrolling on hire me button
-    $('.hire-me-btn').on('click', function(e) {
-        e.preventDefault();
-        $('html, body').animate({scrollTop: $("#contact").offset().top}, 500);
+    /* ==============================================
+        Skills bar
+    =============================================== */
+
+        $('.progress-bar').each(function(i) {
+            $(this).appear(function() {
+                var percent = $(this).attr('aria-valuenow');
+                $(this).animate({'width' : percent + '%'});
+            });
+        });
+
+
+    /* ==============================================
+        MagnificPopup - lightbox effect
+    =============================================== */
+    
+        // Example with multiple objects
+        $('.zoom').magnificPopup({
+            type: 'image',
+            gallery: {
+                enabled: true
+            }
+        });
+
+        // Example with multiple objects
+        $('.zoom-photography').magnificPopup({
+            type: 'image',
+            gallery: {
+                enabled: true
+            },
+            image: {
+                // options for image content type
+                titleSrc: 'title'
+              },
+             mainClass: 'mfp-with-zoom', // this class is for CSS animation below
+               zoom: {
+                 enabled: true, // By default it's false, so don't forget to enable it
+                 duration: 300, // duration of the effect, in milliseconds
+                 easing: 'ease-in-out', // CSS transition easing function
+                 opener: function(openerElement) {
+                   return openerElement.is('img') ? openerElement : openerElement.find('img');
+                 }
+               }
+        });
+
+        $('.video-pop-up').magnificPopup({
+            type: 'iframe',
+        });
+
+
+    /* ==============================================
+        Placeholder
+    =============================================== */ 
+
+    $('input, textarea').placeholder();
+
+
+    /* ==============================================
+        MailChip
+    =============================================== */
+
+    $('.mailchimp').ajaxChimp({
+        callback: mailchimpCallback,
+        url: "http://clas-design.us10.list-manage.com/subscribe/post?u=5ca5eb87ff7cef4f18d05e127&amp;id=9c23c46672" //Replace this with your own mailchimp post URL. Don't remove the "". Just paste the url inside "".  
+    });
+
+    function mailchimpCallback(resp) {
+         if (resp.result === 'success') {
+            $('.subscription-success').html('<span class="icon-happy"></span><br/>' + resp.msg).fadeIn(1000);
+            $('.subscription-error').fadeOut(500);
+        
+        } else if(resp.result === 'error') {
+            $('.subscription-error').html('<span class="icon-sad"></span><br/>' + resp.msg).fadeIn(1000);
+            $('.subscription-success').fadeOut(500);
+        }  
+    }
+
+
+    /* ==============================================
+        Google Map
+    =============================================== */
+
+        var mapLocation = new google.maps.LatLng(34.031428,-118.2071542,17);
+        var $mapis = $('#map');
+        if ($mapis.length > 0) {
+            var map;
+            map = new GMaps({
+                streetViewControl : true,
+                overviewMapControl: true,
+                mapTypeControl: true,
+                zoomControl : true,
+                panControl : true,
+                scrollwheel: false,
+                center: mapLocation,
+                el: '#map',
+                zoom: 16,
+                styles: [{"featureType":"landscape","stylers":[{"saturation":-100},{"lightness":65},{"visibility":"on"}]},{"featureType":"poi","stylers":[{"saturation":-100},{"lightness":51},{"visibility":"simplified"}]},{"featureType":"road.highway","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"road.arterial","stylers":[{"saturation":-100},{"lightness":30},{"visibility":"on"}]},{"featureType":"road.local","stylers":[{"saturation":-100},{"lightness":40},{"visibility":"on"}]},{"featureType":"transit","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"administrative.province","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"labels","stylers":[{"visibility":"on"},{"lightness":-25},{"saturation":-100}]},{"featureType":"water","elementType":"geometry","stylers":[{"hue":"#ffff00"},{"lightness":-25},{"saturation":-97}]}]
+            });
+            var image = new google.maps.MarkerImage('assets/images/map-icon.png');
+            map.addMarker({
+                position: mapLocation,
+                icon: image,
+                title: 'Vortex',
+                infoWindow: {
+                    content: '<p><strong>Vortex</strong><br/>121 Somewhere Ave, Suite 123<br/>P: (123) 456-7890<br/>Australia</p>'
+                }
+            });
+        }
+
+
+    /* ==============================================
+     BX-Slider Banner
+    =============================================== */
+
+        $('.banner-slider').bxSlider({
+          controls: false,
+          mode: 'fade',
+          auto: true
+        });
+
+
+    /* ==============================================
+     BX-Slider Banner
+    =============================================== */
+
+        $('.slide-product').bxSlider({
+          mode: 'fade',
+          pager: false,
+          auto: true
+        });
+
+
+    /* ==============================================
+     Project slider
+    =============================================== */
+
+        $('.project-slider').bxSlider({
+          mode: 'fade',
+          pager: false,
+          auto: true
+        });
+
+
+    /* ==============================================
+     service-slider-1
+    =============================================== */
+
+        $('.service-slider-1').bxSlider({
+          pagerCustom: '#c-slider-pager',
+          controls: false,
+          auto: true
+        });
+
+
+    /* ==============================================
+        OWL Carousel (initialize screenshot carousel)
+    =============================================== */
+    
+    $(".screenshots-carousel").owlCarousel({
+ 
+        autoPlay: 3000, //Set AutoPlay to 3 seconds
+ 
+        items : 4,
+        itemsDesktop : [1199,3],
+        itemsDesktopSmall : [979,3]
+ 
     });
 
 
+    /* ==============================================
+        OWL Carousel
+    =============================================== */
+
+        $(".related-carousel").owlCarousel({
+ 
+            autoPlay: 3000, //Set AutoPlay to 3 seconds
+            items : 4,
+            itemsDesktop : [1199,3], //number of items displayed on resolution less then 1199px
+            itemsDesktopSmall : [979,3] //number of items displayed on resolution less then 979px
+ 
+        });
+
+
+    /* ==============================================
+        Contact Form
+    =============================================== */
+
+    $('#contactform').submit(function(){
+
+        var action = $(this).attr('action');
+
+        $("#alert").slideUp(750,function() {
+            $('#alert').hide();
+
+        $('#submit')
+            .after('<img src="assets/images/ajax-loader.GIF" class="contactloader" />')
+            .attr('disabled','disabled');
+
+        $.post(action, {
+            name: $('#name').val(),
+            email: $('#email').val(),
+            message: $('#message').val()
+        },
+            function(data){
+                document.getElementById('alert').innerHTML = data;
+                $('#alert').slideDown('slow');
+                $('#contactform img.contactloader').fadeOut('slow',function(){$(this).remove();});
+                $('#submit').removeAttr('disabled');
+                if(data.match('success') !== null) {
+                    $('#name').val('');
+                    $('#email').val('');
+                    $('#message').val('');
+                }
+            }
+        );
+
+        });
+
+        return false;
+
+    });
+
+
+    /* ==============================================
+        Responsive video
+    =============================================== */
+    
+        $(".project-video, .video-creative, .video-post").fitVids();
+
+
+    /* ==============================================
+        YTPlayer for video backgrounds
+    =============================================== */ 
+
+        $(".player").YTPlayer();
+
+
+    /* ==============================================
+        Vegas slideshow background
+    =============================================== */ 
+
+        $(".slideshow-photo-hero").vegas({
+            slides: [
+                { src: "assets/images/photography/slide-7.jpg" },
+                { src: "assets/images/photography/slide-6.jpg" },
+                { src: "assets/images/photography/slide-8.jpg" }
+            ],
+            animation: [ 'kenburnsUp', 'kenburnsDown', 'kenburnsLeft', 'kenburnsRight' ],
+            delay: '8000'
+        });
+
+    /* ==============================================
+    Fade In .back-to-top
+    =============================================== */
+
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 500) {
+            $('.back-to-top').fadeIn();
+        } else {
+            $('.back-to-top').fadeOut();
+        }
+    });
+
+    // scroll body to 0px on click
+    $('.back-to-top').click(function () {
+        $('html, body').animate({
+            scrollTop: 0,
+            easing: 'swing'
+        }, 750);
+        return false;
+    });
 
-
-	// Menu animations plugin
-	(function(){
-		function Menu($element, options){
-
-			var handler,
-			defaults = {
-				domObj : $element,
-				className : 'small-menu',
-				position : '100px',
-				onIntellingenceMenu : function(){},
-				onNormalMenu : function(){}
-			},
-			config = $.extend({}, defaults, options),
-			coreFuns = {
-				displayMenu : function(){
-					if ( config.domObj.hasClass(config.className) ) {
-						config.domObj.removeClass(config.className);
-					}
-				},
-				hideMenu : function(){
-					if ( !config.domObj.hasClass(config.className) ) {
-						config.domObj.addClass(config.className);
-					}
-				}
-			},
-			publicFuns = {
-				intelligent_menu : function(){
-
-					var lastScrollTop = 0, direction;
-
-					if ( handler != undefined ) {
-						$(window).unbind('scroll', handler);
-					}
-
-					handler = function(e){
-						if (e.currentTarget.scrollY > lastScrollTop){
-							direction = 'down';
-						} else {
-							direction = 'up';
-						}
-						lastScrollTop = e.currentTarget.scrollY;
-
-						// check is user scrolling to up or down?
-						if ( direction == 'up' ) {
-						// so you are scrolling to up...
-
-							// lets display menu
-							coreFuns.displayMenu();
-
-						} else {
-						// so you are scrolling to down...
-
-							// se we have to hide only the small menu because the normal menu isn't sticky!
-							coreFuns.hideMenu();
-						}
-					};
-					$(window).bind('scroll', handler);
-
-					config.onNormalMenu();
-				},
-				fixed_menu : function(){
-					if ( handler != undefined ) {
-						$(window).unbind('scroll', handler);
-					}
-
-					handler = function(e){
-						// check have we display small menu or normal menu ?
-						coreFuns.displayMenu();
-					};
-
-					$(window).bind('scroll', handler);
-
-					config.onNormalMenu();
-				},
-				mobile_intelligent_menu : function(){
-
-					if ( jQuery.browser.mobile === true ) {
-						this.intelligent_menu();
-					} else {
-						this.fixed_menu();
-					}
-				}
-			};
-
-			return publicFuns;
-		}
-
-	    $.fn.menu = function( options ){
-	        var $element = this.first();
-	        var menuFuns = new Menu( $element, options );
-	        return menuFuns;
-	    };
-
-	})();
-
-
-	// call to Menu plugin
-	var menuFun = $('header').menu({
-		className : 'hide-menu',
-		position : '100px'
-	});
-
-	window.menuFun = menuFun;
-
-
-	/* Choose your navigation style */
-
-	menuFun.intelligent_menu(); // Hide intelligently
-	// menuFun.fixed_menu(); // Always fixed
-	// menuFun.mobile_intelligent_menu(); // Hide on Mobile Devices
-
-
-
-
-	// window scroll Sections scrolling
-
-	(function(){
-		var sections = $(".scroll-section");
-
-		function getActiveSectionLength(section, sections) {
-			return sections.index(section);
-		}
-		
-		if ( sections.length > 0 ) {
-
-
-			sections.waypoint({
-				handler: function(event, direction) {
-					var active_section, active_section_index, prev_section_index;
-					active_section = $(this);
-					active_section_index = getActiveSectionLength($(this), sections);
-					prev_section_index = ( active_section_index - 1 );
-
-					if (direction === "up") {
-						scrollDirection = "up";
-						if ( prev_section_index < 0 ) {
-							active_section = active_section;
-						} else {
-							active_section = sections.eq(prev_section_index);
-						}
-					} else {
-						scrollDirection = "Down";
-					}
-
-
-					if ( active_section.attr('id') != 'home' ) {
-						var active_link = $('.menu-smooth-scroll[href="#' + active_section.attr("id") + '"]');
-						active_link.parent('li').addClass("current").siblings().removeClass("current");
-					} else {
-						$('.menu-smooth-scroll').parent('li').removeClass('current');
-					}
-				},
-				offset: '35%'
-			});
-		}
-
-	}());
-
-
-
-
-
-
-
-
-
-
-	// Map
-	var mapStyle = [
-	    {
-	        "featureType": "landscape",
-	        "stylers": [
-	            {
-	                "saturation": -100
-	            },
-	            {
-	                "lightness": 50
-	            },
-	            {
-	                "visibility": "on"
-	            }
-	        ]
-	    },
-	    {
-	        "featureType": "poi",
-	        "stylers": [
-	            {
-	                "saturation": -100
-	            },
-	            {
-	                "lightness": 40
-	            },
-	            {
-	                "visibility": "simplified"
-	            }
-	        ]
-	    },
-	    {
-	        "featureType": "road.highway",
-	        "stylers": [
-	            {
-	                "saturation": -100
-	            },
-	            {
-	                "visibility": "simplified"
-	            }
-	        ]
-	    },
-	    {
-	        "featureType": "road.arterial",
-	        "stylers": [
-	            {
-	                "saturation": -100
-	            },
-	            {
-	                "lightness": 20
-	            },
-	            {
-	                "visibility": "on"
-	            }
-	        ]
-	    },
-	    {
-	        "featureType": "road.local",
-	        "stylers": [
-	            {
-	                "saturation": -100
-	            },
-	            {
-	                "lightness": 30
-	            },
-	            {
-	                "visibility": "on"
-	            }
-	        ]
-	    },
-	    {
-	        "featureType": "transit",
-	        "stylers": [
-	            {
-	                "saturation": -100
-	            },
-	            {
-	                "visibility": "simplified"
-	            }
-	        ]
-	    },
-	    {
-	        "featureType": "administrative.province",
-	        "stylers": [
-	            {
-	                "visibility": "off"
-	            }
-	        ]
-	    },
-	    {
-	        "featureType": "water",
-	        "elementType": "labels",
-	        "stylers": [
-	            {
-	                "visibility": "on"
-	            },
-	            {
-	                "lightness": -0
-	            },
-	            {
-	                "saturation": -0
-	            }
-	        ]
-	    },
-	    {
-	        "featureType": "water",
-	        "elementType": "geometry",
-	        "stylers": [
-	            {
-	                "hue": "#00baff"
-	            },
-	            {
-	                "lightness": -10
-	            },
-	            {
-	                "saturation": -95
-	            }
-	        ]
-	    }
-	];
-
-	var $mapWrapper = $('#map'), draggableOp;
-
-
-	if ( jQuery.browser.mobile === true ) {
-		draggableOp = false;
-	} else {
-		draggableOp = true;
-	}
-
-	if ( $mapWrapper.length > 0 ) {
-		var map = new GMaps({
-			div: '#map',
-			lat : 23.79473005386213,
-			lng : 90.41430473327637,
-			scrollwheel: false,
-			draggable: draggableOp,
-			zoom: 16,
-			disableDefaultUI: true,
-			styles : mapStyle
-		});
-
-		map.addMarker({
-			lat : 23.79473005386213,
-			lng : 90.41430473327637,
-			icon: 'images/marker-icon.png',
-			infoWindow: {
-				content: '<p>BD InfoSys Ltd, Dhaka, Bangladesh</p>'
-			}
-		});
-	}
-
-}(jQuery));
-
-
-
-$(window).load(function(){
-	
-	// section calling
-	$('.section-call-to-btn.call-to-home').waypoint({
-		handler: function(event, direction) {
-			var $this = $(this);
-			$this.fadeIn(0).removeClass('btn-hidden');
-			var showHandler = setTimeout(function(){
-				$this.addClass('btn-show').removeClass('btn-up');
-				clearTimeout(showHandler);
-			}, 1500);
-		},
-		offset: '90%'
-	});
-
-	
-	$('.section-call-to-btn.call-to-about').delay(1000).fadeIn(0, function(){
-		var $this = $(this);
-		$this.removeClass('btn-hidden');
-		var showHandler = setTimeout(function(){
-			$this.addClass('btn-show').removeClass('btn-up');
-			clearTimeout(showHandler);
-		}, 1600);
-	});
-
-
-
-	// portfolio Mesonary
-	if ( $('#protfolio-msnry').length > 0 ) {
-		// init Isotope
-		var loading = 0;
-		var portfolioMsnry = $('#protfolio-msnry').isotope({
-			itemSelector: '.single-port-item',
-			layoutMode: 'fitRows'
-		});
-
-
-		$('#portfolio-msnry-sort a').on( 'click', function(e) {
-
-			e.preventDefault();
-
-			if ( $(this).parent('li').hasClass('active') ) {
-				return false;
-			} else {
-				$(this).parent('li').addClass('active').siblings('li').removeClass('active');
-			}
-
-			var $this = $(this);
-			var filterValue = $this.data('target');
-
-			// set filter for Isotope
-			portfolioMsnry.isotope({ filter: filterValue });
-
-			return $(this);
-		});
-
-		$('#portfolio-item-loader').on( 'click', function(e) {
-			e.preventDefault();
-			var $this = $(this);
-
-			for (var i = 0; i < 3; i++) {
-				$.get("portfolioitems.html", function(data, status){
-					var lists, numb, target = $('#portfolio-msnry-sort li.active a').data('target');
-
-					lists = ( target != '*' ) ? $(data).find('li'+target) : $(data).find('li');
-
-					if (lists.length > 0) {
-						numb = Math.floor(Math.random() * lists.length);
-						portfolioMsnry.isotope( 'insert', lists.eq(numb) );
-
-						loading++;
-						( loading == 9 ) ? $this.remove() : "";
-					}
-
-				});
-			}
-
-		});
-
-		var portfolioModal = $('#portfolioModal'),
-			portImgArea = portfolioModal.find('.model-img'),
-			portTitle = portfolioModal.find('.modal-content .title'),
-			portContent = portfolioModal.find('.modal-content .m-content'),
-			portLink = portfolioModal.find('.modal-footer .modal-action');
-		
-		$('#protfolio-msnry').delegate('a.modal-trigger', 'click', function(e){
-			e.preventDefault();
-			var $this = $(this);
-			portfolioModal.openModal({
-				dismissible: true,
-				opacity: '.4',
-				in_duration: 400,
-				out_duration: 400,
-				ready: function() {
-					var imgSrc = $this.data('image-source'),
-					title = $this.data('title'),
-					content = $this.data('content'),
-					demoLink = $this.data('demo-link');
-
-
-					if ( imgSrc ) {
-						portImgArea.html('<img src="'+imgSrc+'" alt="Portfolio Image" />');
-					};
-
-
-					portTitle.text(title);
-					portContent.text(content);
-					portLink.attr('href', demoLink);
-				}
-			});
-		});
-	}
-
-	// skills animation
-	$('#skillSlider').waypoint({
-		handler: function(event, direction) {
-			$(this).find('.singel-hr-inner').each(function(){
-				var height = $(this).data('height');
-				$(this).css('height', height);
-			});
-		},
-		offset: '60%'
-	});
-
-
-	// Wow init
-	new WOW({
-		offset: 200,
-		mobile: false
-	}).init();
 });
 
+$(window).load(function(){
+    "use strict";
 
+    /* ==============================================
+    Preloader
+    =============================================== */
 
+    // will first fade out the loading animation
+    $("#loading-animation").fadeOut();
+    // will fade out the whole DIV that covers the website.
+    $("#preloader").delay(600).fadeOut("slow");
+    
+    /* ==============================================
+    Isotope
+    =============================================== */
 
+        // FIlter
+        if( $("#filter").length>0 ) {
+            var container = $('#filter');
+            container.isotope({
+                itemSelector: '.gallery-item',
+                transitionDuration: '0.8s'
+            });
+            $(".filter").click(function(){
+                $(".filter.active").removeClass("active");
+                $(this).addClass("active");
+                var selector = $(this).attr('data-filter');
+                container.isotope({ 
+                    filter: selector
+                });
+                return false;
+            });
 
-/*=========== count up statistic ==========*/
+            $(window).resize(function(){
+                setTimeout(function(){
+                    container.isotope();
+                },1000);
+            }).trigger('resize');
+        }
 
-var $countNumb = $('.countNumb');
+            if ( $('#type-masory').length ) {
 
-if ( $countNumb.length > 0 ) {
-	$countNumb.counterUp({
-		delay: 15,
-		time: 1700
-	});
-}
+            var $container = $('#type-masory');
 
-
-
-$('#contactForm').on('submit', function(e){
-	e.preventDefault();
-	var $this = $(this),
-		data = $(this).serialize(),
-		name = $this.find('#contact_name'),
-		email = $this.find('#email'),
-		message = $this.find('#textarea1'),
-		loader = $this.find('.form-loader-area'),
-		submitBtn = $this.find('button, input[type="submit"]');
-
-	loader.show();
-	submitBtn.attr('disabled', 'disabled');
-
-	function success(response) {
-		swal("Thanks!", "Your message has been sent successfully!", "success");
-		$this.find("input, textarea").val("");
-	}
-
-	function error(response) {
-		$this.find('input.invalid, textarea.invalid').removeClass('invalid');
-		if ( response.name ) {
-			name.removeClass('valid').addClass('invalid');
-		}
-
-		if ( response.email ) {
-			email.removeClass('valid').addClass('invalid');
-		}
-
-		if ( response.message ) {
-			message.removeClass('valid').addClass('invalid');
-		}
-	}
-
-	$.ajax({
-		type: "POST",
-		url: "inc/sendEmail.php",
-		data: data
-	}).done(function(res){
-
-		var response = JSON.parse(res);
-
-		if ( response.OK ) {
-			success(response);
-		} else {
-			error(response);
-		}
-
-
-		var hand = setTimeout(function(){
-			loader.hide();
-			submitBtn.removeAttr('disabled');
-			clearTimeout(hand);
-		}, 1000);
-
-	}).fail(function(){
-		sweetAlert("Oops...", "Something went wrong, Try again later!", "error");
-		var hand = setTimeout(function(){
-			loader.hide();
-			submitBtn.removeAttr('disabled');
-			clearTimeout(hand);
-		}, 1000);
-	});
+            $container.imagesLoaded( function(){
+              $container.fadeIn(1000).isotope({
+                itemSelector : '.masonry-item'
+              });
+            });
+        }
 });

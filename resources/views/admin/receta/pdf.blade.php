@@ -12,6 +12,8 @@
     <link href="components/plugins/font-awesome/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <!-- Ionicons -->
     <link href="components/plugins/ionicons/ionicons.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -23,61 +25,43 @@
 <div class="wrapper">
   <!-- Main content -->
   <section class="invoice">
-    <!-- title row -->
-    <div class="row">
-      <div class="col-xs-12">
-        <h2 class="page-header">
-          <i class="fa fa-file-text-o"></i>Receta
-          <small class="pull-right">Fecha de expedición: {{$receta->fechaExpedicion}}</small>
-        </h2>
-      </div>
-      <!-- /.col -->
-    </div>
     <!-- info row -->
     <div class="row invoice-info">
       <div class="col-sm-4 invoice-col">
-        <!--<address>
-          <strong>Admin, Inc.</strong><br>
-          795 Folsom Ave, Suite 600<br>
-          San Francisco, CA 94107<br>
-          Phone: (804) 123-5432<br>
-          Email: info@almasaeedstudio.com
-        </address>-->
-      </div>
-      <!-- /.col -->
-      <div class="col-sm-4 invoice-col">
         <address>
-          <center><strong>Dr(a). {{$currentUser->nombre}}</strong><br>
+          <right><strong>Dr(a). {{$currentUser->nombre}}</strong><br>
           {{$medico->especialidad}}<br>
+          Fecha de expedición: {{$receta->fechaExpedicion}}<br>
           Cédula: {{$medico->cedula}}<br>
-        </center>
+        </right>
         </address>
-      </div>
-      <!-- /.col -->
-      <div class="col-sm-4 invoice-col">
-        <!--<b>Invoice #007612</b><br>
-        <br>
-        <b>Order ID:</b> 4F3S8J<br>
-        <b>Payment Due:</b> 2/22/2014<br>
-        <b>Account:</b> 968-34567-->
       </div>
       <!-- /.col -->
     </div>
     <!-- /.row -->
-
     <!-- Table row -->
     <div class="row">
-      <div class="col-xs-12 table-responsive">
-        <table class="table table-striped">
+      <div class="col-xs-8 table-responsive">
+        <table class="table table">
             <tr>
               <td>Paciente: {{$paciente->nombrepaciente}}</td>
-              <td>Edad: {{DATE('Y-m-d')-$paciente->nacimiento}}</td>
-              <td>Sexo: {{$paciente->sexo}}</td>
-              <td>Peso: {{$paciente->peso}}</td>
-              <td>Estatura: {{$paciente->estatura}}</td>
             </tr>
             <tr>
-              <td colspan="5">Diagnóstico: {{$receta->diagnostico}}</td>
+              <td>Edad: {{DATE('Y-m-d')-$paciente->nacimiento}}</td>
+            </tr>
+            <tr>
+              <td>Sexo: {{$paciente->sexo}}</td>
+            </tr>
+            <tr>
+              <td>Peso: {{$paciente->peso}}</td>
+            </tr>
+            <tr>
+              <td>Estatura: {{$paciente->estatura}}</td>
+            </tr>
+        </table>
+        <table class="table">
+            <tr>
+              <td>Diagnóstico: {{$receta->diagnostico}}</td>
             </tr>
         </table>
         <table class="table table-striped">
@@ -92,7 +76,7 @@
           </thead>
           <tbody>
             @foreach($receta->medicamentos as $medicamento)
-              <tr>
+              <tr class="success">
                 <td>{{$medicamento->nombremedicamento.' '.$medicamento->contenidomedida.' '.$medicamento->contenidodescripcion}}</td>
                 <td>{{$medicamento->pivot->dosis}}</td>
                 <td>{{$medicamento->pivot->periodicidad}}</td>
