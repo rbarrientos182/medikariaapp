@@ -7,12 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 class Receta extends Model
 {
   protected $fillable = [
-      'pacientes_id','diagnostico','fechaExpedicion',
+      'pacientes_id','medicos_id','diagnostico','fechaExpedicion',
   ];
 
   public function pacientes()
   {
     return $this->belongsTo(Paciente::class);
+  }
+
+  public function recetas()
+  {
+    return $this->belongsTo(Medico::class);
   }
 
   public function medicamentos()

@@ -142,9 +142,9 @@ class RecetaController extends Controller
       if($request->ajax()){
         //primero guardamos la receta
         $paciente = Paciente::findOrFail($request->paciente);
-        $medico = $paciente->medicos;
-        $usuario = $medico->users;
+        $medico = Medico::findOrFail($request->medico);
         $receta = Receta::create(['pacientes_id' => $request->paciente,
+                                  'medicos_id' => $request->medico,
                                   'diagnostico' => $request->diagnostico,
                                   'fechaExpedicion' => date('Y-m-d')]);
         //obtenemos la cadena de la tabla receta y eliminamos el ultimo ;
@@ -174,7 +174,8 @@ class RecetaController extends Controller
 
         return response()->json(['mensaje' => 'Datos guardados correctamente',
                                  'idreceta' => $receta->id,
-                                 'usuario' => $usuario->id]);
+                                 'usuario' => $medico->users_id
+                               ]);
       }
     }
 
@@ -204,6 +205,16 @@ class RecetaController extends Controller
           $medico = $user->medicos;
 
           $pdf = \PDF::loadView('admin.receta.pdf',compact('receta','medico','paciente'));
+          $pdf->setPaper('a4','landscape');
           return $pdf->download('Receta'.$idreceta.'.pdf');
+    }
+
+    public function orderReceta($id,$idreceta)
+    {
+          $receta = Receta::findOrFail($idreceta);
+          $paciente = $receta->pacientes;
+          $user = User::findOrFail($id);
+          $medico = $user->medicos;
+          return view('admin.receta.order', compact('receta','medico','paciente'));
     }
 }

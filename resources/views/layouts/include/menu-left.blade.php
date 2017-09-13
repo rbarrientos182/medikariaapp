@@ -31,7 +31,6 @@
         <ul class="treeview-menu">
 					<li><a href="{{route('paciente_show_create_path',$currentUser->id)}}"><i class="fa fa-list"></i>Agregar pacientes</a></li>
           <li><a href="{{route('paciente_show_path',$currentUser->id)}}"><i class="fa fa-list"></i>Ver pacientes</a></li>
-          <li><a href="#"><i class="fa fa-file"></i>Historial Clinico</a></li>
         </ul>
       </li>
       <li class="header">Plataforma</li>
@@ -45,7 +44,7 @@
         </a>
         <ul class="treeview-menu">
           <li><a href="{{route('diagnostico_show_path',$currentUser->id)}}"><i class="fa fa-stethoscope"></i>Diagnóstico</a></li>
-          <li><a href="#"><i class="fa fa-list-ul"></i>Recetas</a></li>
+          <!--<li><a href="#"><i class="fa fa-list-ul"></i>Recetas</a></li>-->
           <li><a href="#"><i class="fa fa-money"></i>Cotización Virtual</a></li>
 
         </ul>
@@ -54,13 +53,14 @@
       <li class="treeview">
         <a href="#">
           <i class="fa fa-history"></i>
-          <span> Historial</span>
+          <span> Historial de Compras</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="#"><i class="fa fa-credit-card"></i>Movimiento Pagos</a></li>
+          <li><a href="#"><i class="fa fa-credit-card"></i>Compras por Pacientes</a></li>
+					<li><a href="#"><i class="fa  fa-paypal"></i>Compras Globales por Médico</a></li>
         </ul>
       </li>
       <li class="header"> Configuración</li>

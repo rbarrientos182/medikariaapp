@@ -43,7 +43,8 @@
             @if($paciente)
               @foreach($paciente as $pacientes)
               <tr>
-                <td><a class="btn btn-block btn-primary btn-sm" href="{{route('paciente_show_update_path',[$pacientes->id,1])}}"><i class="fa fa-edit"></i> Editar</a></td>
+                <!--<td><a class="btn btn-block btn-primary btn-sm" href="{{route('paciente_show_update_path',[$pacientes->id,1])}}"><i class="fa fa-edit"></i> Editar</a></td>-->
+                <td><a class="btn btn-block btn-primary btn-sm" href="{{route('paciente_show_update_path',[$pacientes->id,1])}}"><i class="fa fa-user"></i> Ver Perfil</a></td>
                 <td>{{$pacientes->nombrepaciente.' '.$pacientes->apellidopacientep.' '.$pacientes->apellidopacientem}}</td>
                 <td>{{$pacientes->direccionpaciente}}</td>
                 <td>{{$pacientes->estatura}}</td>

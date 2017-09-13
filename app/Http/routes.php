@@ -108,6 +108,11 @@ Route::group(['middleware' => 'auth'],function () {
         'as'   => 'diagnostico_show_pdf_path',
       ])->where('id','[0-9]+');
 
+      Route::get('home/diagnostico/{id}/orderreceta/{idreceta}',[
+        'uses' => 'Admin\RecetaController@orderReceta',
+        'as'   => 'diagnostico_show_order_path',
+      ])->where('id','[0-9]+');
+
       //ruta para llenar la tabla de receta
       Route::post('recetas/{id}',[
         'uses' => 'Admin\RecetaController@makeReceta',
@@ -184,6 +189,19 @@ Route::post('password/reset',[
 ]);
 
 
+/************************Rutas de PayPal***************************************/
+
+// ruta para enviar información a Paypal
+Route::get('payment', array(
+	'as' => 'payment',
+	'uses' => 'PaypalController@postPayment',
+));
+
+// ruta para recibir la respuesta de Paypal
+Route::get('payment/status', array(
+	'as' => 'payment.status',
+	'uses' => 'PaypalController@getPaymentStatus',
+));
 
 
 /*******************************************************************************/

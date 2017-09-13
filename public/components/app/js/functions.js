@@ -106,6 +106,8 @@ $("#btnSave").click(function(e){
   var cadena = null;
   var paciente = $("#paciente").val();
   var diagnostico = $("#diagnostico").val();
+  var medico = $("#idmedico").val();
+  console.log("medico es "+medico);
 
   $("#tablaMedicamento  tr").each(function(index) {
     if(bandera!=0){
@@ -151,7 +153,7 @@ $("#btnSave").click(function(e){
   })
   console.log(cadena);
   if (cadena!=null) {
-    guardarReceta(cadena,paciente,diagnostico);
+    guardarReceta(cadena,paciente,diagnostico,medico);
   }
   else {
     showMessageAlert('No es posible guardar receta vacía');
@@ -201,9 +203,9 @@ function searchNameTable(datos) {
   }
 }
 /*** fin de boton agregar medicamento - módulo de crear receta***/
-function guardarReceta(cadena,paciente,diagnostico) {
+function guardarReceta(cadena,paciente,diagnostico,medico) {
 
-  console.log("el paciente es "+paciente+" el diagnostico es "+diagnostico+" y la cadena es "+cadena);
+  console.log("el paciente es "+paciente+" el diagnostico es "+diagnostico+" y la cadena es "+cadena+" y el medico es "+medico);
 
   var notify = $.notify('<strong>Guardando</strong> No cierre la página...', {
       allow_dismiss: false,
@@ -212,7 +214,7 @@ function guardarReceta(cadena,paciente,diagnostico) {
 
   $.ajax({
     url: "../../recetas/save",
-    data: "cadena="+cadena+"&paciente="+paciente+"&diagnostico="+diagnostico,
+    data: "cadena="+cadena+"&paciente="+paciente+"&diagnostico="+diagnostico+"&medico="+medico,
     type: "GET",
     dataType: 'json',
     success:function(datos){

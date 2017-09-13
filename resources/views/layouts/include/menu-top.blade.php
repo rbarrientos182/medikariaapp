@@ -60,6 +60,11 @@
                     </li>
                   </ul>
                 </li>
+                <li>
+                    @if($currentUser)
+                      <a href="{{route('auth_destroy_path')}}" data-toggle="btn btn-default btn-flat" class="fa fa-sign-out"></a>
+                    @endif
+                </li>
             </ul>
         </div>
     </nav>

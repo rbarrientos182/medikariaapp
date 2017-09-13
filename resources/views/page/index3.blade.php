@@ -113,7 +113,7 @@
             <div class="row">
               <div class="col-md-8 col-lg-7">
                 <div class="hero-text">
-                  <h1>ES MUY FÁCIL DE USAR</h1>
+                  <h1>FÁCIL DE USAR</h1>
                   <p class="hero">EN DESARROLLO</p>
                 </div> <!-- End hero-text -->
                 <div class="call-to-action">
@@ -143,11 +143,15 @@
             </div>
 
             <div class="col-md-5 col-md-pull-7" class='texto'>
-              <h4>¿Que es medikaria?</h4>
-              <p class='texto'>Medikaria es la solución tecnológica más eficaz del mercado para eficientar el proceso de receta, compra y venta de medicamentos.<br><br>
-								Medikaria es una plataforma tecnológica que sirve como enlace entre los médicos, los pacientes y las farmacias, al hacer que el proceso del pedido, la compra, el pago y la entrega de los medicamentos -comunes, antibióticos o controlados- sea más sencillo, cómodo, económico y eficiente.
-							</p>
+              <h4>¿Ques es medikaria?</h4>
+              <p class='texto'>Medikaria es la solución tecnológica más eficaz del mercado para eficientar el proceso de receta, compra y venta de medicamentos.</p>
               <!-- Accordion -->
+              <dl class="accordion">
+                <dt>
+                    <a href="" class="active">Leer más</a>
+                </dt>
+                <dd >Medikaria es una plataforma tecnológica que sirve como enlace entre los médicos, los pacientes y las farmacias, al hacer que el proceso del pedido, la compra, el pago y la entrega de los medicamentos -comunes, antibióticos o controlados- sea más sencillo, cómodo, barato y eficiente.
+                </dd>
                 <!--<dt>
                     <a href="" class="">Our mission</a>
                 </dt>
@@ -157,7 +161,7 @@
                     <a href="" class="">Why choose us</a>
                 </dt>
                 <dd>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna.
-                </dd>
+                </dd>-->
               </dl>
               <!-- End Accordion -->
             </div>
@@ -203,7 +207,7 @@
                       </div><!--  end vertical-align-table -->
                     </div> <!-- end overlay -->
                   </div> <!-- end team-image -->
-                  <h2>Registro de médicos</h2>
+                  <h2>Registrate</h2>
                 </div>
               </div>
 
@@ -219,7 +223,7 @@
                       </div><!--  end vertical-align-table -->
                     </div> <!-- end overlay -->
                   </div> <!-- end team-image -->
-                  <h2>Alta Pacientes</h2>
+                  <h2>Alta Paciente</h2>
                 </div>
               </div>
 
@@ -236,39 +240,7 @@
                       </div><!--  end vertical-align-table -->
                     </div> <!-- end overlay -->
                   </div> <!-- end team-image -->
-                  <h2>Busqueda Medicamentos</h2>
-                </div>
-              </div>
-
-							<div class="col-sm-4">
-                <div class="member-team text-center">
-                  <div class="team-image">
-                    <img src="assets/images/team/2.png" alt="">
-                    <div class="overlay">
-                      <div class="vertical-align-table">
-                        <div class="vertical-align-cell">
-													<p>Ya que el paciente decidió qué opción de farmacia y envío tomar, y aceptar así dicha compra, se hace el pago de los medicamentos ala farmacia mediante la plataforma.</p>
-                        </div> <!-- end vertical-align-cell -->
-                      </div><!--  end vertical-align-table -->
-                    </div> <!-- end overlay -->
-                  </div> <!-- end team-image -->
-                  <h2>Compra y envío de medicamentos</h2>
-                </div>
-              </div>
-
-              <div class="col-sm-4">
-                <div class="member-team text-center">
-                  <div class="team-image">
-                    <img src="assets/images/team/1.png" alt="">
-                    <div class="overlay">
-                      <div class="vertical-align-table">
-                        <div class="vertical-align-cell">
-                          <p>Al utilizar completamente la plataforma de Medikaria, por cada compra que el paciente realiza mediante ésta a través de la cuenta del médico, éste último recibe un porcentaje por cada medicamento vendido por la farmacia.<br>Es un GANAR-GANAR para todos.</p>
-                        </div> <!-- end vertical-align-cell -->
-                      </div><!--  end vertical-align-table -->
-                    </div> <!-- end overlay -->
-                  </div> <!-- end team-image -->
-                  <h2>Ganacias para medicos</h2>
+                  <h2>Busqueda Medicamento</h2>
                 </div>
               </div>
 
@@ -351,10 +323,10 @@
                       <span class="iconbox"><i class="#"></i></span>
                       <div class="choose-box-content">
                         <h6>Para los pacientes</h6>
-												<p class= 'texto2'>LES ASEGURA de que los medicamentos recetados por el médico sean EXACTAMENTE los requeridos, de tal manera que los tratamientos que tomen sean más eficaces.<br>
-												LES GENERA AHORROS en la compra de sus medicamentos.<br>
-												LES BRINDA LA COMODIDAD de no tener que andar en búsqueda de los medicamentos de farmacia en farmacia, al recibirlos en su domicilio.</p>
-											</div>
+                        <p class= 'texto2'>LES GENERA VENTAS EXTRAS con bajo gasto de operación.<br>
+                        LES AYUDA a mantener -con orden y electrónicamente- el control de las RECETAS vs SURTIDO de medicamentos, antibióticos y controlados.<br>
+                        LES GENERA ESTADÍSTICAS de medicamentos vendidos, para así poder ser mejorar sus inventarios, además de ser acreedores a incentivos de parte de los Laboratorios Médicos.</p>
+                      </div>
                     </div>
                   </li>
 
@@ -364,10 +336,10 @@
                       <span class="iconbox"><i class="#"></i></span>
                       <div class="choose-box-content">
                         <h6>Para las farmacias</h6>
-												<p class= 'texto2'>LES GENERA VENTAS EXTRAS con bajo gasto de operación.<br>
-												LES AYUDA a mantener -con orden y electrónicamente- el control de las RECETAS vs SURTIDO de medicamentos, antibióticos y controlados.<br>
-												LES GENERA ESTADÍSTICAS de medicamentos vendidos, para así poder ser mejorar sus inventarios, además de ser acreedores a incentivos de parte de los Laboratorios Médicos.</p>
-										</div>
+                        <p class= 'texto2'>LES ASEGURA de que los medicamentos recetados por el médico sean EXACTAMENTE los requeridos, de tal manera que los tratamientos que tomen sean más eficaces.<br>
+                        LES GENERA AHORROS en la compra de sus medicamentos.<br>
+                        LES BRINDA LA COMODIDAD de no tener que andar en búsqueda de los medicamentos de farmacia en farmacia, al recibirlos en su domicilio.</p>
+                      </div>
                     </div>
                   </li>
                 </ul> <!-- end choose-list -->
@@ -417,7 +389,7 @@
               <div class="col-sm-8 col-sm-offset-2">
                 <h2>Contacto</h2>
                 <div class="divider"></div>
-              <!--  <p>Sed ac mattis justo. Vestibulum facilisis at arcu ac porta. Vivamus at ipsum at quam hendrerit gravida.</p>-->
+                <p>Sed ac mattis justo. Vestibulum facilisis at arcu ac porta. Vivamus at ipsum at quam hendrerit gravida.</p>
               </div> <!-- End col-sm-6 -->
             </div> <!-- End row -->
           </div> <!-- End title-section -->
@@ -432,7 +404,7 @@
                     <i class="icon-phone"></i>
                   </div>
                   <h5 class="text-uppercase">Números</h5>
-                  <div class="texto22">
+                  <div class="loc-desc">
                     (442) 343 0371 <br> (442) 343 0371
                   </div>
                 </div>
@@ -444,7 +416,7 @@
                     <i class="icon-envelope"></i>
                   </div>
                   <h5 class="text-uppercase">Correo</h5>
-                  <div class="texto22">
+                  <div class="loc-desc">
                     contacto@medikaria.com <br>
                   </div>
                 </div>

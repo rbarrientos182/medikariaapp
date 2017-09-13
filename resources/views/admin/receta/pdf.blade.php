@@ -27,38 +27,46 @@
   <section class="invoice">
     <!-- info row -->
     <div class="row invoice-info">
-      <div class="col-sm-4 invoice-col">
+      <div class="col-sm-4 invoice-col" style="float: left">
         <address>
-          <right><strong>Dr(a). {{$currentUser->nombre}}</strong><br>
-          {{$medico->especialidad}}<br>
-          Fecha de expedición: {{$receta->fechaExpedicion}}<br>
-          Cédula: {{$medico->cedula}}<br>
+          <right>
+            <img src="http://i.imgur.com/5zLzHUk.png" alt="logo">
+            <br>
+        </right>
+        </address>
+      </div>
+      <div class="col-sm-4 invoice-col" style="float: right">
+        <address>
+          <right>
+            <strong>Dr(a). {{$currentUser->nombre}}</strong><br>
+            {{$medico->especialidad}}<br>
+            Fecha de expedición: {{$receta->fechaExpedicion}}<br>
+            Cédula: {{$medico->cedula}}<br>
+            Paciente: {{$paciente->nombrepaciente}}<br>
+            Edad: {{date('Y-m-d')-$paciente->nacimiento}}<br>
+            Sexo: {{$paciente->sexo}}<br>
+            Peso: {{$paciente->peso}}<br>
+            Estatura: {{$paciente->estatura}}<br>
         </right>
         </address>
       </div>
       <!-- /.col -->
     </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <!-- /.row -->
     <!-- Table row -->
     <div class="row">
       <div class="col-xs-8 table-responsive">
-        <table class="table table">
-            <tr>
-              <td>Paciente: {{$paciente->nombrepaciente}}</td>
-            </tr>
-            <tr>
-              <td>Edad: {{DATE('Y-m-d')-$paciente->nacimiento}}</td>
-            </tr>
-            <tr>
-              <td>Sexo: {{$paciente->sexo}}</td>
-            </tr>
-            <tr>
-              <td>Peso: {{$paciente->peso}}</td>
-            </tr>
-            <tr>
-              <td>Estatura: {{$paciente->estatura}}</td>
-            </tr>
-        </table>
         <table class="table">
             <tr>
               <td>Diagnóstico: {{$receta->diagnostico}}</td>
