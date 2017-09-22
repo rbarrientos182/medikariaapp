@@ -211,10 +211,11 @@ class RecetaController extends Controller
 
     public function orderReceta($id,$idreceta)
     {
+          //creamos la orden con relación a la receta
           $receta = Receta::findOrFail($idreceta);
           $paciente = $receta->pacientes;
           $user = User::findOrFail($id);
           $medico = $user->medicos;
-          return view('admin.receta.order', compact('receta','medico','paciente'));
+          return view('admin.orden.order', compact('receta','medico','paciente'));
     }
 }

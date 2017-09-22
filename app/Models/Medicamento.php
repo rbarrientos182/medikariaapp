@@ -15,6 +15,11 @@ class Medicamento extends Model
     return $this->belongsToMany(Receta::class,'medicamentos_has_recetas','medicamentos_id','recetas_id')->withPivot('dosis','periodicidad','dias','cantidad');
   }
 
+  public function ordenes()
+  {
+    return $this->belongsToMany(Orden::class,'ordenes_has_medicamentos','medicamentos_id','ordenes_id')->withPivot('subtotal','cantidad');
+  }
+
   public function categorias()
   {
     return $this->belongsTo(Categoria::class);

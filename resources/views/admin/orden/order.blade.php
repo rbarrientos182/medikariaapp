@@ -73,18 +73,18 @@
             <th>Cantidad</th>
             <th>Producto</th>
             <th>Serial #</th>
-            <th>Descripción</th>
+            <!--<th>Descripción</th>-->
             <th>Subtotal</th>
           </tr>
           </thead>
           <tbody>
             @foreach($receta->medicamentos as $medicamento)
               <tr>
+                <td>{{$medicamento->pivot->cantidad}}</td>
                 <td>{{$medicamento->nombremedicamento.' '.$medicamento->contenidomedida.' '.$medicamento->contenidodescripcion}}</td>
                 <td>{{$medicamento->pivot->dosis}}</td>
-                <td>{{$medicamento->pivot->periodicidad}}</td>
-                <td>{{$medicamento->pivot->dias}}</td>
-                <td>{{$medicamento->pivot->cantidad}}</td>
+                <!--<td>{{$medicamento->pivot->periodicidad}}</td>-->
+                <td>${{$medicamento->precio}}</td>
               </tr>
             @endforeach
           </tbody>
