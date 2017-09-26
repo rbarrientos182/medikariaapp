@@ -42,7 +42,7 @@
             {{$medico->especialidad}}<br>
             Fecha de expedición: {{$receta->fechaExpedicion}}<br>
             Cédula: {{$medico->cedula}}<br>
-            Paciente: {{$paciente->nombrepaciente}}<br>
+            Paciente: {{$paciente->nombrepaciente.' '.$paciente->apellidopacientep.' '.$paciente->apellidopacientem}}<br>
             Edad: {{date('Y-m-d')-$paciente->nacimiento}}<br>
             Sexo: {{$paciente->sexo}}<br>
             Peso: {{$paciente->peso}}<br>

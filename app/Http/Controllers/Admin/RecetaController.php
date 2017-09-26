@@ -12,6 +12,7 @@ use Medikaria\Models\User;
 use Medikaria\Models\Medico;
 use Medikaria\Models\Paciente;
 use Medikaria\Models\Receta;
+use Medikaria\Models\Orden;
 use Medikaria\Models\Medicamento;
 use Medikaria\Models\Categoria;
 
@@ -151,7 +152,6 @@ class RecetaController extends Controller
         $cadena = substr($request->cadena,0, -1);
         // convierto la cadena de la tabla tarima a un array.
         $cadena = explode(';',$cadena);
-
         //recorremos las tuplas y las convertimos en array
         for ($i=0; $i < count($cadena); $i++) {
           $datos = explode(',',$cadena[$i]);
@@ -216,6 +216,25 @@ class RecetaController extends Controller
           $paciente = $receta->pacientes;
           $user = User::findOrFail($id);
           $medico = $user->medicos;
-          return view('admin.orden.order', compact('receta','medico','paciente'));
+
+          $subtotal = 0;
+          $precioProducto = 0;
+          //dd($receta->medicamentos);
+          foreach ($receta->medicamentos as $recetas) {
+            $precioProducto = $recetas->pivot->cantidad * $recetas->precio;
+            $subtotal = $subtotal + $precioProducto;
+          }
+
+          $orden = Orden::create(['recetas_id' => $idreceta,
+                                    'subtotal' => $subtotal,
+                                    'comision' => '0']);
+
+          foreach ($receta->medicamentos as $recetas) {
+            $precioProducto = $recetas->pivot->cantidad * $recetas->precio;
+            $orden->medicamentos()->attach($recetas->id,['subtotal_or' => $precioProducto,
+            'cantidad_or' => $recetas->pivot->cantidad]);
+          }
+
+          return view('admin.orden.order', compact('receta','medico','paciente','orden'));
     }
 }

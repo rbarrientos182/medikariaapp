@@ -9,7 +9,7 @@
   <section class="content-header">
       <h1>
           Orden
-          <small>#{{$receta->id}}</small>
+          <small>#{{$orden->id}}</small>
       </h1>
       <ol class="breadcrumb">
           <li class="#"><i class="fa fa-home"></i><a href="{{route('home_show_path')}}"> Inicio</a></li>
@@ -45,20 +45,20 @@
       <!-- /.col -->
       <div class="col-sm-4 invoice-col">
         <address>
-          <strong>John Doe</strong><br>
-          795 Folsom Ave, Suite 600<br>
-          San Francisco, CA 94107<br>
-          Phone: (555) 539-1037<br>
-          Email: john.doe@example.com
+          <strong>{{$paciente->nombrepaciente.' '.$paciente->apellidopacientep. $paciente->apellidopacientem}}</strong><br>
+          {{$paciente->direccionpaciente}}<br>
+          {{$paciente->coloniapaciente.', CP '.$paciente->cppaciente}}<br>
+          Celular: {{$paciente->celular}}<br>
+          Email: {{$paciente->emailpaciente}}
         </address>
       </div>
       <!-- /.col -->
       <div class="col-sm-4 invoice-col">
-        <b>Invoice #007612</b><br>
-        <br>
-        <b>Order ID:</b> 4F3S8J<br>
-        <b>Payment Due:</b> 2/22/2014<br>
-        <b>Account:</b> 968-34567
+        <b>Orden ID:</b> {{$orden->id}}<br>
+        <b>Fecha de Pago:</b> {{$orden->fechapago}}<br>
+        <!--<b>Factura #007612</b><br>
+        <br>-->
+        <!--<b>Cuenta:</b> 968-34567-->
       </div>
       <!-- /.col -->
     </div>
@@ -78,13 +78,12 @@
           </tr>
           </thead>
           <tbody>
-            @foreach($receta->medicamentos as $medicamento)
+            @foreach($orden->medicamentos as $detalleOrden)
               <tr>
-                <td>{{$medicamento->pivot->cantidad}}</td>
-                <td>{{$medicamento->nombremedicamento.' '.$medicamento->contenidomedida.' '.$medicamento->contenidodescripcion}}</td>
-                <td>{{$medicamento->pivot->dosis}}</td>
-                <!--<td>{{$medicamento->pivot->periodicidad}}</td>-->
-                <td>${{$medicamento->precio}}</td>
+                <td>{{$detalleOrden->pivot->cantidad_or}}</td>
+                <td>{{$detalleOrden->nombremedicamento.' '.$detalleOrden->contenidomedida.' '.$detalleOrden->contenidodescripcion}}</td>
+                <td>{{$detalleOrden->pivot->medicamentos_id}}</td>
+                <td>$ {{$detalleOrden->pivot->subtotal_or}}</td>
               </tr>
             @endforeach
           </tbody>
@@ -109,25 +108,25 @@
       </div>
       <!-- /.col -->
       <div class="col-xs-6">
-        <p class="lead">Amount Due 2/22/2014</p>
+        <p class="lead">Cantidad a Pagar</p>
 
         <div class="table-responsive">
           <table class="table">
             <tr>
               <th style="width:50%">Subtotal:</th>
-              <td>$250.30</td>
+              <td>$ {{number_format($orden->subtotal,2)}}</td>
             </tr>
             <tr>
-              <th>Tax (9.3%)</th>
-              <td>$10.34</td>
+              <th>Comisión</th>
+              <td>$ {{number_format($orden->comision,2)}}</td>
             </tr>
             <tr>
-              <th>Shipping:</th>
-              <td>$5.80</td>
+              <th>Envío:</th>
+              <td>$ 0.00</td>
             </tr>
             <tr>
               <th>Total:</th>
-              <td>$265.24</td>
+              <td>$ {{number_format($orden->subtotal+$orden->comision,2)}}</td>
             </tr>
           </table>
         </div>

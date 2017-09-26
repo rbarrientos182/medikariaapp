@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Orden extends Model
 {
+
+  protected $table = 'ordenes';
+
   protected $fillable = [
       'recetas_id','subtotal','comision',
   ];
@@ -17,7 +20,7 @@ class Orden extends Model
 
   public function medicamentos()
   {
-    return $this->belongsToMany(Medicamento::class,'ordenes_has_medicamentos','ordenes_id','medicamentos_id')->withPivot('subtotal','cantidad');
+    return $this->belongsToMany(Medicamento::class,'ordenes_has_medicamentos','ordenes_id','medicamentos_id')->withPivot('subtotal_or','cantidad_or');
   }
 
 

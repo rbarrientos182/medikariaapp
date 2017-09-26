@@ -17,7 +17,7 @@ class Medicamento extends Model
 
   public function ordenes()
   {
-    return $this->belongsToMany(Orden::class,'ordenes_has_medicamentos','medicamentos_id','ordenes_id')->withPivot('subtotal','cantidad');
+    return $this->belongsToMany(Orden::class,'ordenes_has_medicamentos','medicamentos_id','ordenes_id')->withPivot('subtotal_or','cantidad_or');
   }
 
   public function categorias()

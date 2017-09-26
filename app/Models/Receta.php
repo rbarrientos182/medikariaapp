@@ -15,9 +15,19 @@ class Receta extends Model
     return $this->belongsTo(Paciente::class);
   }
 
-  public function recetas()
+  public function medicos()
   {
     return $this->belongsTo(Medico::class);
+  }
+
+  public function orden()
+  {
+    return $this->hasOne(Orden::class);
+  }
+
+  public function historialPagos()
+  {
+    return $this->hasMany(HistorialPago::class);
   }
 
   public function medicamentos()

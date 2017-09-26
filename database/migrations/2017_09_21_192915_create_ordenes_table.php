@@ -17,6 +17,8 @@ class CreateOrdenesTable extends Migration
           $table->integer('recetas_id')->unsigned();
           $table->decimal('subtotal',10,2);
           $table->decimal('comision',10,2);
+          $table->boolean('estatusorden')->default(false);
+          $table->date('fechapago')->default(false);
           $table->timestamps();
           $table->softDeletes();
           $table->foreign('recetas_id')->references('id')->on('recetas');

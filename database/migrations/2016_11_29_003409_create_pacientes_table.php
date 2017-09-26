@@ -19,6 +19,8 @@ class CreatePacientesTable extends Migration
           $table->string('apellidopacientep',60);
           $table->string('apellidopacientem',60);
           $table->string('direccionpaciente',60);
+          $table->string('coloniapaciente',60)->nullable();
+          $table->string('cppaciente',45)->nullable();
           $table->string('estatura',60);
           $table->string('peso',60);
           $table->date('nacimiento');
