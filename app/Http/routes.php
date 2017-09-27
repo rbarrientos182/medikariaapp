@@ -113,14 +113,13 @@ Route::group(['middleware' => 'auth'],function () {
         'uses' => 'Admin\RecetaController@makeReceta',
         'as'   => 'receta_ajax_path',]);
 
+      //ruta para guardar la receta en la db
+      Route::get('recetas/save','Admin\RecetaController@guardarReceta');
 
-      Route::get('home/diagnostico/{id}/orderreceta/{idreceta}',[
+      Route::get('home/diagnostico/{id}/orden/{idreceta}',[
         'uses' => 'Admin\OrdenController@makeOrden',
         'as'   => 'diagnostico_show_order_path',
       ])->where('id','[0-9]+');
-
-      //ruta para guardar la receta en la db
-      Route::get('recetas/save','Admin\RecetaController@guardarReceta');
       /**
       * Ruta ajax
       **/

@@ -138,7 +138,7 @@
     <div class="row no-print">
       <div class="col-xs-12">
         <a href="{{route('diagnostico_show_print_path',[$currentUser->id,$receta->id])}}" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Imprimir</a>
-        <a href="{{route('diagnostico_show_order_path',[$currentUser->id,$receta->id])}}" class="btn btn-success pull-right" target="_blank"><i class="fa fa-credit-card"></i> Enviar Pago
+        <a href="{{route('payment',[$orden->id])}}" class="btn btn-success pull-right" target="_blank"><i class="fa fa-credit-card"></i> Enviar Pago
         </a>
         <a href="{{route('diagnostico_show_pdf_path',[$currentUser->id,$receta->id])}}" target="_blank" class="btn btn-primary pull-right" style="margin-right: 5px;">
           <i class="fa fa-download"></i> Generar PDF

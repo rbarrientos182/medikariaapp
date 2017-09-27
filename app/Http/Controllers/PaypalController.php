@@ -22,8 +22,9 @@ use PayPal\Api\ExecutePayment;
 use PayPal\Api\PaymentExecution;
 use PayPal\Api\Transaction;
 
-use Medikaria\Models\Order;
-use Medikaria\Models\OrderItem;
+use Medikaria\Models\Orden;
+use Medikaria\Models\Medicamento;
+//use Medikaria\Models\OrderItem;
 
 class PaypalController extends BaseController
 {
@@ -33,32 +34,36 @@ class PaypalController extends BaseController
   {
     // setup PayPal api context
     $paypal_conf = \Config::get('paypal');
+    //dd($paypal_conf['client_id'],$paypal_conf['secret'],$paypal_conf['settings']);
     $this->_api_context = new ApiContext(new OAuthTokenCredential($paypal_conf['client_id'], $paypal_conf['secret']));
     $this->_api_context->setConfig($paypal_conf['settings']);
   }
 
-  public function postPayment()
+  public function postPayment($idOrden)
   {
     $payer = new Payer();
     $payer->setPaymentMethod('paypal');
 
     $items = array();
     $subtotal = 0;
-    $cart = \Session::get('cart');
     $currency = 'MXN';
 
-    foreach($cart as $producto){
+    $orden = Orden::findOrFail($idOrden);
+    //dd($orden->medicamentos);
+
+    foreach($orden->medicamentos as $producto){
       $item = new Item();
-      $item->setName($producto->name)
+      $item->setName($producto->nombremedicamento)
       ->setCurrency($currency)
-      ->setDescription($producto->extract)
-      ->setQuantity($producto->quantity)
-      ->setPrice($producto->price);
+      ->setDescription($producto->contenidodescripcion)
+      ->setQuantity($producto->pivot->cantidad_or)
+      ->setPrice($producto->pivot->subtotal_or);
 
       $items[] = $item;
-      $subtotal += $producto->quantity * $producto->price;
+      $subtotal += $producto->pivot->subtotal_or;
     }
 
+    //dd($items);
     $item_list = new ItemList();
     $item_list->setItems($items);
 
@@ -89,13 +94,18 @@ class PaypalController extends BaseController
       ->setTransactions(array($transaction));
 
     try {
+      //dd($payment->getLinks());
       $payment->create($this->_api_context);
+      //dd($payment->getLinks());
     } catch (\PayPal\Exception\PPConnectionException $ex) {
+      //dd('entro a catch');
       if (\Config::get('app.debug')) {
+        //dd('entro a catch');
         echo "Exception: " . $ex->getMessage() . PHP_EOL;
         $err_data = json_decode($ex->getData(), true);
         exit;
       } else {
+        //dd('Ups! Algo salió mal');
         die('Ups! Algo salió mal');
       }
     }
@@ -107,6 +117,7 @@ class PaypalController extends BaseController
       }
     }
 
+    dd($payment->getId());
     // add payment ID to session
     \Session::put('paypal_payment_id', $payment->getId());
 
@@ -146,7 +157,7 @@ class PaypalController extends BaseController
 
     if ($result->getState() == 'approved') {
 
-      $this->saveOrder();
+      //$this->saveOrder();
 
       \Session::forget('cart');
 
@@ -173,9 +184,9 @@ class PaypalController extends BaseController
       'user_id' => \Auth::user()->id
     ]);
 
-    foreach($cart as $producto){
+    /*foreach($cart as $producto){
       $this->saveOrderItem($producto, $order->id);
-    }
+    }*/
   }
   protected function saveOrderItem($producto, $order_id)
   {
