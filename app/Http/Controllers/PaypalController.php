@@ -117,7 +117,7 @@ class PaypalController extends BaseController
       }
     }
 
-    dd($payment->getId());
+    //dd($payment->getId());
     // add payment ID to session
     \Session::put('paypal_payment_id', $payment->getId());
 

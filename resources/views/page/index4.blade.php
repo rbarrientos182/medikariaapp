@@ -18,50 +18,51 @@
   <!-- Custom Google fonts -->
   <link href='http://fonts.googleapis.com/css?family=Raleway:400,500,300,700' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
-	<!-- Bootstrap CSS Style -->
-	<link rel="stylesheet" href="{{ asset('assets/css/bootstrap/bootstrap.min.css') }}">
 
-	<!-- Template CSS Style -->
-	<link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+  <!-- Bootstrap CSS Style -->
+  <link rel="stylesheet" href="{{ asset('assets/css/bootstrap/bootstrap.min.css') }}">
 
-	<!-- Animate CSS  -->
-	<link rel="stylesheet" href="{{ asset('assets/css/animate.css') }}">
+  <!-- Template CSS Style -->
+  <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
 
-	<!-- FontAwesome 4.3.0 Icons  -->
-	<link rel="stylesheet" href="{{ asset('assets/fonts/font-awesome-4.3/css/font-awesome.min.css') }}">
+  <!-- Animate CSS  -->
+  <link rel="stylesheet" href="{{ asset('assets/css/animate.css') }}">
 
-	<!-- Et-line Icons  -->
-	<link rel="stylesheet" href="{{ asset('assets/fonts/et-line-font/style.css') }}">
+  <!-- FontAwesome 4.3.0 Icons  -->
+  <link rel="stylesheet" href="{{ asset('assets/fonts/font-awesome-4.3/css/font-awesome.min.css') }}">
 
-	<!-- BXslider CSS  -->
-	<link rel="stylesheet" href="{{ asset('assets/css/bxslider/jquery.bxslider.css') }}">
+  <!-- Et-line Icons  -->
+  <link rel="stylesheet" href="{{ asset('assets/fonts/et-line-font/style.css') }}">
 
-	<!-- Owl carousel -->
-	<link rel="stylesheet" href="{{ asset('assets/css/owl.carousel/owl.carousel.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/css/owl.carousel/owl.theme.css') }}">
-	<link rel="stylesheet" href="{{ asset('assets/css/owl.carousel/owl.transitions.css') }}">
+  <!-- BXslider CSS  -->
+  <link rel="stylesheet" href="{{ asset('assets/css/bxslider/jquery.bxslider.css') }}">
 
-	<!-- Magnific-Popup CSS Style -->
-	<link rel="stylesheet" href="{{ asset('assets/css/magnific-popup/magnific-popup.css') }}">
+  <!-- Owl carousel -->
+  <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel/owl.carousel.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel/owl.theme.css') }}">
+  <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel/owl.transitions.css') }}">
 
-	<!-- YTplayer CSS Style -->
-	<link rel="stylesheet" href="{{ asset('assets/css/YTPlayer/jquery.mb.YTPlayer.min.css') }}">
+  <!-- Magnific-Popup CSS Style -->
+  <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup/magnific-popup.css') }}">
 
-	<!-- Superslides CSS Style -->
-	<link rel="stylesheet" href="{{ asset('assets/css/superslides.css') }}">
+  <!-- YTplayer CSS Style -->
+  <link rel="stylesheet" href="{{ asset('assets/css/YTPlayer/jquery.mb.YTPlayer.min.css') }}">
 
-	<!-- Vegas Slideshow -->
-	<link rel="stylesheet" href="{{ asset('assets/css/vegas.min.css') }}">
+  <!-- Superslides CSS Style -->
+  <link rel="stylesheet" href="{{ asset('assets/css/superslides.css') }}">
 
-	<!-- Morphext CSS Style -->
-	<link rel="stylesheet" href="{{ asset('assets/css/morphext.css') }}">
+  <!-- Vegas Slideshow -->
+  <link rel="stylesheet" href="{{ asset('assets/css/vegas.min.css') }}">
 
-	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-	<!--[if lt IE 9]>
-		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-	<![endif]-->
+  <!-- Morphext CSS Style -->
+  <link rel="stylesheet" href="{{ asset('assets/css/morphext.css') }}">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
 
 </head>
 <body>
@@ -142,7 +143,7 @@
             </div>
 
             <div class="col-md-5 col-md-pull-7" class='texto'>
-              <h4>¿Ques es medikaria?</h4>
+              <h4>¿Que es medikaria?</h4>
               <p class='texto'>Medikaria es la solución tecnológica más eficaz del mercado para eficientar el proceso de receta, compra y venta de medicamentos.<br><br>
 								Medikaria es una plataforma tecnológica que sirve como enlace entre los médicos, los pacientes y las farmacias, al hacer que el proceso del pedido, la compra, el pago y la entrega de los medicamentos -comunes, antibióticos o controlados- sea más sencillo, cómodo, económico y eficiente.
 							</p>
@@ -209,7 +210,7 @@
               <div class="col-sm-4">
                 <div class="member-team text-center">
                   <div class="team-image">
-                    <img src="{{asset('assets/images/team/22.png')}}" alt="">
+                    <img src="{{asset('assets/images/team/2.png')}}" alt="">
                     <div class="overlay">
                       <div class="vertical-align-table">
                         <div class="vertical-align-cell">
@@ -225,7 +226,7 @@
               <div class="col-sm-4">
                 <div class="member-team text-center">
                   <div class="team-image">
-                    <img src="{{asset('assets/images/team/11.png')}}" alt="">
+                    <img src="{{asset('assets/images/team/1.png')}}" alt="">
                     <div class="overlay">
                       <div class="vertical-align-table">
                         <div class="vertical-align-cell">
@@ -375,7 +376,7 @@
 
             <div class="col-md-5 col-md-pull-7">
               <div class="choose-image animated out" data-animation="fadeInLeft" data-delay="0">
-                <img src="assets/images/temp/iphone2.png" alt="">
+                <img src="assets/images/temp/ipad.png" alt="">
               </div> <!-- end choose-image -->
             </div> <!-- end col-md-5 -->
 
@@ -542,7 +543,7 @@
     <i class="fa fa-angle-up fa-3x"></i>
   </div> <!-- end back-to-top -->
 
-	<!-- JS libraries and scripts -->
+  <!-- JS libraries and scripts -->
   <script src="{{ asset('assets/js/jquery-1.11.3.min.js') }}"></script>
   <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
   <script src="{{ asset('assets/js/bootstrap-hover-dropdown.min.js') }}"></script>
